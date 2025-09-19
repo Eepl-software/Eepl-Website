@@ -3,6 +3,9 @@ import { defineConfig } from 'vite';
 import { resolve } from 'path';
 
 export default defineConfig({
+  // For GitHub Pages project site deployment
+  // Repo: Eepl-software/Eepl-Website => base should be '/Eepl-Website/'
+  base: '/Eepl-Website/',
   build: {
     rollupOptions: {
       input: {
