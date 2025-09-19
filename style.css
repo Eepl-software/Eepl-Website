@@ -1,0 +1,71 @@
+/* External stylesheet for EEPL site - style.css */
+
+/* Base typography and background */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root{
+  --bg-dark: #0F172A;
+  --primary: #1E293B;
+  --secondary: #FBBF24;
+  --text-light: #E2E8F0;
+  --muted: #94A3B8;
+}
+
+html,body{
+  height:100%;
+  margin:0;
+  padding:0;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+}
+
+/* Color utility classes (for ease of editing individually) */
+.bg-primary{ background-color: var(--primary) !important; }
+.bg-secondary{ background-color: var(--secondary) !important; }
+.text-primary{ color: var(--primary) !important; }
+.text-secondary{ color: var(--secondary) !important; }
+.border-secondary{ border-color: var(--secondary) !important; }
+
+/* Animated shapes */
+.animated-shape{
+  position:absolute;
+  opacity:0.1;
+  z-index:0;
+  animation: float 15s infinite ease-in-out;
+}
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-30px) rotate(180deg); }
+  100% { transform: translateY(0px) rotate(360deg); }
+}
+
+/* Fade-in */
+.fade-in{
+  opacity:0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.fade-in.visible{
+  opacity:1;
+  transform: translateY(0);
+}
+
+/* Nav link hover */
+.nav-link{ transition: color 0.3s, transform 0.3s; }
+.nav-link:hover{ color: var(--secondary); transform: translateY(-2px); }
+
+/* Header customizations */
+header { transition: background-color 0.25s ease, box-shadow 0.25s ease; }
+header .container img { display:block; }
+
+/* Mobile menu styles */
+#mobile-menu { background-color: rgba(30,41,59,0.95); border-top: 1px solid rgba(30,41,59,0.38); }
+
+/* Footer */
+footer { background: #0b1220; }
+
+/* Utility media tweaks (you can edit sizes here) */
+@media (min-width: 768px){
+  .logo-sm { height: 48px; }
+}

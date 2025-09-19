@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Clients | Ecologic Engineering Pvt. Ltd (EEPL)</title>
+    <meta name="description" content="Explore the diverse range of industry leaders and government bodies that trust EEPL for their critical environmental and wastewater management projects.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .header-style {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid transparent;
+        }
+        .header-scrolled {
+            border-color: #e5e7eb;
+        }
+        .nav-link.active {
+            color: #0f766e; /* Teal-700 */
+            font-weight: 600;
+            background-color: #ccfbf1; /* Teal-100 */
+        }
+        /* Modal Styles */
+        #clientModal.active { 
+            display: flex;
+            animation: fadeIn 0.3s ease forwards;
+        }
+        #clientModal.active > div {
+            animation: scaleUp 0.3s ease forwards;
+        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes scaleUp { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+        /* Filter Button Styles */
+        .filter-btn.active {
+            background-color: #0d9488; /* Teal-600 */
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 header-style">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center">
+                <img src="public/assets/eepl_logo.png" alt="Ecologic Engineering Logo" class="h-12">
+            </a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="nav-link font-medium">Home</a>
+                <a href="about_us.html" class="nav-link font-medium">About Us</a>
+                <a href="services.html" class="nav-link font-medium active">Services</a>
+                <a href="projects.html" class="nav-link font-medium">Projects</a>
+                <a href="clients.html" class="nav-link px-4 py-2 rounded-full active">Clients</a>
+                <a href="contact_us.html" class="nav-link font-medium">Contact</a>
+                <button id="theme-toggle" type="button" class="ml-4 text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none rounded-lg text-sm p-2.5">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm-.707 12.02a1 1 0 010-1.414l.707-.707a1 1 0 111.414 1.414l-.707.707a1 1 0 01-1.414 0zM1 11a1 1 0 100-2H0a1 1 0 100 2h1z"></path></svg>
+                </button>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-900 border-t">
+            <a href="index.html" class="block py-3 px-6 hover:bg-gray-50 dark:hover:bg-gray-800">Home</a>
+            <a href="about_us.html" class="block py-3 px-6 hover:bg-gray-50 dark:hover:bg-gray-800">About Us</a>
+            <a href="services.html" class="block py-3 px-6 bg-secondary text-primary font-semibold">Services</a>
+            <a href="projects.html" class="block py-3 px-6 hover:bg-gray-50 dark:hover:bg-gray-800">Projects</a>
+            <a href="clients.html" class="nav-link px-4 py-2 rounded-full active">Clients</a>
+            <a href="contact_us.html" class="block py-3 px-6 hover:bg-gray-50 dark:hover:bg-gray-800">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="relative pt-40 pb-24 bg-teal-800">
+            <div class="absolute inset-0 bg-cover bg-center opacity-10" style="background-image: url('https://images.unsplash.com/photo-1562624474-7060a218311d?q=80&w=2070&auto=format&fit=crop');"></div>
+            <div class="relative container mx-auto px-6 text-center text-white" data-aos="fade-up">
+                <h1 class="text-4xl md:text-6xl font-extrabold">Partners in Progress</h1>
+                <p class="mt-4 text-lg md:text-xl max-w-3xl mx-auto text-teal-100">We are proud to collaborate with a diverse portfolio of industry leaders and government bodies to build a sustainable future.</p>
+            </div>
+        </section>
+
+        <section id="clients" class="py-20 md:py-28">
+            <div class="container mx-auto px-6">
+              <div class="flex justify-center flex-wrap gap-3 mb-12" data-aos="fade-up">
+                <button class="filter-btn active font-semibold py-2 px-6 rounded-full transition-all duration-300 bg-gray-200 text-gray-700 hover:bg-gray-300" data-filter="all">All Clients</button>
+                <button class="filter-btn font-semibold py-2 px-6 rounded-full transition-all duration-300 bg-gray-200 text-gray-700 hover:bg-gray-300" data-filter="private">Private Sector</button>
+                <button class="filter-btn font-semibold py-2 px-6 rounded-full transition-all duration-300 bg-gray-200 text-gray-700 hover:bg-gray-300" data-filter="government">Government Projects</button>
+              </div>
+
+              <div id="client-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
+                <div class="client-card bg-white p-6 flex justify-center items-center rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer" data-category="private" data-client="Cipla Limited" data-logo="https://logo.clearbit.com/cipla.com" data-desc="Cipla is a leading global pharmaceutical company dedicated to high-quality, branded and generic medicines." data-services="ETP, ZLD System">
+                    <img src="public/assets/cipla.jpg" alt="Cipla Logo" class="max-h-14 w-auto grayscale transition-all duration-300 hover:grayscale-0">
+                </div>
+                <div class="client-card bg-white p-6 flex justify-center items-center rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer" data-category="private" data-client="Sami-Sabinsa Group" data-logo="https://logo.clearbit.com/sabsinsa.com" data-desc="A pioneer in the manufacturing of nutraceuticals, cosmeceuticals, and standardized herbal extracts." data-services="Effluent Treatment Plant">
+                    <img src="public/assets/samilabs.webp" alt="Sami-Sabinsa Group Logo" class="max-h-14 w-auto grayscale transition-all duration-300 hover:grayscale-0">
+                </div>
+                <div class="client-card bg-white p-6 flex justify-center items-center rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer" data-category="private" data-client="Micro Labs Limited" data-logo="https://logo.clearbit.com/microlabsltd.com" data-desc="A multi-faceted healthcare organization with a proficient marketing team, state-of-the-art manufacturing facilities, and R&D centres." data-services="Wastewater Management">
+                    <img src="public/assets/microlabs.png" alt="Micro Labs Logo" class="max-h-14 w-auto grayscale transition-all duration-300 hover:grayscale-0">
+                </div>
+                <div class="client-card bg-white p-6 flex justify-center items-center rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer" data-category="private" data-client="Schneider Electric" data-logo="https://logo.clearbit.com/se.com" data-desc="A global leader in energy management and automation, providing integrated solutions for efficiency and sustainability." data-services="Industrial ETP, O&M">
+                    <img src="public/assets/schindler-logo-two-color.png" alt="Schneider Electric Logo" class="max-h-14 w-auto grayscale transition-all duration-300 hover:grayscale-0">
+                </div>
+                <div class="client-card bg-white p-6 flex justify-center items-center rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer" data-category="private" data-client="Godrej Group" data-logo="https://logo.clearbit.com/godrej.com" data-desc="One of India's most trusted conglomerates, operating in sectors like real estate, consumer goods, and agriculture." data-services="STP, Water Recycling">
+                    <img src="public/assets/godrej-logo-png_seeklogo-61760.png" alt="Godrej Logo" class="max-h-14 w-auto grayscale transition-all duration-300 hover:grayscale-0">
+                </div>
+                 <div class="client-card bg-white p-6 flex justify-center items-center rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer" data-category="private" data-client="Prestige Group" data-logo="https://logo.clearbit.com/prestigeconstructions.com" data-desc="A leading real estate developer in India, creating landmark residential, commercial, and retail properties." data-services="Sewage Treatment Plants">
+                    <img src="public/assets/prestige.png" alt="Prestige Group Logo" class="max-h-14 w-auto grayscale transition-all duration-300 hover:grayscale-0">
+                </div>
+                <div class="client-card bg-white p-6 flex justify-center items-center rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer" data-category="private" data-client="ITC Limited" data-logo="https://logo.clearbit.com/itcportal.com" data-desc="A diversified conglomerate with businesses spanning FMCG, Hotels, Paperboards, Packaging, and Agri Business." data-services="ZLD, Water Management">
+                    <img src="public/assets/itc.jpg" alt="ITC Limited Logo" class="max-h-14 w-auto grayscale transition-all duration-300 hover:grayscale-0">
+                </div>
+                <div class="client-card bg-white p-6 flex justify-center items-center rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer" data-category="government" data-client="CETP Kadechur" data-desc="A Common Effluent Treatment Plant established to serve the industrial area of Kadechur, ensuring environmental compliance." data-services="CETP Design & Commissioning">
+                    <span class="font-semibold text-center text-gray-600">CETP Kadechur</span>
+                </div>
+                <div class="client-card bg-white p-6 flex justify-center items-center rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer" data-category="government" data-client="CETP Doddaballapur" data-desc="Serving the textile and apparel industries in Doddaballapur with advanced wastewater treatment solutions." data-services="Turnkey CETP Project">
+                    <span class="font-semibold text-center text-gray-600">CETP Doddaballapur</span>
+                </div>
+                <div class="client-card bg-white p-6 flex justify-center items-center rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer" data-category="government" data-client="CETP Baikampady" data-desc="A crucial facility for treating combined effluents from various industries in the Baikampady industrial zone." data-services="CETP Operation & Maintenance">
+                    <span class="font-semibold text-center text-gray-600">CETP Baikampady</span>
+                </div>
+                <div class="client-card bg-white p-6 flex justify-center items-center rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer" data-category="government" data-client="CETP Kadechur" data-desc="A Common Effluent Treatment Plant established to serve the industrial area of Kadechur, ensuring environmental compliance." data-services="CETP Design & Commissioning">
+                    <span class="font-semibold text-center text-gray-600">CETP Harohalli</span>
+                </div>
+                <div class="client-card bg-white p-6 flex justify-center items-center rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer" data-category="government" data-client="CETP Doddaballapur" data-desc="Serving the textile and apparel industries in Doddaballapur with advanced wastewater treatment solutions." data-services="Turnkey CETP Project">
+                    <span class="font-semibold text-center text-gray-600">CETP Bidar</span>
+                </div>
+                <div class="client-card bg-white p-6 flex justify-center items-center rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer" data-category="government" data-client="CETP Baikampady" data-desc="A crucial facility for treating combined effluents from various industries in the Baikampady industrial zone." data-services="CETP Operation & Maintenance">
+                    <span class="font-semibold text-center text-gray-600">CETP Raichur</span>
+                </div>
+              </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-teal-50">
+            <div class="container mx-auto px-6 max-w-4xl text-center" data-aos="fade-up">
+                <svg class="mx-auto h-12 w-12 text-teal-300" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true">
+                    <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.896 3.456-8.352 9.12-8.352 15.36 0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L25.864 4z" />
+                </svg>
+                <blockquote class="mt-6">
+                    <p class="text-2xl font-medium text-gray-900">“EEPL's expertise in Zero Liquid Discharge was instrumental in helping us achieve our water sustainability goals. Their professionalism and technical skill are second to none.”</p>
+                </blockquote>
+                <footer class="mt-6">
+                    <div class="font-semibold text-gray-900">Operations Head</div>
+                    <div class="text-gray-600">Leading Pharmaceutical MNC</div>
+                </footer>
+            </div>
+        </section>
+
+        <section class="bg-white py-20">
+            <div class="container mx-auto px-6 text-center" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900">Become Our Next Success Story</h2>
+                <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Partner with us to implement sustainable and compliant solutions for your organization.</p>
+                <a href="contact_us.html" class="mt-8 inline-block bg-teal-600 text-white font-bold py-4 px-10 rounded-full text-lg hover:bg-teal-700 transition-transform hover:scale-105">
+                    Get in Touch
+                </a>
+            </div>
+        </section>
+
+        <div id="clientModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm hidden items-center justify-center z-50 p-4">
+            <div class="bg-white p-8 rounded-2xl shadow-xl max-w-lg w-full relative">
+              <button class="absolute top-4 right-4 text-gray-400 hover:text-gray-800" id="closeModal" aria-label="Close modal">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+              </button>
+              <div id="modalLogoWrapper" class="mx-auto h-20 flex items-center justify-center mb-4">
+                  <img id="modalLogo" src="" alt="Client Logo" class="max-h-full max-w-full object-contain">
+              </div>
+              <h3 id="modalTitle" class="text-2xl font-bold text-center text-teal-700 mb-2"></h3>
+              <p id="modalContent" class="text-gray-600 text-center text-lg mb-6"></p>
+              <div class="bg-teal-50 border-l-4 border-teal-500 p-4 rounded-r-lg">
+                  <h4 class="font-bold text-teal-800">Services Provided:</h4>
+                  <p id="modalServices" class="text-teal-700"></p>
+              </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white">
+        <div class="container mx-auto px-6 py-12 text-center text-gray-400">
+            <p>&copy; 2025 Ecologic Engineering Pvt. Ltd. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        // Initialize AOS (Animate on Scroll)
+        AOS.init({
+            duration: 700,
+            once: true,
+            offset: 50
+        });
+
+        // Mobile Menu
+        document.getElementById('mobile-menu-button').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+        
+        // Header Scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            header.classList.toggle('header-scrolled', window.scrollY > 50);
+        });
+        
+        // Client Modal Logic
+        const modal = document.getElementById("clientModal");
+        const modalTitle = document.getElementById("modalTitle");
+        const modalContent = document.getElementById("modalContent");
+        const modalServices = document.getElementById("modalServices");
+        const modalLogo = document.getElementById("modalLogo");
+        const modalLogoWrapper = document.getElementById("modalLogoWrapper");
+        const closeModalBtn = document.getElementById("closeModal");
+        
+        document.querySelectorAll(".client-card").forEach(card => {
+          card.addEventListener("click", () => {
+            modalTitle.textContent = card.dataset.client;
+            modalContent.textContent = card.dataset.desc;
+            modalServices.textContent = card.dataset.services || "Comprehensive Environmental Solutions";
+            
+            const logoSrc = card.dataset.logo;
+            if (logoSrc) {
+                modalLogo.src = logoSrc;
+                modalLogo.alt = `${card.dataset.client} Logo`;
+                modalLogo.classList.remove('hidden');
+                modalLogoWrapper.classList.remove('hidden');
+            } else {
+                modalLogo.classList.add('hidden');
+                modalLogoWrapper.classList.add('hidden');
+            }
+
+            modal.classList.add("active");
+          });
+        });
+        
+        function closeModal() {
+            modal.classList.remove("active");
+        }
+
+        closeModalBtn.addEventListener("click", closeModal);
+        modal.addEventListener("click", e => { 
+            if (e.target === modal) closeModal(); 
+        });
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+
+        // Client Filtering Logic
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const clientCards = document.querySelectorAll('.client-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const filter = button.dataset.filter;
+
+                // Update active button style
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                // Show/hide client cards
+                clientCards.forEach(card => {
+                    const category = card.dataset.category;
+                    if (filter === 'all' || category === filter) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+    </script>
+</body>
+</html>

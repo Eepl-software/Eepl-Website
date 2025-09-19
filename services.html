@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - ZLD, STP, ETP, EPC Environmental Solutions | Ecologic Engineering Pvt. Ltd</title>
+    <meta name="description" content="Leading provider of Zero Liquid Discharge (ZLD), STP, ETP, WTP systems, EPC projects, and environmental engineering services. AI-driven water treatment solutions with 24/7 support.">
+    <meta name="keywords" content="ZLD systems, STP, ETP, WTP, CETP, EPC projects, water treatment, environmental engineering, zero liquid discharge, sewage treatment plant, effluent treatment plant">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Environmental Engineering Services - ZLD, STP, ETP Solutions">
+    <meta property="og:description" content="Comprehensive water treatment and environmental solutions with AI-driven optimization and proven results.">
+    <meta property="og:type" content="website">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    
+    <style>
+        :root {
+            --color-bg: #f9fafb;
+            --color-bg-primary-rgb: 255, 255, 255;
+            --color-text: #111827;
+            --color-text-muted: #374151;
+            --color-accent: #FBBF24;
+            --color-accent-text: #111827;
+            --color-border: #d1d5db;
+            --color-card-bg: rgba(255, 255, 255, 0.9);
+            --color-form-bg: #f1f0f0;
+            --dot-bg: rgba(220, 34, 34, 0.05);
+            --gradient-end: #d2cccc;
+            --color-primary: #1e40af;
+            --color-success: #059669;
+        }
+        
+        html.dark {
+            --color-bg: #0d1117;
+            --color-bg-primary-rgb: 22, 27, 34;
+            --color-text: #c9d1d9;
+            --color-text-muted: #9ca3af;
+            --color-accent: #FBBF24;
+            --color-accent-text: #0d1117;
+            --color-border: #30363d;
+            --color-card-bg: rgba(22, 27, 34, 0.9);
+            --color-form-bg: #0d1117;
+            --dot-bg: rgba(255,255,255,0.05);
+            --gradient-end: #f87171;
+        }
+        
+        body { 
+            font-family: 'Inter', 'Optima', 'Palatino', sans-serif; 
+            background-color: var(--color-bg); 
+            color: var(--color-text); 
+            background-image: radial-gradient(circle at 1px 1px, var(--dot-bg) 1px, transparent 0); 
+            background-size: 20px 20px; 
+            transition: background-color 0.3s, color 0.3s; 
+            line-height: 1.6;
+        }
+        
+        .text-muted { color: var(--color-text-muted); }
+        .bg-secondary { background-color: var(--color-accent); }
+        .text-primary { color: var(--color-accent-text); }
+        .text-secondary { color: var(--color-accent); }
+        .border-secondary { border-color: var(--color-accent); }
+        .header-style { background-color: rgba(var(--color-bg-primary-rgb), 0.9); border-bottom: 1px solid transparent; }
+        .header-scrolled { border-color: var(--color-border); backdrop-filter: blur(12px); }
+        .section-bg-primary { background-color: rgba(var(--color-bg-primary-rgb), 0.6); }
+        
+        .service-card { 
+            background-color: var(--color-card-bg); 
+            border: 1px solid var(--color-border); 
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
+            backdrop-filter: blur(10px); 
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(var(--color-accent), 0.1), transparent);
+            transition: left 0.6s;
+        }
+        
+        .service-card:hover::before {
+            left: 100%;
+        }
+        
+        .service-card:hover { 
+            transform: translateY(-8px) scale(1.02); 
+            border-color: var(--color-accent); 
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); 
+        }
+        
+        .animated-shape { 
+            position: absolute; 
+            opacity: 0.1; 
+            z-index: 0; 
+            animation: float 30s infinite ease-in-out; 
+        }
+        
+        @keyframes float { 
+            0%, 100% { transform: translateY(0px) rotate(0deg); } 
+            33% { transform: translateY(-30px) rotate(120deg); } 
+            66% { transform: translateY(30px) rotate(240deg); } 
+        }
+        
+        .gradient-text { 
+            background: linear-gradient(135deg, var(--color-accent), var(--color-primary)); 
+            -webkit-background-clip: text; 
+            background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+        }
+        
+        .nav-link { 
+            position: relative; 
+            transition: all 0.3s; 
+            color: var(--color-text-muted); 
+            padding: 8px 16px; 
+            border-radius: 9999px; 
+        }
+        
+        .nav-link:hover { 
+            color: var(--color-text); 
+            background-color: rgba(var(--color-bg-primary-rgb), 0.5); 
+        }
+        
+        .nav-link.active { 
+            color: var(--color-accent-text); 
+            background-color: var(--color-accent); 
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, 
+                rgba(59, 130, 246, 0.05) 0%, 
+                rgba(147, 51, 234, 0.05) 50%, 
+                rgba(239, 68, 68, 0.05) 100%);
+        }
+        
+        .icon-container {
+            background: linear-gradient(135deg, var(--color-accent), #f59e0b);
+            background-size: 200% 200%;
+            animation: gradientShift 3s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .trust-badge {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(59, 130, 246, 0.1));
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+        
+        .process-step {
+            position: relative;
+        }
+        
+        .process-step::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -20px;
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--color-accent), transparent);
+            z-index: 1;
+        }
+        
+        .process-step:last-child::after {
+            display: none;
+        }
+        
+        .cta-gradient {
+            background: linear-gradient(135deg, #1e40af, #7c3aed);
+        }
+    </style>
+</head>
+
+<body class="overflow-x-hidden">
+    <!-- Background Animations -->
+    <div class="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden">
+        <div class="animated-shape top-1/4 left-1/4 w-64 h-64 bg-blue-500 rounded-full filter blur-3xl opacity-10" style="animation-duration: 25s;"></div>
+        <div class="animated-shape bottom-1/3 right-1/3 w-48 h-48 bg-purple-500 rounded-xl filter blur-3xl opacity-10" style="animation-delay: 8s; animation-duration: 30s;"></div>
+        <div class="animated-shape top-1/2 right-1/4 w-56 h-56 bg-secondary rounded-full filter blur-3xl opacity-10" style="animation-delay: 15s; animation-duration: 35s;"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 header-style">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center">
+                <img src="public/assets/eepl_logo.png" alt="Ecologic Engineering Logo" class="h-12">
+            </a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="nav-link font-medium">Home</a>
+                <a href="about_us.html" class="nav-link font-medium">About Us</a>
+                <a href="services.html" class="nav-link font-medium active">Services</a>
+                <a href="projects.html" class="nav-link font-medium">Projects</a>
+                <a href="clients.html" class="nav-link px-4 py-2 rounded-full active">Clients</a>
+                <a href="contact_us.html" class="nav-link font-medium">Contact</a>
+                <button id="theme-toggle" type="button" class="ml-4 text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none rounded-lg text-sm p-2.5">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm-.707 12.02a1 1 0 010-1.414l.707-.707a1 1 0 111.414 1.414l-.707.707a1 1 0 01-1.414 0zM1 11a1 1 0 100-2H0a1 1 0 100 2h1z"></path></svg>
+                </button>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-900 border-t">
+            <a href="index.html" class="block py-3 px-6 hover:bg-gray-50 dark:hover:bg-gray-800">Home</a>
+            <a href="about_us.html" class="block py-3 px-6 hover:bg-gray-50 dark:hover:bg-gray-800">About Us</a>
+            <a href="services.html" class="block py-3 px-6 bg-secondary text-primary font-semibold">Services</a>
+            <a href="projects.html" class="block py-3 px-6 hover:bg-gray-50 dark:hover:bg-gray-800">Projects</a>
+            <a href="clients.html" class="nav-link px-4 py-2 rounded-full active">Clients</a>
+            <a href="contact_us.html" class="block py-3 px-6 hover:bg-gray-50 dark:hover:bg-gray-800">Contact</a>
+        </div>
+    </header>
+
+    <main class="relative z-10 pt-20">
+        <!-- Hero Section -->
+        <section class="hero-gradient py-24 lg:py-32">
+            <div class="container mx-auto px-6 text-center">
+                <div class="max-w-5xl mx-auto" data-aos="fade-up" data-aos-duration="800">
+                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8">
+                        Environmental Intelligence
+                        <span class="gradient-text block">Powered by AI & Data</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl text-muted mb-8 max-w-4xl mx-auto leading-relaxed">
+                        From Zero Liquid Discharge systems to comprehensive EPC projects, we deliver AI-driven environmental solutions that optimize performance, ensure compliance, and drive sustainability.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                        <a href="#services-grid" class="inline-flex items-center px-8 py-4 bg-secondary text-primary font-semibold rounded-full hover:scale-105 transition-all duration-300 shadow-lg">
+                            Explore Our Services
+                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </a>
+                        <a href="contact_us.html" class="inline-flex items-center px-8 py-4 border-2 border-secondary text-secondary font-semibold rounded-full hover:bg-secondary hover:text-primary transition-all duration-300">
+                            Get Custom Quote
+                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Grid -->
+        <section id="services-grid" class="py-24 bg-gradient-to-b from-gray-50/50 to-white/50 dark:from-gray-900/50 dark:to-gray-800/50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-20" data-aos="fade-up">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">Complete Environmental Solutions</h2>
+                    <p class="text-xl text-muted max-w-3xl mx-auto">Comprehensive services across the entire project lifecycle, from concept to long-term operation</p>
+                </div>
+
+                <!-- EPC & Major Projects -->
+                <div class="mb-20" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-3xl font-bold text-center mb-12">
+                        <span class="gradient-text">EPC & Major Projects</span>
+                    </h3>
+                    <div class="service-card p-8 rounded-2xl">
+                        <div class="icon-container w-16 h-16 rounded-full flex items-center justify-center mb-6 text-white">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                    d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 7.172V5L8 4z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-4">Zero Liquid Discharge (ZLD)</h4>
+                        <p class="text-muted mb-6">
+                            We design and deliver world-class ZLD systems tailored for industries facing strict discharge norms. 
+                            Our solutions combine cutting-edge <strong>Mechanical Vapor Recompression (MVR)</strong>, 
+                            <strong>Multi-Effect Evaporation (MEE)</strong>, and advanced crystallization technologies to achieve 
+                            <strong>99%+ water recovery</strong> while minimizing operational cost.
+                        </p>
+                        <ul class="text-sm text-muted space-y-2">
+                            <li>• High water recovery rates, reducing freshwater dependency</li>
+                            <li>• Energy-efficient MVR systems with AI-driven process optimization</li>
+                            <li>• Salt recovery and crystallizer integration for zero discharge compliance</li>
+                            <li>• Scalable modular design for easy capacity expansion</li>
+                            <li>• Remote monitoring and predictive maintenance support</li>
+                            <li>• Compliance with CPCB, SPCB, and international discharge norms</li>
+                        </ul>
+                        <p class="text-muted mt-6">
+                            Whether for textile, chemical, pharma, or power sectors, our ZLD solutions ensure complete
+                            regulatory compliance, protect water resources, and contribute to your sustainability goals.
+                        </p>
+                    </div>
+                    
+
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- STP -->
+                        <div class="service-card p-8 rounded-2xl">
+                            <div class="icon-container w-16 h-16 rounded-full flex items-center justify-center mb-6 text-white">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                          d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10v11M20 10v11"></path>
+                                </svg>
+                            </div>
+                            <h4 class="text-2xl font-bold mb-4">Sewage Treatment Plants (STP)</h4>
+                            <p class="text-muted mb-6">
+                                We design & commission STPs that consistently meet stringent discharge norms. Our
+                                solutions leverage advanced <strong>biological processes</strong> and <strong>membrane technologies</strong> 
+                                for compact footprints, low operating cost, and reliable water reuse.
+                            </p>
+                            <ul class="text-sm text-muted space-y-2">
+                                <li>• MBR & MBBR technology for high-quality treated water</li>
+                                <li>• Automated control systems for minimal operator intervention</li>
+                                <li>• Odor control & sludge handling solutions for urban environments</li>
+                                <li>• Energy-optimized designs reducing life cycle costs</li>
+                            </ul>
+                            <p class="text-muted mt-4">
+                                <strong>What makes us different:</strong> Our STPs are future-ready with IoT-based
+                                remote monitoring, predictive maintenance, and provision for reuse in cooling towers,
+                                flushing, or irrigation.
+                            </p>
+                        </div>
+                    
+                        <!-- ETP -->
+                        <div class="service-card p-8 rounded-2xl">
+                            <div class="icon-container w-16 h-16 rounded-full flex items-center justify-center mb-6 text-white">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                          d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                                </svg>
+                            </div>
+                            <h4 class="text-2xl font-bold mb-4">Effluent Treatment Plants (ETP)</h4>
+                            <p class="text-muted mb-6">
+                                Every industry is unique — so are our ETP solutions. From <strong>physico-chemical treatment</strong> 
+                                to <strong>advanced oxidation processes</strong> and <strong>membrane filtration</strong>, 
+                                we deliver custom treatment trains that ensure full compliance and minimal downtime.
+                            </p>
+                            <ul class="text-sm text-muted space-y-2">
+                                <li>• COD, BOD, and TSS reduction with guaranteed performance</li>
+                                <li>• Heavy metal recovery and recycling solutions</li>
+                                <li>• Skid-mounted options for quick deployment</li>
+                                <li>• Real-time online monitoring for SPCB/CPCB reporting</li>
+                            </ul>
+                            <p class="text-muted mt-4">
+                                <strong>Our edge:</strong> We design for operational ease — lower chemical consumption, 
+                                energy-efficient motors, and automated backwash to cut OPEX and keep plants running 24/7.
+                            </p>
+                        </div>
+                    
+                        <!-- WTP -->
+                        <div class="service-card p-8 rounded-2xl">
+                            <div class="icon-container w-16 h-16 rounded-full flex items-center justify-center mb-6 text-white">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                          d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                                </svg>
+                            </div>
+                            <h4 class="text-2xl font-bold mb-4">Water Treatment Plants (WTP)</h4>
+                            <p class="text-muted mb-6">
+                                From drinking water plants to ultrapure process water, we provide <strong>turnkey WTP solutions</strong> 
+                                that deliver consistent quality under varying raw water conditions — helping industries maintain 
+                                production without compromise.
+                            </p>
+                            <ul class="text-sm text-muted space-y-2">
+                                <li>• RO, UF/MF, and ion-exchange systems</li>
+                                <li>• Automated dosing and online quality monitoring</li>
+                                <li>• Containerized modular units for remote sites</li>
+                                <li>• WHO & BIS compliance for potable water</li>
+                            </ul>
+                            <p class="text-muted mt-4">
+                                <strong>Why choose us:</strong> Our WTPs are designed for minimal water rejection, low energy 
+                                consumption, and easy operation — lowering total cost of ownership.
+                            </p>
+                        </div>
+                    
+                        <!-- CETP -->
+                        <div class="service-card p-8 rounded-2xl">
+                            <div class="icon-container w-16 h-16 rounded-full flex items-center justify-center mb-6 text-white">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                          d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                                </svg>
+                            </div>
+                            <h4 class="text-2xl font-bold mb-4">Common Effluent Treatment (CETP)</h4>
+                            <p class="text-muted mb-6">
+                                We specialize in designing and operating CETPs that serve entire industrial clusters. 
+                                Our focus is on <strong>cost sharing, centralized monitoring</strong>, and <strong>regulatory compliance</strong> 
+                                — helping industries meet norms collectively, affordably, and sustainably.
+                            </p>
+                            <ul class="text-sm text-muted space-y-2">
+                                <li>• Optimized hydraulic & biological load balancing</li>
+                                <li>• Economies of scale to reduce per-unit treatment cost</li>
+                                <li>• Real-time SCADA-based monitoring and reporting</li>
+                                <li>• Resource recovery and sludge valorization</li>
+                            </ul>
+                            <p class="text-muted mt-4">
+                                <strong>Our differentiator:</strong> Proven track record in managing CETPs for 50+ industries, 
+                                ensuring zero non-compliance penalties and sustainable operation.
+                            </p>
+                        </div>
+                    
+                        <!-- EPC -->
+                        <div class="service-card p-8 rounded-2xl">
+                            <div class="icon-container w-16 h-16 rounded-full flex items-center justify-center mb-6 text-white">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                          d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                                </svg>
+                            </div>
+                            <h4 class="text-2xl font-bold mb-4">Complete EPC Projects</h4>
+                            <p class="text-muted mb-6">
+                                Our EPC model delivers <strong>design-to-commissioning</strong> solutions with single-point accountability. 
+                                We guarantee project delivery on time, within budget, and with measurable performance benchmarks.
+                            </p>
+                            <ul class="text-sm text-muted space-y-2">
+                                <li>• End-to-end project management with Primavera/MSP scheduling</li>
+                                <li>• In-house design & fabrication capabilities</li>
+                                <li>• Strict adherence to safety and QHSE standards</li>
+                                <li>• Post-commissioning support & training</li>
+                            </ul>
+                            <p class="text-muted mt-4">
+                                <strong>Why we stand out:</strong> Transparent communication, digital project dashboards, and 
+                                guaranteed performance make us a trusted EPC partner for Fortune 500 clients.
+                            </p>
+                        </div>
+                    </div>
+                    
+
+                <!-- Engineering & Technical Services -->
+                <div class="mb-20" data-aos="fade-up" data-aos-delay="400">
+                    <h3 class="text-3xl font-bold text-center mb-12">
+                        <span class="gradient-text">Engineering & Technical Services</span>
+                    </h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div class="service-card p-6 rounded-2xl text-center">
+                            <div class="icon-container w-12 h-12 rounded-full flex items-center justify-center mb-4 mx-auto text-white">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4 4 4 0 004-4V5z"></path>
+                                </svg>
+                            </div>
+                            <h4 class="text-lg font-semibold mb-3">Design & Engineering</h4>
+                            <p class="text-sm text-muted">Process design, 3D modeling, detailed engineering, and regulatory approvals with cutting-edge simulation tools.</p>
+                        </div>
+
+                        <div class="service-card p-6 rounded-2xl text-center">
+                            <div class="icon-container w-12 h-12 rounded-full flex items-center justify-center mb-4 mx-auto text-white">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                                </svg>
+                            </div>
+                            <h4 class="text-lg font-semibold mb-3">Equipment Manufacturing</h4>
+                            <p class="text-sm text-muted">In-house fabrication of tanks, reactors, heat exchangers, and specialized equipment with quality certifications.</p>
+                        </div>
+
+                        <div class="service-card p-6 rounded-2xl text-center">
+                            <div class="icon-container w-12 h-12 rounded-full flex items-center justify-center mb-4 mx-auto text-white">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 7.172V5L8 4z"></path>
+                                </svg>
+                            </div>
+                            <h4 class="text-lg font-semibold mb-3">Installation & Commissioning</h4>
+                            <p class="text-sm text-muted">Professional installation, system integration, testing, and commissioning with comprehensive documentation and training.</p>
+                        </div>
+
+                        <div class="service-card p-6 rounded-2xl text-center">
+                            <div class="icon-container w-12 h-12 rounded-full flex items-center justify-center mb-4 mx-auto text-white">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                                </svg>
+                            </div>
+                            <h4 class="text-lg font-semibold mb-3">Regulatory Compliance</h4>
+                            <p class="text-sm text-muted">Environmental clearances, CPCB approvals, and ongoing compliance support with regulatory expertise.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Operation & Maintenance Services -->
+                <div data-aos="fade-up" data-aos-delay="600">
+                    <h3 class="text-3xl font-bold text-center mb-12">
+                        <span class="gradient-text">Operation & Maintenance Services</span>
+                    </h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="service-card p-8 rounded-2xl">
+                            <div class="icon-container w-16 h-16 rounded-full flex items-center justify-center mb-6 text-white">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                                </svg>
+                            </div>
+                            <h4 class="text-2xl font-bold mb-4">24/7 Remote Monitoring</h4>
+                            <p class="text-muted mb-6">AI-powered monitoring systems with real-time alerts, predictive maintenance, and performance optimization through IoT sensors and cloud analytics.</p>
+                            <ul class="text-sm text-muted space-y-2">
+                                <li>• Real-time performance tracking</li>
+                                <li>• Predictive failure alerts</li>
+                                <li>• Energy optimization algorithms</li>
+                                <li>• Mobile app dashboard</li>
+                            </ul>
+                        </div>
+
+                        <div class="service-card p-8 rounded-2xl">
+                            <div class="icon-container w-16 h-16 rounded-full flex items-center justify-center mb-6 text-white">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4"></path>
+                                </svg>
+                            </div>
+                            <h4 class="text-2xl font-bold mb-4">Annual Maintenance Contracts</h4>
+                            <p class="text-muted mb-6">Comprehensive AMCs covering preventive maintenance, spare parts, emergency support, and performance guarantees with flexible service levels.</p>
+                            <ul class="text-sm text-muted space-y-2">
+                                <li>• Scheduled preventive maintenance</li>
+                                <li>• Guaranteed uptime SLAs</li>
+                                <li>• Spare parts inventory management</li>
+                                <li>• Priority emergency response</li>
+                            </ul>
+                        </div>
+
+                        <div class="service-card p-8 rounded-2xl">
+                            <div class="icon-container w-16 h-16 rounded-full flex items-center justify-center mb-6 text-white">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                </svg>
+                            </div>
+                            <h4 class="text-2xl font-bold mb-4">Operations Management</h4>
+                            <p class="text-muted mb-6">Full O&M outsourcing with trained operators, process optimization, compliance management, and cost-effective operations with KPI-based contracts.</p>
+                            <ul class="text-sm text-muted space-y-2">
+                                <li>• Skilled operator deployment</li>
+                                <li>• Process optimization services</li>
+                                <li>• Regulatory compliance management</li>
+                                <li>• Performance-based contracts</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us Section -->
+        <section class="py-24 bg-gradient-to-r from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">Why Leading Industries Choose EEPL</h2>
+                    <p class="text-xl text-muted max-w-3xl mx-auto">Proven expertise, cutting-edge technology, and unwavering commitment to environmental excellence</p>
+                </div>
+
+                <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
+                    <div class="trust-badge p-8 rounded-2xl text-center" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-20 h-20 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-green-600">99.5% Uptime</h3>
+                        <p class="text-muted">Industry-leading reliability with AI-powered predictive maintenance and 24/7 monitoring ensuring minimal downtime.</p>
+                    </div>
+
+                    <div class="trust-badge p-8 rounded-2xl text-center" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-20 h-20 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-blue-600">30% Energy Savings</h3>
+                        <p class="text-muted">Advanced optimization algorithms and energy-efficient designs delivering significant operational cost reductions.</p>
+                    </div>
+
+                    <div class="trust-badge p-8 rounded-2xl text-center" data-aos="fade-up" data-aos-delay="300">
+                        <div class="w-20 h-20 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-10 h-10 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-purple-600">On-Time Delivery</h3>
+                        <p class="text-muted">Rigorous project management with milestone-based tracking ensuring timely completion within budget.</p>
+                    </div>
+
+                    <div class="trust-badge p-8 rounded-2xl text-center" data-aos="fade-up" data-aos-delay="400">
+                        <div class="w-20 h-20 bg-yellow-100 dark:bg-yellow-900 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-10 h-10 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-yellow-600">100% Compliance</h3>
+                        <p class="text-muted">Guaranteed regulatory compliance with continuous monitoring and expert support for all environmental standards.</p>
+                    </div>
+                </div>
+
+                <!-- Process Overview -->
+                <div class="mt-20" data-aos="fade-up" data-aos-delay="500">
+                    <h3 class="text-3xl font-bold text-center mb-12">Our Proven Process</h3>
+                    <div class="flex flex-col lg:flex-row items-center justify-between space-y-8 lg:space-y-0 lg:space-x-8">
+                        <div class="process-step flex-1 text-center lg:text-left">
+                            <div class="inline-flex items-center justify-center w-12 h-12 bg-secondary text-primary rounded-full font-bold text-xl mb-4">1</div>
+                            <h4 class="text-xl font-semibold mb-2">Assessment & Design</h4>
+                            <p class="text-muted">Comprehensive site evaluation and custom solution design</p>
+                        </div>
+                        <div class="process-step flex-1 text-center lg:text-left">
+                            <div class="inline-flex items-center justify-center w-12 h-12 bg-secondary text-primary rounded-full font-bold text-xl mb-4">2</div>
+                            <h4 class="text-xl font-semibold mb-2">Engineering & Procurement</h4>
+                            <p class="text-muted">Detailed engineering and quality equipment sourcing</p>
+                        </div>
+                        <div class="process-step flex-1 text-center lg:text-left">
+                            <div class="inline-flex items-center justify-center w-12 h-12 bg-secondary text-primary rounded-full font-bold text-xl mb-4">3</div>
+                            <h4 class="text-xl font-semibold mb-2">Installation & Testing</h4>
+                            <p class="text-muted">Professional installation and comprehensive commissioning</p>
+                        </div>
+                        <div class="flex-1 text-center lg:text-left">
+                            <div class="inline-flex items-center justify-center w-12 h-12 bg-secondary text-primary rounded-full font-bold text-xl mb-4">4</div>
+                            <h4 class="text-xl font-semibold mb-2">Ongoing Support</h4>
+                            <p class="text-muted">24/7 monitoring and maintenance for optimal performance</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technology Innovation Section -->
+        <section class="py-24 bg-gradient-to-b from-gray-900 to-black text-white relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-900/20 to-purple-900/20"></div>
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                        Powered by <span class="gradient-text">Advanced Technology</span>
+                    </h2>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">Leveraging AI, IoT, and advanced automation for smarter environmental solutions</p>
+                </div>
+
+                <div class="grid lg:grid-cols-3 gap-12">
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-24 h-24 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">AI-Driven Optimization</h3>
+                        <p class="text-gray-300">Machine learning algorithms continuously optimize treatment processes, reducing energy consumption and improving efficiency.</p>
+                    </div>
+
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-24 h-24 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">IoT Connectivity</h3>
+                        <p class="text-gray-300">Smart sensors and IoT devices provide real-time data collection and remote monitoring capabilities for proactive management.</p>
+                    </div>
+
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                        <div class="w-24 h-24 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Predictive Analytics</h3>
+                        <p class="text-gray-300">Advanced analytics predict equipment failures, optimize maintenance schedules, and ensure consistent performance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-gradient py-24 text-white relative overflow-hidden">
+            <div class="absolute inset-0 bg-black/20"></div>
+            <div class="container mx-auto px-6 text-center relative z-10" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to Transform Your Environmental Operations?</h2>
+                <p class="text-xl mb-12 max-w-3xl mx-auto opacity-90">
+                    Join industry leaders who trust EEPL for comprehensive environmental solutions. Get a customized proposal for your specific requirements.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                    <a href="contact_us.html" class="inline-flex items-center px-10 py-4 bg-white text-blue-900 font-bold rounded-full hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+                        Get Free Consultation
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a>
+                    <a href="projects.html" class="inline-flex items-center px-10 py-4 border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:text-blue-900 transition-all duration-300">
+                        View Case Studies
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                        </svg>
+                    </a>
+                </div>
+                <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-2xl mx-auto text-sm opacity-80">
+                    <div>
+                        <div class="text-2xl font-bold">500+</div>
+                        <div>Projects Completed</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-bold">15+</div>
+                        <div>Years Experience</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-bold">99.5%</div>
+                        <div>Client Satisfaction</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-bold">24/7</div>
+                        <div>Support Available</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-slate-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <img src="public/assets/eepl_logo.png" alt="EEPL Logo" class="h-12 mb-4 filter brightness-0 invert">
+                    <p class="text-gray-300 mb-4">Leading environmental engineering solutions for sustainable industrial growth.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300" aria-label="Twitter">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775..."/></svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300" aria-label="LinkedIn">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569..."/></svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300" aria-label="Facebook">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10..."/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="about_us.html" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Services</a></li>
+                        <li><a href="projects.html" class="text-gray-400 hover:text-white transition">Projects</a></li>
+                        <li><a href="contact_us.html" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Our Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#services-grid" class="text-gray-400 hover:text-white transition">EPC Projects</a></li>
+                        <li><a href="#services-grid" class="text-gray-400 hover:text-white transition">ZLD & MVRE</a></li>
+                        <li><a href="#services-grid" class="text-gray-400 hover:text-white transition">STP & ETP</a></li>
+                        <li><a href="#services-grid" class="text-gray-400 hover:text-white transition">Water Treatment</a></li>
+                        <li><a href="#services-grid" class="text-gray-400 hover:text-white transition">O&M Services</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contact Info</h4>
+                    <p class="text-gray-400 mb-2">📍 Industrial Area, Pune, India</p>
+                    <p class="text-gray-400 mb-2">📞 +91-9876543210</p>
+                    <p class="text-gray-400 mb-2">✉️ info@eepl.com</p>
+                </div>
+            </div>
+
+            <div class="text-center mt-12 border-t border-gray-700 pt-6 text-gray-400">
+                © 2025 Ecologic Engineering Pvt. Ltd. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Theme Toggle
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlEl = document.documentElement;
+        const darkIcon = document.getElementById('theme-toggle-dark-icon');
+        const lightIcon = document.getElementById('theme-toggle-light-icon');
+
+        function setTheme(theme) {
+            if (theme === 'dark') {
+                htmlEl.classList.add('dark');
+                lightIcon.classList.remove('hidden');
+                darkIcon.classList.add('hidden');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                htmlEl.classList.remove('dark');
+                darkIcon.classList.remove('hidden');
+                lightIcon.classList.add('hidden');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        const storedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (storedTheme === 'dark' || (!storedTheme && systemPrefersDark)) setTheme('dark');
+        else setTheme('light');
+
+        themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = htmlEl.classList.contains('dark') ? 'dark' : 'light';
+            setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+
+        // AOS Init
+        AOS.init({ once: true, duration: 800 });
+    </script>
+</body>
+</html>
+    
+

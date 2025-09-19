@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Leading Environmental Engineering Solutions - EEPL</title>
+    <meta name="description" content="Explore EEPL's portfolio of successful ETP, CETP, ZLD, and environmental engineering projects. Over 200+ installations worldwide with proven results in water treatment and sustainability.">
+    <meta name="keywords" content="ETP projects, CETP installations, Zero Liquid Discharge, environmental engineering, wastewater treatment, MVRE systems">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-bg: #f8fafc;
+            --color-bg-primary-rgb: 255, 255, 255;
+            --color-text: #0f172a;
+            --color-text-muted: #475569;
+            --color-accent: #16a34a;
+            --color-accent-secondary: #059669;
+            --color-accent-text: #ffffff;
+            --color-border: #e2e8f0;
+            --color-card-bg: rgba(255, 255, 255, 0.9);
+            --gradient-primary: linear-gradient(135deg, #16a34a 0%, #059669 100%);
+            --gradient-secondary: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+            --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        html.dark {
+            --color-bg: #0f172a;
+            --color-bg-primary-rgb: 30, 41, 59;
+            --color-text: #f1f5f9;
+            --color-text-muted: #94a3b8;
+            --color-accent: #22c55e;
+            --color-accent-secondary: #10b981;
+            --color-accent-text: #0f172a;
+            --color-border: #334155;
+            --color-card-bg: rgba(30, 41, 59, 0.9);
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+
+        .gradient-bg {
+            background: var(--gradient-primary);
+        }
+
+        .gradient-text {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow-card);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .stat-card {
+            background: var(--color-card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--color-border);
+        }
+
+        .project-overlay {
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+        }
+
+        .filter-btn {
+            transition: all 0.3s ease;
+            border: 2px solid var(--color-border);
+        }
+
+        .filter-btn.active {
+            background: var(--gradient-primary);
+            color: var(--color-accent-text);
+            border-color: var(--color-accent);
+            transform: translateY(-2px);
+        }
+
+        .modal-backdrop {
+            backdrop-filter: blur(8px);
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .slide-up {
+            animation: slideUp 0.6s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .header-style {
+            background: rgba(var(--color-bg-primary-rgb), 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid transparent;
+        }
+
+        .header-scrolled {
+            border-color: var(--color-border);
+        }
+
+        .nav-link {
+            color: var(--color-text-muted);
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 8px;
+        }
+
+        .nav-link:hover {
+            color: var(--color-text);
+            background-color: rgba(var(--color-bg-primary-rgb), 0.1);
+        }
+
+        .nav-link.active {
+            color: var(--color-accent-text);
+            background: var(--gradient-primary);
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 header-style">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center">
+                <img src="public/assets/eepl_logo.png" alt="Ecologic Engineering Logo" class="h-12">
+            </a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="nav-link font-medium">Home</a>
+                <a href="about_us.html" class="nav-link font-medium">About Us</a>
+                <a href="services.html" class="nav-link font-medium active">Services</a>
+                <a href="projects.html" class="nav-link font-medium">Projects</a>
+                <a href="clients.html" class="nav-link px-4 py-2 rounded-full active">Clients</a>
+                <a href="contact_us.html" class="nav-link font-medium">Contact</a>
+                <button id="theme-toggle" type="button" class="ml-4 text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none rounded-lg text-sm p-2.5">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm-.707 12.02a1 1 0 010-1.414l.707-.707a1 1 0 111.414 1.414l-.707.707a1 1 0 01-1.414 0zM1 11a1 1 0 100-2H0a1 1 0 100 2h1z"></path></svg>
+                </button>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-900 border-t">
+            <a href="index.html" class="block py-3 px-6 hover:bg-gray-50 dark:hover:bg-gray-800">Home</a>
+            <a href="about_us.html" class="block py-3 px-6 hover:bg-gray-50 dark:hover:bg-gray-800">About Us</a>
+            <a href="services.html" class="block py-3 px-6 bg-secondary text-primary font-semibold">Services</a>
+            <a href="projects.html" class="block py-3 px-6 hover:bg-gray-50 dark:hover:bg-gray-800">Projects</a>
+            <a href="clients.html" class="nav-link px-4 py-2 rounded-full active">Clients</a>
+            <a href="contact_us.html" class="block py-3 px-6 hover:bg-gray-50 dark:hover:bg-gray-800">Contact</a>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <!-- Hero Section -->
+        <section class="relative py-24 gradient-bg overflow-hidden">
+            <div class="absolute inset-0 bg-black/10"></div>
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="text-center text-white fade-in">
+                    <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                        Engineering <span class="block">Sustainable Solutions</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90">
+                        Discover our portfolio of innovative environmental projects delivering measurable impact across industries worldwide
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                        <a href="#featured-projects" class="bg-white text-green-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition duration-300 shadow-lg">
+                            Explore Projects
+                        </a>
+                        <a href="#stats" class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-green-600 transition duration-300">
+                            View Our Impact
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section id="stats" class="py-16 bg-gray-50 dark:bg-slate-800">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 slide-up">
+                    <div class="stat-card p-6 rounded-xl text-center">
+                        <div class="text-3xl md:text-4xl font-bold gradient-text mb-2">200+</div>
+                        <div class="text-sm text-gray-600 dark:text-gray-300 font-medium">Projects Delivered</div>
+                    </div>
+                    <div class="stat-card p-6 rounded-xl text-center">
+                        <div class="text-3xl md:text-4xl font-bold gradient-text mb-2">50M+</div>
+                        <div class="text-sm text-gray-600 dark:text-gray-300 font-medium">Liters/Day Capacity</div>
+                    </div>
+                    <div class="stat-card p-6 rounded-xl text-center">
+                        <div class="text-3xl md:text-4xl font-bold gradient-text mb-2">15+</div>
+                        <div class="text-sm text-gray-600 dark:text-gray-300 font-medium">Years Experience</div>
+                    </div>
+                    <div class="stat-card p-6 rounded-xl text-center">
+                        <div class="text-3xl md:text-4xl font-bold gradient-text mb-2">98%</div>
+                        <div class="text-sm text-gray-600 dark:text-gray-300 font-medium">Client Satisfaction</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Categories Filter -->
+        <section class="py-12">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold mb-4">Our Project Portfolio</h2>
+                    <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                        From concept to commissioning, we deliver comprehensive environmental solutions that exceed expectations
+                    </p>
+                </div>
+                
+                <div class="flex flex-wrap justify-center gap-4 mb-12">
+                    <button class="filter-btn active px-6 py-3 rounded-full font-semibold" data-filter="all">
+                        All Projects
+                    </button>
+                    <button class="filter-btn px-6 py-3 rounded-full font-semibold" data-filter="etp">
+                        ETP Systems
+                    </button>
+                    <button class="filter-btn px-6 py-3 rounded-full font-semibold" data-filter="cetp">
+                        CETP Solutions
+                    </button>
+                    <button class="filter-btn px-6 py-3 rounded-full font-semibold" data-filter="zld">
+                        Zero Liquid Discharge
+                    </button>
+                    <button class="filter-btn px-6 py-3 rounded-full font-semibold" data-filter="mvre">
+                        MVRE Systems
+                    </button>
+                    <button class="filter-btn px-6 py-3 rounded-full font-semibold" data-filter="labs">
+                        Environmental Labs
+                    </button>
+                    <button class="filter-btn px-6 py-3 rounded-full font-semibold" data-filter="energy">
+                        Waste-to-Energy
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Projects Grid -->
+        <section id="featured-projects" class="pb-16">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projectGrid">
+                    
+                    <!-- ETP Project Cards -->
+                    <div class="project-card card-hover rounded-xl overflow-hidden bg-white dark:bg-slate-800 shadow-lg" data-category="etp">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=500&h=300&fit=crop" alt="Industrial ETP System" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 project-overlay"></div>
+                            <div class="absolute bottom-4 left-4 text-white">
+                                <span class="bg-green-500 text-xs px-3 py-1 rounded-full font-semibold">ETP</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Textile Industry ETP</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">5 MLD capacity treatment plant achieving 95% COD reduction for leading textile manufacturer</p>
+                            <div class="flex justify-between items-center">
+                                <div class="text-sm text-gray-500">Capacity: 5 MLD</div>
+                                <button class="text-green-600 hover:text-green-700 font-semibold learn-more-btn" 
+                                        data-title="Textile Industry ETP"
+                                        data-capacity="5 MLD"
+                                        data-technology="Biological + Chemical Treatment"
+                                        data-efficiency="95% COD Reduction"
+                                        data-location="Tamil Nadu, India"
+                                        data-description="Advanced biological treatment system with chemical polishing for textile wastewater. Features automated pH control, dissolved air flotation, and tertiary treatment for reuse compliance.">
+                                    Learn More →
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card card-hover rounded-xl overflow-hidden bg-white dark:bg-slate-800 shadow-lg" data-category="etp">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&h=300&fit=crop" alt="Pharmaceutical ETP" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 project-overlay"></div>
+                            <div class="absolute bottom-4 left-4 text-white">
+                                <span class="bg-green-500 text-xs px-3 py-1 rounded-full font-semibold">ETP</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Pharmaceutical ETP Complex</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">Multi-stage treatment for API manufacturing with strict compliance to CPCB norms</p>
+                            <div class="flex justify-between items-center">
+                                <div class="text-sm text-gray-500">Capacity: 2.5 MLD</div>
+                                <button class="text-green-600 hover:text-green-700 font-semibold learn-more-btn"
+                                        data-title="Pharmaceutical ETP Complex"
+                                        data-capacity="2.5 MLD"
+                                        data-technology="Advanced Oxidation + Membrane Bioreactor"
+                                        data-efficiency="99% Pharmaceutical Compounds Removal"
+                                        data-location="Gujarat, India"
+                                        data-description="State-of-the-art treatment system for pharmaceutical wastewater featuring advanced oxidation processes, membrane bioreactors, and activated carbon polishing for pharmaceutical compound removal.">
+                                    Learn More →
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CETP Project Cards -->
+                    <div class="project-card card-hover rounded-xl overflow-hidden bg-white dark:bg-slate-800 shadow-lg" data-category="cetp">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=500&h=300&fit=crop" alt="Industrial CETP" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 project-overlay"></div>
+                            <div class="absolute bottom-4 left-4 text-white">
+                                <span class="bg-blue-500 text-xs px-3 py-1 rounded-full font-semibold">CETP</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Industrial Park CETP</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">Centralized treatment serving 50+ industries with automated monitoring systems</p>
+                            <div class="flex justify-between items-center">
+                                <div class="text-sm text-gray-500">Capacity: 25 MLD</div>
+                                <button class="text-green-600 hover:text-green-700 font-semibold learn-more-btn"
+                                        data-title="Industrial Park CETP"
+                                        data-capacity="25 MLD"
+                                        data-technology="Sequential Batch Reactor + Tertiary Treatment"
+                                        data-efficiency="97% BOD & COD Reduction"
+                                        data-location="Karnataka, India"
+                                        data-description="Large-scale CETP serving multiple industries with advanced automation, real-time monitoring, and resource recovery systems. Features energy-efficient aeration and sludge management.">
+                                    Learn More →
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ZLD Project Cards -->
+                    <div class="project-card card-hover rounded-xl overflow-hidden bg-white dark:bg-slate-800 shadow-lg" data-category="zld">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?w=500&h=300&fit=crop" alt="Zero Liquid Discharge System" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 project-overlay"></div>
+                            <div class="absolute bottom-4 left-4 text-white">
+                                <span class="bg-purple-500 text-xs px-3 py-1 rounded-full font-semibold">ZLD</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Chemical Plant ZLD System</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">Complete water recovery with salt crystallization for specialty chemicals manufacturer</p>
+                            <div class="flex justify-between items-centers">
+                                <div class="text-sm text-gray-500">Recovery: 95%</div>
+                                <button class="text-green-600 hover:text-green-700 font-semibold learn-more-btn"
+                                        data-title="Chemical Plant ZLD System"
+                                        data-capacity="1.5 MLD"
+                                        data-technology="Multi-Effect Evaporation + Crystallization"
+                                        data-efficiency="95% Water Recovery"
+                                        data-location="Maharashtra, India"
+                                        data-description="Comprehensive ZLD system featuring multi-effect evaporation, forced circulation crystallizer, and automated control systems. Achieves near-zero liquid discharge with valuable salt recovery.">
+                                    Learn More →
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MVRE Project Cards -->
+                    <div class="project-card card-hover rounded-xl overflow-hidden bg-white dark:bg-slate-800 shadow-lg" data-category="mvre">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=500&h=300&fit=crop" alt="MVRE System" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 project-overlay"></div>
+                            <div class="absolute bottom-4 left-4 text-white">
+                                <span class="bg-orange-500 text-xs px-3 py-1 rounded-full font-semibold">MVRE</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Energy-Efficient MVRE Plant</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">Low-energy evaporation system with 80% energy savings compared to conventional methods</p>
+                            <div class="flex justify-between items-center">
+                                <div class="text-sm text-gray-500">Energy: 80% Savings</div>
+                                <button class="text-green-600 hover:text-green-700 font-semibold learn-more-btn"
+                                        data-title="Energy-Efficient MVRE Plant"
+                                        data-capacity="500 KLD"
+                                        data-technology="Mechanical Vapor Recompression"
+                                        data-efficiency="80% Energy Reduction"
+                                        data-location="Andhra Pradesh, India"
+                                        data-description="Advanced MVRE system with heat recovery and automated controls. Dramatically reduces energy consumption while maintaining high evaporation rates for wastewater concentration.">
+                                    Learn More →
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Environmental Labs -->
+                    <div class="project-card card-hover rounded-xl overflow-hidden bg-white dark:bg-slate-800 shadow-lg" data-category="labs">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=500&h=300&fit=crop" alt="Environmental Laboratory" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 project-overlay"></div>
+                            <div class="absolute bottom-4 left-4 text-white">
+                                <span class="bg-teal-500 text-xs px-3 py-1 rounded-full font-semibold">LAB</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">NABL Accredited Lab Setup</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">Complete laboratory with advanced analytical equipment and NABL certification support</p>
+                            <div class="flex justify-between items-center">
+                                <div class="text-sm text-gray-500">Parameters: 150+</div>
+                                <button class="text-green-600 hover:text-green-700 font-semibold learn-more-btn"
+                                        data-title="NABL Accredited Environmental Lab"
+                                        data-capacity="1000 samples/month"
+                                        data-technology="Advanced Analytical Instrumentation"
+                                        data-efficiency="NABL ISO 17025 Certified"
+                                        data-location="Bangalore, India"
+                                        data-description="State-of-the-art environmental testing laboratory with comprehensive analytical capabilities. Features latest instrumentation for water, air, soil, and waste analysis with full NABL accreditation.">
+                                    Learn More →
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Waste-to-Energy -->
+                    <div class="project-card card-hover rounded-xl overflow-hidden bg-white dark:bg-slate-800 shadow-lg" data-category="energy">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=500&h=300&fit=crop" alt="Waste to Energy Plant" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 project-overlay"></div>
+                            <div class="absolute bottom-4 left-4 text-white">
+                                <span class="bg-red-500 text-xs px-3 py-1 rounded-full font-semibold">WTE</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Biogas Generation Plant</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">Organic waste to energy conversion with 2 MW power generation capacity</p>
+                            <div class="flex justify-between items-center">
+                                <div class="text-sm text-gray-500">Output: 2 MW</div>
+                                <button class="text-green-600 hover:text-green-700 font-semibold learn-more-btn"
+                                        data-title="Industrial Biogas Generation Plant"
+                                        data-capacity="100 TPD waste processing"
+                                        data-technology="Anaerobic Digestion + CHP"
+                                        data-efficiency="2 MW power generation"
+                                        data-location="Punjab, India"
+                                        data-description="Comprehensive waste-to-energy facility converting organic industrial waste into biogas and electricity. Features automated feeding systems, gas purification, and combined heat and power generation.">
+                                    Learn More →
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Success Stories -->
+        <section class="py-16 bg-gradient-to-r from-green-50 to-blue-50 dark:from-slate-800 dark:to-slate-900">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold mb-4">Success Stories</h2>
+                    <p class="text-xl text-gray-600 dark:text-gray-300">Real impact, measurable results</p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white dark:bg-slate-800 p-8 rounded-xl shadow-lg">
+                        <div class="text-3xl font-bold text-green-600 mb-2">₹2.5 Cr</div>
+                        <div class="text-lg font-semibold mb-2">Annual Water Cost Savings</div>
+                        <div class="text-gray-600 dark:text-gray-300">Client achieved through water recycling and ZLD implementation</div>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-slate-800 p-8 rounded-xl shadow-lg">
+                        <div class="text-3xl font-bold text-blue-600 mb-2">99.5%</div>
+                        <div class="text-lg font-semibold mb-2">Compliance Achievement</div>
+                        <div class="text-gray-600 dark:text-gray-300">Consistent regulatory compliance across all commissioned projects</div>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-slate-800 p-8 rounded-xl shadow-lg">
+                        <div class="text-3xl font-bold text-purple-600 mb-2">45%</div>
+                        <div class="text-lg font-semibold mb-2">Energy Reduction</div>
+                        <div class="text-gray-600 dark:text-gray-300">Average energy savings through optimized treatment processes</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Case Study Section -->
+        <section class="py-16">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto">
+                    <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-xl overflow-hidden">
+                        <div class="md:flex">
+                            <div class="md:w-1/2">
+                                <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&h=400&fit=crop" alt="Featured Case Study" class="w-full h-64 md:h-full object-cover">
+                            </div>
+                            <div class="p-8 md:w-1/2">
+                                <div class="text-sm text-green-600 font-semibold mb-2">FEATURED CASE STUDY</div>
+                                <h3 class="text-2xl font-bold mb-4">Automotive Industry ZLD Success</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-6">
+                                    How we helped a leading automotive manufacturer achieve zero liquid discharge while reducing operational costs by 35% through innovative membrane technology and process optimization.
+                                </p>
+                                <div class="grid grid-cols-2 gap-4 mb-6">
+                                    <div>
+                                        <div class="text-2xl font-bold text-green-600">18 months</div>
+                                        <div class="text-sm text-gray-500">Project Duration</div>
+                                    </div>
+                                    <div>
+                                        <div class="text-2xl font-bold text-blue-600">8 MLD</div>
+                                        <div class="text-sm text-gray-500">Treatment Capacity</div>
+                                    </div>
+                                </div>
+                                <button class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition duration-300">
+                                    Read Full Case Study
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="py-16 gradient-bg">
+            <div class="container mx-auto px-6 text-center">
+                <div class="max-w-3xl mx-auto text-white">
+                    <h2 class="text-4xl font-bold mb-6">Ready to Start Your Project?</h2>
+                    <p class="text-xl mb-8 opacity-90">
+                        Let our expert team design a customized environmental solution that meets your specific requirements and regulatory standards.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="contact_us.html" class="bg-white text-green-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition duration-300 shadow-lg">
+                            Discuss Your Project
+                        </a>
+                        <a href="tel:+91-9876543210" class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-green-600 transition duration-300">
+                            Call Now: +91-9876543210
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Project Detail Modal -->
+    <div id="projectModal" class="fixed inset-0 z-50 hidden modal-backdrop">
+        <div class="flex items-center justify-center min-h-screen px-4">
+            <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl max-w-2xl w-full mx-4 overflow-hidden">
+                <div class="relative">
+                    <div class="p-8">
+                        <button id="closeModal" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl">×</button>
+                        <h3 id="modalTitle" class="text-2xl font-bold mb-4"></h3>
+                        <div class="grid grid-cols-2 gap-4 mb-6">
+                            <div>
+                                <div class="text-sm text-gray-500 mb-1">Capacity</div>
+                                <div id="modalCapacity" class="font-semibold"></div>
+                            </div>
+                            <div>
+                                <div class="text-sm text-gray-500 mb-1">Technology</div>
+                                <div id="modalTechnology" class="font-semibold"></div>
+                            </div>
+                            <div>
+                                <div class="text-sm text-gray-500 mb-1">Efficiency</div>
+                                <div id="modalEfficiency" class="font-semibold text-green-600"></div>
+                            </div>
+                            <div>
+                                <div class="text-sm text-gray-500 mb-1">Location</div>
+                                <div id="modalLocation" class="font-semibold"></div>
+                            </div>
+                        </div>
+                        <div class="text-gray-600 dark:text-gray-300 mb-6">
+                            <p id="modalDescription"></p>
+                        </div>
+                        <div class="flex gap-4">
+                            <button class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition duration-300">
+                                Request Similar Solution
+                            </button>
+                            <button class="border border-gray-300 text-gray-700 dark:text-gray-300 px-6 py-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition duration-300">
+                                Download Brochure
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <img src="assets/eepl_logo.png" alt="EEPL Logo" class="h-12 mb-4 filter brightness-0 invert">
+                    <p class="text-gray-300 mb-4">Leading environmental engineering solutions for sustainable industrial growth.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#" class="hover:text-white transition duration-300">ETP Design & Installation</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">CETP Solutions</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">Zero Liquid Discharge</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">Environmental Consulting</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Industries</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>Textile & Dyeing</li>
+                        <li>Pharmaceutical</li>
+                        <li>Chemical & Petrochemical</li>
+                        <li>Food & Beverage</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact</h4>
+                    <div class="space-y-2 text-gray-300">
+                        <p>📧 info@eepl.co.in</p>
+                        <p>📞 +91-9876543210</p>
+                        <p>📍 Bangalore, Karnataka</p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 mt-8 text-center text-gray-400">
+                <p>&copy; 2025 Ecologic Engineering Pvt. Ltd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const html = document.documentElement;
+
+        function setTheme(theme) {
+            if (theme === 'dark') {
+                html.classList.add('dark');
+                themeIcon.innerHTML = '<path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm-.707 12.02a1 1 0 010-1.414l.707-.707a1 1 0 111.414 1.414l-.707.707a1 1 0 01-1.414 0zM1 11a1 1 0 100-2H0a1 1 0 100 2h1z"></path>';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                html.classList.remove('dark');
+                themeIcon.innerHTML = '<path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>';
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // Initialize theme
+        const savedTheme = localStorage.getItem('theme') || 
+                          (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        setTheme(savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.classList.contains('dark') ? 'dark' : 'light';
+            setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+        });
+
+        // Project Filter Functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+
+                const filterValue = button.getAttribute('data-filter');
+
+                projectCards.forEach(card => {
+                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 100);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // Project Modal Functionality
+        const projectModal = document.getElementById('projectModal');
+        const closeModal = document.getElementById('closeModal');
+        const learnMoreButtons = document.querySelectorAll('.learn-more-btn');
+
+        learnMoreButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // Get data attributes
+                const title = button.getAttribute('data-title');
+                const capacity = button.getAttribute('data-capacity');
+                const technology = button.getAttribute('data-technology');
+                const efficiency = button.getAttribute('data-efficiency');
+                const location = button.getAttribute('data-location');
+                const description = button.getAttribute('data-description');
+
+                // Populate modal
+                document.getElementById('modalTitle').textContent = title;
+                document.getElementById('modalCapacity').textContent = capacity;
+                document.getElementById('modalTechnology').textContent = technology;
+                document.getElementById('modalEfficiency').textContent = efficiency;
+                document.getElementById('modalLocation').textContent = location;
+                document.getElementById('modalDescription').textContent = description;
+
+                // Show modal
+                projectModal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Close modal functionality
+        closeModal.addEventListener('click', () => {
+            projectModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+
+        projectModal.addEventListener('click', (e) => {
+            if (e.target === projectModal) {
+                projectModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Escape key to close modal
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !projectModal.classList.contains('hidden')) {
+                projectModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Initialize animations on page load
+        window.addEventListener('load', () => {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            const slideElements = document.querySelectorAll('.slide-up');
+            
+            fadeElements.forEach(element => {
+                element.style.opacity = '1';
+            });
+            
+            slideElements.forEach(element => {
+                element.style.transform = 'translateY(0)';
+                element.style.opacity = '1';
+            });
+        });
+    </script>
+</body>
+</html>

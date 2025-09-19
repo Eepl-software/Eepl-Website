@@ -1,0 +1,19 @@
+{
+  "name": "eepl-site-v2",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "npm run dev"
+  },
+  "dependencies": {
+    "framer-motion": "^11.0.0",
+    "react-icons": "^5.2.1"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0"
+  }
+}

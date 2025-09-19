@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecologic Engineering Pvt. Ltd (EEPL) | Water & Waste Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <style>
+        :root {
+            --color-bg: #f9fafb;
+            --color-bg-primary-rgb: 255, 255, 255;
+            --color-text: #111827;
+            --color-text-muted: #374151;
+            --color-accent: #FBBF24;
+            --color-accent-text: #111827;
+            --color-border: #d1d5db;
+            --color-card-bg: rgba(255, 255, 255, 0.8);
+            --color-form-bg: #f1f0f0;
+            --dot-bg: rgba(220, 34, 34, 0.05);
+            --gradient-end: #d2cccc;
+        }
+
+        html.dark {
+            --color-bg: #0d1117;
+            --color-bg-primary-rgb: 22, 27, 34;
+            --color-text: #c9d1d9;
+            --color-text-muted: #9ca3af;
+            --color-accent: #FBBF24;
+            --color-accent-text: #0d1117;
+            --color-border: #30363d;
+            --color-card-bg: rgba(22, 27, 34, 0.7);
+            --color-form-bg: #0d1117;
+            --dot-bg: rgba(255,255,255,0.05);
+            --gradient-end: #f87171;
+        }
+
+        body {
+            /* Using Optima with common elegant fallbacks */
+            font-family: 'Optima', 'Palatino', 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            background-image: radial-gradient(circle at 1px 1px, var(--dot-bg) 1px, transparent 0);
+            background-size: 20px 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        .text-muted { color: var(--color-text-muted); }
+        .bg-secondary { background-color: var(--color-accent); }
+        .text-primary { color: var(--color-accent-text); }
+        .text-secondary { color: var(--color-accent); }
+        .border-secondary { border-color: var(--color-accent); }
+
+        .header-style {
+            background-color: rgba(var(--color-bg-primary-rgb), 0.8);
+            border-bottom: 1px solid transparent;
+        }
+        .header-scrolled {
+             border-color: var(--color-border);
+        }
+
+        .section-bg-primary {
+             background-color: rgba(var(--color-bg-primary-rgb), 0.5);
+        }
+
+        .card {
+            background-color: var(--color-card-bg);
+            border: 1px solid var(--color-border);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s;
+            backdrop-filter: blur(5px);
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--color-accent);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .animated-shape {
+            position: absolute;
+            opacity: 0.1;
+            z-index: 0;
+            animation: float 25s infinite ease-in-out;
+        }
+        html.dark .animated-shape {
+             opacity: 0.1;
+        }
+        html.light .animated-shape {
+             opacity: 0.2;
+        }
+
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-40px) rotate(180deg); }
+            100% { transform: translateY(0px) rotate(360deg); }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+         /* --- NAVBAR ENHANCEMENT STYLES START --- */
+         .nav-link {
+            position: relative;
+            transition: color 0.3s;
+            color: var(--color-text-muted);
+            padding: 8px 16px;
+            border-radius: 9999px;
+        }
+        .nav-link:hover {
+            color: var(--color-text);
+            background-color: rgba(var(--color-bg-primary-rgb), 0.5);
+        }
+        .nav-link.active {
+            color: var(--color-accent-text);
+            background-color: var(--color-accent);
+        }
+
+        .cta-button {
+             background-color: var(--color-accent);
+             color: var(--color-accent-text);
+             padding: 8px 20px;
+             border-radius: 9999px;
+             font-weight: 600;
+             transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 20px rgba(251, 191, 36, 0.4);
+        }
+        
+        #mobile-menu-button .line {
+            transition: transform 0.3s, opacity 0.3s;
+        }
+        #mobile-menu-button.toggled .line1 {
+            transform: translateY(8px) rotate(45deg);
+        }
+        #mobile-menu-button.toggled .line2 {
+            opacity: 0;
+        }
+        #mobile-menu-button.toggled .line3 {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        #mobile-menu {
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transform: translateX(100%);
+        }
+        #mobile-menu.open {
+            transform: translateX(0);
+        }
+        #mobile-menu-overlay {
+            transition: opacity 0.4s ease;
+        }
+        
+        .gradient-text {
+            background: -webkit-linear-gradient(45deg, var(--color-accent), var(--gradient-end));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .form-input {
+            background-color: var(--color-form-bg);
+            border: 1px solid var(--color-border);
+            color: var(--color-text);
+            transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: var(--color-accent);
+            box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.3);
+        }
+        .form-input::placeholder {
+            color: var(--color-text-muted);
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <div class="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden">
+        <div class="animated-shape top-1/4 left-1/4 w-48 h-48 bg-secondary rounded-full filter blur-3xl" style="animation-duration: 30s;"></div>
+        <div class="animated-shape bottom-1/4 right-1/4 w-64 h-64 bg-secondary rounded-xl filter blur-3xl" style="animation-delay: 5s; animation-duration: 35s;"></div>
+        <div class="animated-shape top-10 right-20 w-32 h-32 bg-secondary rounded-full filter blur-3xl" style="animation-delay: 2s; animation-duration: 28s;"></div>
+        <div class="animated-shape bottom-5 left-10 w-40 h-40 bg-secondary rounded-lg filter blur-3xl" style="animation-delay: 8s; animation-duration: 32s;"></div>
+    </div>
+
+    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 header-style backdrop-blur-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="assets/eepl_logo.png" alt="Ecologic Engineering Logo" class="h-14">
+            </div>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="about_us.html" class="nav-link font-medium">About Us</a>
+                <a href="services.html" class="nav-link font-medium">Services</a>
+                <a href="projects.html" class="nav-link font-medium">Projects</a>
+                <a href="contact_us.html" class="nav-link font-medium">Contact</a>
+                <button id="theme-toggle" type="button" class="ml-4 text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm-.707 12.02a1 1 0 010-1.414l.707-.707a1 1 0 111.414 1.414l-.707.707a1 1 0 01-1.414 0zM1 11a1 1 0 100-2H0a1 1 0 100 2h1z"></path></svg>
+                </button>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none" style="color: var(--color-text);">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden" style="background-color: var(--color-bg-primary);">
+            <a href="#about" class="block py-3 px-6 hover:bg-gray-200 dark:hover:bg-gray-700">About Us</a>
+            <a href="#services" class="block py-3 px-6 hover:bg-gray-200 dark:hover:bg-gray-700">Services</a>
+            <a href="#projects" class="block py-3 px-6 hover:bg-gray-200 dark:hover:bg-gray-700">Projects</a>
+            <a href="#clients" class="block py-3 px-6 hover:bg-gray-200 dark:hover:bg-gray-700">Clients</a>
+            <a href="#contact" class="block py-3 px-6 hover:bg-gray-200 dark:hover:bg-gray-700">Contact</a>
+            <a href="#team" class="block py-3 px-6 hover:bg-gray-200 dark:hover:bg-gray-700">Team</a>
+        </div>
+    </header>
+
+    <!-- Slider Section -->
+    <section id="hero-slider" class="relative w-full h-screen overflow-hidden">
+        <!-- Slides -->
+        <div class="slider-wrapper relative w-full h-full">
+          <div class="slide absolute inset-0 opacity-100 scale-100 transition-all duration-1000">
+            <img src="assets/g1.png" class="w-full h-full object-cover" alt="Slide 1">
+            <div class="absolute inset-0 bg-black/40 flex flex-col justify-center items-center text-center text-white px-6">
+              <h1 class="text-4xl md:text-6xl font-bold mb-4">AI-Driven Environmental Solutions</h1>
+              <p class="text-lg md:text-xl max-w-3xl">Harnessing the power of data, IoT, and machine learning to create smarter, greener water & waste management systems.</p>
+            </div>
+          </div>
+      
+          <div class="slide absolute inset-0 opacity-0 scale-95 transition-all duration-1000">
+            <img src="assets/g2.png" class="w-full h-full object-cover" alt="Slide 2">
+            <div class="absolute inset-0 bg-black/40 flex flex-col justify-center items-center text-center text-white px-6">
+              <h1 class="text-4xl md:text-6xl font-bold mb-4">End-to-End Project Execution</h1>
+              <p class="text-lg md:text-xl max-w-3xl">From concept and design to commissioning, we deliver complete, turnkey solutions.</p>
+            </div>
+          </div>
+      
+          <div class="slide absolute inset-0 opacity-0 scale-95 transition-all duration-1000">
+            <img src="assets/g3.png" class="w-full h-full object-cover" alt="Slide 3">
+            <div class="absolute inset-0 bg-black/40 flex flex-col justify-center items-center text-center text-white px-6">
+              <h1 class="text-4xl md:text-6xl font-bold mb-4">Sustainability in Action</h1>
+              <p class="text-lg md:text-xl max-w-3xl">Empowering industries and municipalities to meet compliance, save costs, and protect the planet.</p>
+            </div>
+          </div>
+          <div class="slide absolute inset-0 opacity-100 scale-100 transition-all duration-1000">
+            <img src="assets/g1.png" class="w-full h-full object-cover" alt="Slide 1">
+            <div class="absolute inset-0 bg-black/40 flex flex-col justify-center items-center text-center text-white px-6">
+              <h1 class="text-4xl md:text-6xl font-bold mb-4">AI-Driven Environmental Solutions</h1>
+              <p class="text-lg md:text-xl max-w-3xl">Harnessing the power of data, IoT, and machine learning to create smarter, greener water & waste management systems.</p>
+            </div>
+          </div>
+      
+          <div class="slide absolute inset-0 opacity-0 scale-95 transition-all duration-1000">
+            <img src="assets/g2.png" class="w-full h-full object-cover" alt="Slide 2">
+            <div class="absolute inset-0 bg-black/40 flex flex-col justify-center items-center text-center text-white px-6">
+              <h1 class="text-4xl md:text-6xl font-bold mb-4">End-to-End Project Execution</h1>
+              <p class="text-lg md:text-xl max-w-3xl">From concept and design to commissioning, we deliver complete, turnkey solutions.</p>
+            </div>
+          </div>
+      
+          <div class="slide absolute inset-0 opacity-0 scale-95 transition-all duration-1000">
+            <img src="assets/g3.png" class="w-full h-full object-cover" alt="Slide 3">
+            <div class="absolute inset-0 bg-black/40 flex flex-col justify-center items-center text-center text-white px-6">
+              <h1 class="text-4xl md:text-6xl font-bold mb-4">Sustainability in Action</h1>
+              <p class="text-lg md:text-xl max-w-3xl">Empowering industries and municipalities to meet compliance, save costs, and protect the planet.</p>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Navigation dots (will be generated dynamically) -->
+        <div id="slider-dots" class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3"></div>
+      
+        <!-- Arrows -->
+        <button id="prevSlide" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/40 text-white p-3 rounded-full hover:bg-black/60">
+          &#10094;
+        </button>
+        <button id="nextSlide" class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/40 text-white p-3 rounded-full hover:bg-black/60">
+          &#10095;
+        </button>
+      </section>
+      
+      <script>
+        const slides = document.querySelectorAll('#hero-slider .slide');
+        const dotContainer = document.getElementById('slider-dots');
+        const nextSlideBtn = document.getElementById('nextSlide');
+        const prevSlideBtn = document.getElementById('prevSlide');
+        let current = 0;
+        let autoPlayInterval;
+      
+        // Create dots dynamically
+        slides.forEach((_, i) => {
+          const dot = document.createElement('button');
+          dot.className = `dot w-3 h-3 rounded-full bg-white ${i === 0 ? 'opacity-80' : 'opacity-50'}`;
+          dot.addEventListener('click', () => { showSlide(i); resetAutoplay(); });
+          dotContainer.appendChild(dot);
+        });
+        const dots = document.querySelectorAll('#slider-dots .dot');
+      
+        function showSlide(index) {
+          slides.forEach((slide, i) => {
+            slide.style.opacity = i === index ? '1' : '0';
+            slide.style.transform = i === index ? 'scale(1)' : 'scale(0.95)';
+            dots[i].classList.toggle('opacity-80', i === index);
+            dots[i].classList.toggle('opacity-50', i !== index);
+          });
+          current = index;
+        }
+      
+        function nextSlide() {
+          showSlide((current + 1) % slides.length);
+        }
+      
+        function prevSlideFn() {
+          showSlide((current - 1 + slides.length) % slides.length);
+        }
+      
+        function startAutoplay() {
+          autoPlayInterval = setInterval(nextSlide, 5000);
+        }
+      
+        function resetAutoplay() {
+          clearInterval(autoPlayInterval);
+          startAutoplay();
+        }
+      
+        nextSlideBtn.addEventListener('click', () => { nextSlide(); resetAutoplay(); });
+        prevSlideBtn.addEventListener('click', () => { prevSlideFn(); resetAutoplay(); });
+      
+        // Touch swipe support
+        let touchStartX = 0;
+        document.querySelector('#hero-slider').addEventListener('touchstart', e => touchStartX = e.changedTouches[0].screenX);
+        document.querySelector('#hero-slider').addEventListener('touchend', e => {
+          let touchEndX = e.changedTouches[0].screenX;
+          if (touchStartX - touchEndX > 50) { nextSlide(); resetAutoplay(); }
+          if (touchEndX - touchStartX > 50) { prevSlideFn(); resetAutoplay(); }
+        });
+      
+        // Pause autoplay on hover
+        document.querySelector('#hero-slider').addEventListener('mouseenter', () => clearInterval(autoPlayInterval));
+        document.querySelector('#hero-slider').addEventListener('mouseleave', startAutoplay);
+      
+        // Initialize
+        showSlide(0);
+        startAutoplay();
+      </script>
+      
+  
+
+    <main class="relative z-10">
+        <section id="home" class="min-h-screen flex items-center justify-center text-center">
+            <div class="container mx-auto px-6 fade-in">
+              
+                <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6 split-text">
+                    Environmental Intelligence: <br>
+                    for <span class="gradient-text">Data, AI &amp; ML</span> in Action
+                  </h1>
+              
+              <p class="text-lg md:text-xl text-muted mb-6 max-w-4xl mx-auto">
+                At EEPL, “Environmental Intelligence” is our approach to combining data-driven insights with 
+                advanced Artificial Intelligence (AI) and Machine Learning (ML) to revolutionize water and waste management.
+              </p>
+              
+              <p class="text-lg md:text-xl text-muted mb-6 max-w-4xl mx-auto">
+                Our STP, ETP, and ZLD systems are equipped with smart sensors, IoT connectivity, and real-time monitoring tools 
+                that continuously collect data on flow rates, pollutant loads, energy usage, and system health.
+              </p>
+          
+              <h3 class="text-xl font-semibold mb-4">Using AI &amp; ML algorithms, this data is analyzed to:</h3>
+              
+              <ul class="text-left md:text-center list-disc list-inside text-lg md:text-xl text-muted mb-6 max-w-3xl mx-auto space-y-2">
+                <li>Predict and prevent equipment failures</li>
+                <li>Optimize chemical dosing and energy consumption</li>
+                <li>Achieve higher treatment efficiency and compliance</li>
+                <li>Adapt to changing influent characteristics</li>
+              </ul>
+          
+              <p class="text-lg md:text-xl text-muted max-w-4xl mx-auto">
+                Support sustainable operations with lower costs and environmental impact. 
+                This is not just automation, but intelligence in action — turning raw environmental data into actionable insights 
+                that drive better decisions, improve plant performance, and ensure long-term sustainability for our clients.
+              </p>
+              
+            </div>
+          </section>
+          
+
+          <section id="about" class="py-24 bg-gray-50">
+            <div class="container mx-auto px-6 text-center">
+              <div class="max-w-5xl mx-auto fade-in">
+                
+                <!-- Title -->
+                <h2 class="text-4xl md:text-5xl font-extrabold mb-4 text-gray-800 tracking-tight">
+                  About Us
+                </h2>
+                
+                <!-- Subtitle -->
+                <h3 class="text-2xl md:text-3xl font-semibold text-yellow-500 mb-8">
+                  A Leader in Environmental Engineering
+                </h3>
+                
+                <!-- Paragraph -->
+                <p class="text-lg md:text-xl leading-relaxed text-gray-700">
+                  <span class="font-semibold text-gray-900">Ecologic Engineering Pvt. Ltd. (EEPL)</span> delivers 
+                  <span class="text-gray-900 font-semibold">AI &amp; ML-powered environmental solutions</span> —
+                  spanning wastewater &amp; ZLD, waste-to-energy, air/odour control, resource recovery, and digital compliance —
+                  powered by SCADA and real-time analytics.
+                </p>
+          
+                <p class="text-lg md:text-xl leading-relaxed text-gray-700 mt-6">
+                  We design, build, and operate <span class="font-semibold">(BOOT/DBO)</span> with transparent KPIs to cut OPEX,
+                  assure compliance, and turn waste into value across all sectors —
+                  <span class="italic">industry, municipalities, infrastructure, and beyond.</span>
+                </p>
+          
+              </div>
+            </div>
+          </section>
+          
+
+        <style>
+            @media (min-width: 1024px) {
+              .process-grid {
+                position: relative;
+              }
+              .process-grid::before {
+                content: '';
+                position: absolute;
+                top: 5.5rem;
+                left: 8%;
+                width: 84%;
+                height: 3px;
+                background-image: linear-gradient(to right, #a855f7 50%, transparent 50%);
+                background-size: 20px 3px;
+                background-repeat: repeat-x;
+                z-index: 0;
+                animation: dash 3s linear infinite;
+              }
+              @keyframes dash {
+                to {
+                  background-position: 20px 0;
+                }
+              }
+            }
+          
+            @keyframes fadeIn {
+              from { opacity: 0; transform: translateY(20px); }
+              to { opacity: 1; transform: translateY(0); }
+            }
+            .fade-in {
+              opacity: 0;
+              animation: fadeIn 0.8s ease forwards;
+            }
+            .fade-in:nth-child(1) { animation-delay: 0.1s; }
+            .fade-in:nth-child(2) { animation-delay: 0.2s; }
+            .fade-in:nth-child(3) { animation-delay: 0.3s; }
+            .fade-in:nth-child(4) { animation-delay: 0.4s; }
+            .fade-in:nth-child(5) { animation-delay: 0.5s; }
+            .fade-in:nth-child(6) { animation-delay: 0.6s; }
+          
+            .modal {
+              display: none;
+            }
+            .modal.active {
+              display: flex;
+            }
+          </style>
+          
+          <section id="approach" class="py-24 bg-gradient-to-b from-gray-50 via-white to-gray-50 relative">
+            <div class="container mx-auto px-6 text-center">
+              <div class="max-w-4xl mx-auto mb-16">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 tracking-tight">
+                  Our <span class="text-secondary">Proven</span> 6-Step Methodology
+                </h2>
+                <p class="text-lg md:text-xl text-gray-600 leading-relaxed">
+                  From first concept to long-term operation, our process combines engineering rigour and
+                  transparent communication to <span class="font-semibold text-secondary">deliver measurable results</span>.
+                </p>
+              </div>
+          
+              <div class="grid md:grid-cols-2 lg:grid-cols-6 gap-8 process-grid relative">
+                
+                <!-- STEP 1 -->
+                <div onclick="openModal('modal1')" class="group cursor-pointer card p-6 rounded-2xl bg-white/80 backdrop-blur-md shadow-lg hover:shadow-2xl transform hover:-translate-y-3 transition-all duration-300 fade-in z-10 flex flex-col">
+                  <div class="relative w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-purple-100 to-purple-200 flex items-center justify-center border-2 border-purple-300 group-hover:scale-110 transition">
+                    <span class="absolute -top-2 -right-2 bg-purple-600 text-white text-xs font-bold px-2 py-1 rounded-full shadow-md">1</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h3.75M9 15h3.75M9 18h3.75" />
+                    </svg>
+                  </div>
+                  <h3 class="font-bold text-xl text-gray-800 mb-2">Concept & Design</h3>
+                  <p class="text-sm text-gray-600 leading-relaxed">We begin with a detailed needs assessment and create a custom conceptual design optimised for your goals and regulations.</p>
+                </div>
+          
+                <!-- STEP 2 -->
+                <div onclick="openModal('modal2')" class="group cursor-pointer card p-6 rounded-2xl bg-white/80 backdrop-blur-md shadow-lg hover:shadow-2xl transform hover:-translate-y-3 transition-all duration-300 fade-in z-10 flex flex-col">
+                  <div class="relative w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center border-2 border-blue-300 group-hover:scale-110 transition">
+                    <span class="absolute -top-2 -right-2 bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded-full shadow-md">2</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4" />
+                    </svg>
+                  </div>
+                  <h3 class="font-bold text-xl text-gray-800 mb-2">Client Review</h3>
+                  <p class="text-sm text-gray-600 leading-relaxed">You’re involved early. We validate assumptions and align on technical, financial, and operational goals before moving ahead.</p>
+                </div>
+          
+                <!-- STEP 3 -->
+                <div onclick="openModal('modal3')" class="group cursor-pointer card p-6 rounded-2xl bg-white/80 backdrop-blur-md shadow-lg hover:shadow-2xl transform hover:-translate-y-3 transition-all duration-300 fade-in z-10 flex flex-col">
+                  <div class="relative w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center border-2 border-green-300 group-hover:scale-110 transition">
+                    <span class="absolute -top-2 -right-2 bg-green-600 text-white text-xs font-bold px-2 py-1 rounded-full shadow-md">3</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <h3 class="font-bold text-xl text-gray-800 mb-2">Engineering & Detailing</h3>
+                  <p class="text-sm text-gray-600 leading-relaxed">Our engineers prepare detailed drawings, 3D models, and BOMs to ensure constructability, safety and compliance.</p>
+                </div>
+          
+                <!-- STEP 4 -->
+                <div onclick="openModal('modal4')" class="group cursor-pointer card p-6 rounded-2xl bg-white/80 backdrop-blur-md shadow-lg hover:shadow-2xl transform hover:-translate-y-3 transition-all duration-300 fade-in z-10 flex flex-col">
+                  <div class="relative w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-yellow-100 to-yellow-200 flex items-center justify-center border-2 border-yellow-300 group-hover:scale-110 transition">
+                    <span class="absolute -top-2 -right-2 bg-yellow-600 text-white text-xs font-bold px-2 py-1 rounded-full shadow-md">4</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3" />
+                    </svg>
+                  </div>
+                  <h3 class="font-bold text-xl text-gray-800 mb-2">Procurement & Fabrication</h3>
+                  <p class="text-sm text-gray-600 leading-relaxed">We source high-quality equipment and fabricate custom parts under strict quality control before dispatch.</p>
+                </div>
+          
+                <!-- STEP 5 -->
+                <div onclick="openModal('modal5')" class="group cursor-pointer card p-6 rounded-2xl bg-white/80 backdrop-blur-md shadow-lg hover:shadow-2xl transform hover:-translate-y-3 transition-all duration-300 fade-in z-10 flex flex-col">
+                  <div class="relative w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-pink-100 to-pink-200 flex items-center justify-center border-2 border-pink-300 group-hover:scale-110 transition">
+                    <span class="absolute -top-2 -right-2 bg-pink-600 text-white text-xs font-bold px-2 py-1 rounded-full shadow-md">5</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-pink-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 7h18M3 12h18M3 17h18" />
+                    </svg>
+                  </div>
+                  <h3 class="font-bold text-xl text-gray-800 mb-2">Installation & Commissioning</h3>
+                  <p class="text-sm text-gray-600 leading-relaxed">Our specialists install, test, and commission the system, handing over a fully operational solution.</p>
+                </div>
+          
+                <!-- STEP 6 -->
+                <div onclick="openModal('modal6')" class="group cursor-pointer card p-6 rounded-2xl bg-white/80 backdrop-blur-md shadow-lg hover:shadow-2xl transform hover:-translate-y-3 transition-all duration-300 fade-in z-10 flex flex-col">
+                  <div class="relative w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-red-100 to-red-200 flex items-center justify-center border-2 border-red-300 group-hover:scale-110 transition">
+                    <span class="absolute -top-2 -right-2 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-full shadow-md">6</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6h4.5" />
+                    </svg>
+                  </div>
+                  <h3 class="font-bold text-xl text-gray-800 mb-2">Operation & Maintenance</h3>
+                  <p class="text-sm text-gray-600 leading-relaxed">We provide AMC, training, remote monitoring, and on-site support to keep your plant at peak performance.</p>
+                </div>
+          
+              </div>
+            </div>
+          </section>
+          
+          
+          <!-- MODALS -->
+          <div id="modal1" class="modal fixed inset-0 bg-black/50 z-50 items-center justify-center">
+            <div class="bg-white rounded-2xl max-w-lg w-full mx-4 p-6 relative">
+              <button onclick="closeModal('modal1')" class="absolute top-3 right-3 text-gray-500 hover:text-gray-900 text-2xl">&times;</button>
+              <h3 class="text-2xl font-bold mb-4 text-purple-700">Step 1: Design (In-House)</h3>
+              <p class="text-gray-600 leading-relaxed">Our engineers develop a concept design tailored to your project requirements, local regulations, and cost considerations.</p>
+              <img src="design-process.jpeg" alt="Design Process" class="rounded-lg mt-4 shadow-md">
+            </div>
+          </div>
+          
+          <div id="modal2" class="modal fixed inset-0 bg-black/50 z-50 items-center justify-center">
+            <div class="bg-white rounded-2xl max-w-lg w-full mx-4 p-6 relative">
+              <button onclick="closeModal('modal2')" class="absolute top-3 right-3 text-gray-500 hover:text-gray-900 text-2xl">&times;</button>
+              <h3 class="text-2xl font-bold mb-4 text-blue-700">Step 2: Client Review</h3>
+              <p class="text-gray-600 leading-relaxed">We share preliminary designs with you for feedback and align on technical, financial, and operational goals before proceeding.</p>
+              <img src="client-review.jpg" alt="Client Review" class="rounded-lg mt-4 shadow-md">
+            </div>
+          </div>
+          
+          <div id="modal3" class="modal fixed inset-0 bg-black/50 z-50 items-center justify-center">
+            <div class="bg-white rounded-2xl max-w-lg w-full mx-4 p-6 relative">
+              <button onclick="closeModal('modal3')" class="absolute top-3 right-3 text-gray-500 hover:text-gray-900 text-2xl">&times;</button>
+              <h3 class="text-2xl font-bold mb-4 text-green-700">Step 3: Engineering & Detailing</h3>
+              <p class="text-gray-600 leading-relaxed">Our team prepares final engineering drawings, 3D models, and BOMs ensuring constructability and compliance.</p>
+              <img src="engineering-detail.jpg" alt="Engineering & Detailing" class="rounded-lg mt-4 shadow-md">
+            </div>
+          </div>
+          
+          <div id="modal4" class="modal fixed inset-0 bg-black/50 z-50 items-center justify-center">
+            <div class="bg-white rounded-2xl max-w-lg w-full mx-4 p-6 relative">
+              <button onclick="closeModal('modal4')" class="absolute top-3 right-3 text-gray-500 hover:text-gray-900 text-2xl">&times;</button>
+              <h3 class="text-2xl font-bold mb-4 text-yellow-700">Step 4: Procurement & Fabrication</h3>
+              <p class="text-gray-600 leading-relaxed">We source high-quality equipment, fabricate custom parts if needed, and ensure QC before dispatch.</p>
+              <img src="procurement.jpg" alt="Procurement & Fabrication" class="rounded-lg mt-4 shadow-md">
+            </div>
+          </div>
+          
+          <div id="modal5" class="modal fixed inset-0 bg-black/50 z-50 items-center justify-center">
+            <div class="bg-white rounded-2xl max-w-lg w-full mx-4 p-6 relative">
+              <button onclick="closeModal('modal5')" class="absolute top-3 right-3 text-gray-500 hover:text-gray-900 text-2xl">&times;</button>
+              <h3 class="text-2xl font-bold mb-4 text-pink-700">Step 5: Installation & Commissioning</h3>
+              <p class="text-gray-600 leading-relaxed">Our expert team installs and commissions the system, performs trials, and hands over a fully operational solution.</p>
+              <img src="installation.jpg" alt="Installation & Commissioning" class="rounded-lg mt-4 shadow-md">
+            </div>
+          </div>
+          
+          <div id="modal6" class="modal fixed inset-0 bg-black/50 z-50 items-center justify-center">
+            <div class="bg-white rounded-2xl max-w-lg w-full mx-4 p-6 relative">
+              <button onclick="closeModal('modal6')" class="absolute top-3 right-3 text-gray-500 hover:text-gray-900 text-2xl">&times;</button>
+              <h3 class="text-2xl font-bold mb-4 text-red-700">Step 6: Operation & Maintenance</h3>
+              <p class="text-gray-600 leading-relaxed">We provide AMC, training, remote monitoring, and troubleshooting support to ensure long-term performance.</p>
+              <img src="om-support.jpg" alt="Operation & Maintenance Support" class="rounded-lg mt-4 shadow-md">
+            </div>
+          </div>
+          
+          <script>
+            function openModal(id) {
+              document.getElementById(id).classList.add('active');
+            }
+            function closeModal(id) {
+              document.getElementById(id).classList.remove('active');
+            }
+          </script>
+          
+
+
+
+
+        <!-- <section id="approach" class="py-24">
+            <div class="container mx-auto px-6 text-center">
+                <div class="max-w-4xl mx-auto mb-16 fade-in">
+                    <h2 class="text-3xl font-bold mb-4">Our Proven 6-Step Methodology</h2>
+                    <p class="text-lg text-muted">From concept to commercial operation, we ensure a seamless, transparent, and effective process that guarantees results.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-6 gap-8 process-grid">
+                        
+                    <div class="card p-6 rounded-lg fade-in z-10 flex flex-col" style="transition-delay: 100ms;">
+                        <div class="flex-shrink-0 w-20 h-20 mx-auto mb-4 rounded-full bg-secondary/10 flex items-center justify-center border-2 border-secondary/20">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 text-secondary">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C6.095 4.01 5.25 4.973 5.25 6.108V18.75c0 1.243.87 2.25 1.969 2.25H15a2.25 2.25 0 002.25-2.25v-2.572m-5.8 0v-4.5m0 4.5a2.25 2.25 0 01-2.25-2.25V6.75a2.25 2.25 0 012.25-2.25H15" />
+                            </svg>                              
+                        </div>
+                        <h3 class="font-semibold text-secondary">1. Design (In-house)</h3>
+                        <p class="text-sm text-muted mt-2 flex-grow">Our journey begins with a meticulous in-house design phase, where experts craft a conceptual blueprint tailored to your unique challenges.</p>
+                    </div>
+        
+                    <div class="card p-6 rounded-lg fade-in z-10 flex flex-col" style="transition-delay: 200ms;">
+                        <div class="flex-shrink-0 w-20 h-20 mx-auto mb-4 rounded-full bg-secondary/10 flex items-center justify-center border-2 border-secondary/20">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 text-secondary">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M14.25 6.087c0-.355.186-.676.401-.959.221-.29.349-.634.349-1.003 0-1.036-1.007-1.875-2.25-1.875s-2.25.84-2.25 1.875c0 .369.128.713.349 1.003.215.283.401.604.401.959v.448c0 .379-.214.725-.584.946l-1.551.93a2.25 2.25 0 00-.959 1.916V17.25c0 .621.504 1.125 1.125 1.125h5.25c.621 0 1.125-.504 1.125-1.125v-5.17c0-.835-.419-1.576-.959-1.916l-1.551-.93c-.37-.221-.584-.567-.584-.946v-.448z" />
+                            </svg>
+                        </div>
+                        <h3 class="font-semibold text-secondary">2. Lab Trials (NABL + MOEF)</h3>
+                        <p class="text-sm text-muted mt-2 flex-grow">We conduct rigorous trials in our accredited labs to test and refine our designs, ensuring process viability and compliance from the start.</p>
+                    </div>
+        
+                    <div class="card p-6 rounded-lg fade-in z-10 flex flex-col" style="transition-delay: 300ms;">
+                        <div class="flex-shrink-0 w-20 h-20 mx-auto mb-4 rounded-full bg-secondary/10 flex items-center justify-center border-2 border-secondary/20">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 text-secondary">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="font-semibold text-secondary">3. Revalidation (IISc & IIT)</h3>
+                        <p class="text-sm text-muted mt-2 flex-grow">To guarantee robustness, our results are independently revalidated by premier institutions, adding a layer of academic rigor and trust.</p>
+                    </div>
+        
+                    <div class="card p-6 rounded-lg fade-in z-10 flex flex-col" style="transition-delay: 400ms;">
+                        <div class="flex-shrink-0 w-20 h-20 mx-auto mb-4 rounded-full bg-secondary/10 flex items-center justify-center border-2 border-secondary/20">
+                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 text-secondary">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6A2.25 2.25 0 008.25 8.25V15.75a2.25 2.25 0 002.25 2.25h7.5a2.25 2.25 0 002.25-2.25V8.25a2.25 2.25 0 00-2.25-2.25h-7.5z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 3.75V6"></path><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3.75V6"></path><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.5h18"></path>
+                           </svg>
+                        </div>
+                        <h3 class="font-semibold text-secondary">4. DDE (Detailed Design)</h3>
+                        <p class="text-sm text-muted mt-2 flex-grow">We translate the validated concept into Detailed Design Engineering, creating comprehensive blueprints and plans for execution.</p>
+                    </div>
+        
+                    <div class="card p-6 rounded-lg fade-in z-10 flex flex-col" style="transition-delay: 500ms;">
+                        <div class="flex-shrink-0 w-20 h-20 mx-auto mb-4 rounded-full bg-secondary/10 flex items-center justify-center border-2 border-secondary/20">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 text-secondary">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-4.243 4.243l-3.275-3.275a4.5 4.5 0 00-6.336 4.486c.046.58.076 1.193.14 1.743m5.108-.233l5.57-5.57m-5.57 5.57l-5.57-5.57" />
+                            </svg>
+                        </div>
+                        <h3 class="font-semibold text-secondary">5. Commissioning</h3>
+                        <p class="text-sm text-muted mt-2 flex-grow">Our skilled teams handle on-site field execution and commissioning, ensuring seamless installation and system integration.</p>
+                    </div>
+        
+                    <div class="card p-6 rounded-lg fade-in z-10 flex flex-col" style="transition-delay: 600ms;">
+                        <div class="flex-shrink-0 w-20 h-20 mx-auto mb-4 rounded-full bg-secondary/10 flex items-center justify-center border-2 border-secondary/20">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 text-secondary">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" />
+                            </svg>
+                        </div>
+                        <h3 class="font-semibold text-secondary">6. Commercial Operation</h3>
+                        <p class="text-sm text-muted mt-2 flex-grow">We oversee the transition to full commercial operation and establish strategic tie-ups for long-term success and support.</p>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+
+        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto p-8">
+            <!-- STEP 1 -->
+            <div class="group card p-6 rounded-2xl bg-white shadow-md hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 flex flex-col">
+              <div class="flex-shrink-0 w-20 h-20 mx-auto mb-4 rounded-full bg-secondary/10 flex items-center justify-center border-2 border-secondary/20 group-hover:bg-secondary/20 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 text-secondary group-hover:scale-110 transition">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C6.095 4.01 5.25 4.973 5.25 6.108V18.75c0 1.243.87 2.25 1.969 2.25H15a2.25 2.25 0 002.25-2.25v-2.572m-5.8 0v-4.5m0 4.5a2.25 2.25 0 01-2.25-2.25V6.75a2.25 2.25 0 012.25-2.25H15" />
+                </svg>
+              </div>
+              <h3 class="font-bold text-xl text-secondary mb-2 text-center">1. Design (In-house)</h3>
+              <p class="text-sm text-gray-600 leading-relaxed text-center">
+                Our journey begins with a meticulous in-house design phase, where experts craft a conceptual blueprint tailored to your unique challenges.
+              </p>
+            </div>
+          
+            <!-- STEP 2 -->
+            <div class="group card p-6 rounded-2xl bg-white shadow-md hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 flex flex-col">
+              <div class="flex-shrink-0 w-20 h-20 mx-auto mb-4 rounded-full bg-green-100 flex items-center justify-center border-2 border-green-300 group-hover:bg-green-200 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 text-green-600 group-hover:scale-110 transition">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 7.5l-9 9m9 0V8.25A2.25 2.25 0 0015.75 6h-7.5A2.25 2.25 0 006 8.25v7.5A2.25 2.25 0 008.25 18h7.5A2.25 2.25 0 0018 15.75V12z" />
+                </svg>
+              </div>
+              <h3 class="font-bold text-xl text-green-600 mb-2 text-center">2. Development</h3>
+              <p class="text-sm text-gray-600 leading-relaxed text-center">
+                With the design approved, we move into development, transforming concepts into a fully functional, scalable solution.
+              </p>
+            </div>
+          
+            <!-- STEP 3 -->
+            <div class="group card p-6 rounded-2xl bg-white shadow-md hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 flex flex-col">
+              <div class="flex-shrink-0 w-20 h-20 mx-auto mb-4 rounded-full bg-blue-100 flex items-center justify-center border-2 border-blue-300 group-hover:bg-blue-200 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 text-blue-600 group-hover:scale-110 transition">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+              </div>
+              <h3 class="font-bold text-xl text-blue-600 mb-2 text-center">3. Integration</h3>
+              <p class="text-sm text-gray-600 leading-relaxed text-center">
+                We integrate the solution seamlessly with your existing systems and workflows, ensuring a smooth transition.
+              </p>
+            </div>
+          
+            <!-- STEP 4 -->
+            <div class="group card p-6 rounded-2xl bg-white shadow-md hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 flex flex-col">
+              <div class="flex-shrink-0 w-20 h-20 mx-auto mb-4 rounded-full bg-yellow-100 flex items-center justify-center border-2 border-yellow-300 group-hover:bg-yellow-200 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 text-yellow-600 group-hover:scale-110 transition">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5M12 12l-4.5 6" />
+                </svg>
+              </div>
+              <h3 class="font-bold text-xl text-yellow-600 mb-2 text-center">4. Testing</h3>
+              <p class="text-sm text-gray-600 leading-relaxed text-center">
+                Rigorous testing is conducted to ensure quality, security, and reliability before launch.
+              </p>
+            </div>
+          
+            <!-- STEP 5 -->
+            <div class="group card p-6 rounded-2xl bg-white shadow-md hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 flex flex-col">
+              <div class="flex-shrink-0 w-20 h-20 mx-auto mb-4 rounded-full bg-purple-100 flex items-center justify-center border-2 border-purple-300 group-hover:bg-purple-200 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 text-purple-600 group-hover:scale-110 transition">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h6" />
+                </svg>
+              </div>
+              <h3 class="font-bold text-xl text-purple-600 mb-2 text-center">5. Deployment</h3>
+              <p class="text-sm text-gray-600 leading-relaxed text-center">
+                Your solution is deployed in a secure, production-ready environment, with zero downtime.
+              </p>
+            </div>
+          
+            <!-- STEP 6 -->
+            <div class="group card p-6 rounded-2xl bg-white shadow-md hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 flex flex-col">
+              <div class="flex-shrink-0 w-20 h-20 mx-auto mb-4 rounded-full bg-pink-100 flex items-center justify-center border-2 border-pink-300 group-hover:bg-pink-200 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 text-pink-600 group-hover:scale-110 transition">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <h3 class="font-bold text-xl text-pink-600 mb-2 text-center">6. Support & Maintenance</h3>
+              <p class="text-sm text-gray-600 leading-relaxed text-center">
+                We provide continuous support, monitoring, and updates to keep your system running at peak performance.
+              </p>
+            </div>
+          </section>
+          
+          <section id="team" class="py-24 section-bg-primary">
+            <div class="container mx-auto px-6 text-center">
+              <h2 class="text-4xl font-extrabold mb-12 text-gray-800 tracking-tight">Meet Our Team</h2>
+          
+              <!-- Leadership -->
+              <h3 class="text-2xl font-semibold text-secondary mb-8">Leadership</h3>
+              <div class="grid sm:grid-cols-2 gap-12 max-w-6xl mx-auto mb-16">
+                
+                <!-- CEO -->
+                <div class="team-member group card p-8 rounded-2xl bg-white shadow-md hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center cursor-pointer"
+                     data-name="Dr C V Maheshwari"
+                     data-title="Chief Executive Officer"
+                     data-photo="pic.png"
+                     data-bio="Dr Maheshwari leads EEPL with decades of experience in environmental engineering, driving our mission of sustainable water & waste management solutions.">
+                  <img src="assets/profile_female.png" alt="CEO Photo" class="w-48 h-48 rounded-full object-cover mb-6 border-4 border-secondary shadow-lg">
+                  <h3 class="text-2xl font-bold text-secondary mb-1">Dr Maheshwari C.V</h3>
+                  <p class="text-sm text-gray-500 mb-4 font-semibold">Chief Executive Officer</p>
+                  <p class="text-gray-600 leading-relaxed">Dr Maheshwari leads EEPL with decades of experience in environmental engineering, driving our mission of sustainable water & waste management solutions.</p>
+                </div>
+          
+                <!-- Director -->
+                <div class="team-member group card p-8 rounded-2xl bg-white shadow-md hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center cursor-pointer"
+                     data-name="Akshay S"
+                     data-title="Director"
+                     data-photo="pic.png"
+                     data-bio="Akshay drives strategic initiatives, partnerships, and operational excellence, ensuring our projects deliver value and lasting change.">
+                  <img src="assets/profile_male.png" alt="Director Photo" class="w-48 h-48 rounded-full object-cover mb-6 border-4 border-secondary shadow-lg">
+                  <h3 class="text-2xl font-bold text-secondary mb-1">Mr Akshay S</h3>
+                  <p class="text-sm text-gray-500 mb-4 font-semibold">Director</p>
+                  <p class="text-gray-600 leading-relaxed">Akshay drives strategic initiatives, partnerships, and operational excellence, ensuring our projects deliver value and lasting change.</p>
+                </div>
+          
+              </div>
+          
+              <!-- Other Team Members -->
+              <h3 class="text-2xl font-semibold text-secondary mb-8">Our Team</h3>
+              <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+                <div class="team-member group card p-6 rounded-2xl bg-white shadow-md hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center cursor-pointer"
+                     data-name="Thanush BD"
+                     data-title="Software Developer"
+                     data-photo="pic.png"
+                     data-bio="Short bio here.">
+                  <img src="pic.png" alt="Team Member" class="w-32 h-32 rounded-full object-cover mb-4 border-4 border-secondary shadow-lg">
+                  <h3 class="text-xl font-bold text-secondary mb-1">Thanush BD</h3>
+                  <p class="text-sm text-gray-500 mb-4 font-semibold">Software Developer</p>
+                  <p class="text-gray-600 leading-relaxed">Short intro about this person.</p>
+                </div>
+                <div class="team-member group card p-6 rounded-2xl bg-white shadow-md hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center cursor-pointer"
+                     data-name="Thanush BD"
+                     data-title="Software Developer"
+                     data-photo="pic.png"
+                     data-bio="Short bio here.">
+                  <img src="assets/profile_male.png" alt="Team Member" class="w-32 h-32 rounded-full object-cover mb-4 border-4 border-secondary shadow-lg">
+                  <h3 class="text-xl font-bold text-secondary mb-1">Thanush BD</h3>
+                  <p class="text-sm text-gray-500 mb-4 font-semibold">Software Developer</p>
+                  <p class="text-gray-600 leading-relaxed">Short intro about this person.</p>
+                </div>
+                <div class="team-member group card p-6 rounded-2xl bg-white shadow-md hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center cursor-pointer"
+                     data-name="Thanush BD"
+                     data-title="Software Developer"
+                     data-photo="pic.png"
+                     data-bio="Short bio here.">
+                  <img src="assets/profile_male.png" alt="Team Member" class="w-32 h-32 rounded-full object-cover mb-4 border-4 border-secondary shadow-lg">
+                  <h3 class="text-xl font-bold text-secondary mb-1">Thanush BD</h3>
+                  <p class="text-sm text-gray-500 mb-4 font-semibold">Software Developer</p>
+                  <p class="text-gray-600 leading-relaxed">Short intro about this person.</p>
+                </div>
+                <div class="team-member group card p-6 rounded-2xl bg-white shadow-md hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center cursor-pointer"
+                     data-name="Thanush BD"
+                     data-title="Software Developer"
+                     data-photo="pic.png"
+                     data-bio="Short bio here.">
+                  <img src="assets/profile_male.png" alt="Team Member" class="w-32 h-32 rounded-full object-cover mb-4 border-4 border-secondary shadow-lg">
+                  <h3 class="text-xl font-bold text-secondary mb-1">Thanush BD</h3>
+                  <p class="text-sm text-gray-500 mb-4 font-semibold">Software Developer</p>
+                  <p class="text-gray-600 leading-relaxed">Short intro about this person.</p>
+                </div>
+              </div>
+          
+            </div>
+          </section>
+          
+  
+  <!-- TEAM MODAL -->
+<div id="teamModal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
+    <div class="bg-white p-10 rounded-3xl shadow-2xl max-w-lg w-full transform scale-95 opacity-0 transition-all duration-300 relative">
+      <button class="absolute top-4 right-6 text-gray-400 hover:text-gray-700 text-3xl font-bold" id="closeTeamModal">&times;</button>
+  
+      <div class="flex flex-col items-center text-center space-y-4">
+        <div class="relative">
+          <div class="absolute -inset-1 rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 opacity-30 blur"></div>
+          <img id="teamModalPhoto" src="" alt="" class="relative mx-auto h-28 w-28 rounded-full object-cover border-4 border-secondary shadow-xl">
+        </div>
+        <h3 id="teamModalName" class="text-2xl font-extrabold text-gray-800"></h3>
+        <p id="teamModalTitle" class="text-gray-500 font-semibold text-sm tracking-wide uppercase"></p>
+        <p id="teamModalBio" class="text-gray-600 text-lg leading-relaxed"></p>
+      </div>
+    </div>
+  </div>
+  
+  <style>
+    /* Modal visible state */
+    #teamModal.active { display:flex; }
+    #teamModal.active > div { 
+      opacity:1; 
+      transform:scale(1);
+      transition:opacity 0.4s ease, transform 0.4s ease;
+    }
+  
+    /* Add a slight fade-in for the background */
+    #teamModal.active { animation: fadeInBg 0.3s ease forwards; }
+    @keyframes fadeInBg {
+      from { background-color: rgba(0,0,0,0); }
+      to { background-color: rgba(0,0,0,0.5); }
+    }
+  
+    /* Better spacing for content */
+    #teamModal p { max-width: 90%; margin: 0 auto; }
+  </style>
+<script>
+    const teamModal = document.getElementById("teamModal");
+    const teamModalPhoto = document.getElementById("teamModalPhoto");
+    const teamModalName = document.getElementById("teamModalName");
+    const teamModalTitle = document.getElementById("teamModalTitle");
+    const teamModalBio = document.getElementById("teamModalBio");
+    const closeTeamModalBtn = document.getElementById("closeTeamModal");
+  
+    document.querySelectorAll(".team-member").forEach(member => {
+      member.addEventListener("click", () => {
+        teamModalPhoto.src = member.dataset.photo;
+        teamModalName.textContent = member.dataset.name;
+        teamModalTitle.textContent = member.dataset.title;
+        teamModalBio.textContent = member.dataset.bio;
+        teamModal.classList.add("active");
+      });
+    });
+  
+    closeTeamModalBtn.addEventListener("click", () => teamModal.classList.remove("active"));
+    teamModal.addEventListener("click", e => { if (e.target === teamModal) teamModal.classList.remove("active"); });
+    document.addEventListener("keydown", e => { if (e.key === "Escape") teamModal.classList.remove("active"); });
+  </script>
+    
+
+
+  <!-- projects sections and gallery section we have to customize it based on our clients and the projects and services we have gggiven them  -->
+
+    <section id="projects" class="py-24 bg-gray-50">
+        <div class="container mx-auto px-6">
+          <!-- Heading -->
+          <div class="text-center mb-12 fade-in">
+            <h2 class="text-4xl font-extrabold text-gray-800 tracking-tight">Our Projects</h2>
+            <p class="text-lg text-gray-600 mt-2">Explore CETP, ETP, ZLD, WTP  projects executed by EEPL.</p>
+          </div>
+      
+          <!-- Filter Buttons -->
+          <div class="flex flex-wrap justify-center gap-4 mb-10">
+            <button class="filter-btn active px-5 py-2 rounded-full bg-secondary text-white font-semibold shadow hover:shadow-md transition" data-filter="all">All</button>
+            <button class="filter-btn px-5 py-2 rounded-full bg-white border text-gray-700 hover:bg-secondary hover:text-white transition" data-filter="cetp">CETP</button>
+            <button class="filter-btn px-5 py-2 rounded-full bg-white border text-gray-700 hover:bg-secondary hover:text-white transition" data-filter="etp">ETP</button>
+            <button class="filter-btn px-5 py-2 rounded-full bg-white border text-gray-700 hover:bg-secondary hover:text-white transition" data-filter="zld">ZLD</button>
+            <button class="filter-btn px-5 py-2 rounded-full bg-white border text-gray-700 hover:bg-secondary hover:text-white transition" data-filter="dpr">DPR</button>
+          </div>
+      
+          <!-- Gallery Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="projectGallery">
+      
+            <!-- Example CETP -->
+            <div class="project-card rounded-lg overflow-hidden group cursor-pointer" 
+                 data-category="cetp" 
+                 data-image="cetp.jpeg" 
+                 data-caption="Common Effluent Treatment Plant Project">
+              <img src="cetp.jpeg" alt="CETP project" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+            </div>
+      
+            <!-- Example ETP -->
+            <div class="project-card rounded-lg overflow-hidden group cursor-pointer" 
+                 data-category="etp" 
+                 data-image="assets/p6.png" 
+                 data-caption="Effluent Treatment Plant Project">
+              <img src="assets/p6.png" alt="ETP project" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+            </div>
+      
+            <!-- Example ZLD -->
+            <div class="project-card rounded-lg overflow-hidden group cursor-pointer" 
+                 data-category="zld" 
+                 data-image="assets/p2.jpeg" 
+                 data-caption="Zero Liquid Discharge Plant">
+              <img src="assets/Screenshot 2025-09-16 at 5.33.25 PM.png" alt="ZLD project" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+            </div>
+      
+            
+            <div class="project-card rounded-lg overflow-hidden group cursor-pointer" 
+                 data-category="cetp" 
+                 data-image="assets/p5.png" 
+                 data-caption="Common Effluent Treatment Plant Project">
+              <img src="assets/Screenshot 2025-09-16 at 5.33.51 PM.png" alt="DPR project" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+            </div>
+
+            <div class="project-card rounded-lg overflow-hidden group cursor-pointer" 
+                 data-category="cetp" 
+                 data-image="assets/p4.png" 
+                 data-caption="Common Effluent Treatment Plant Project">
+              <img src="assets/Screenshot 2025-09-16 at 5.33.14 PM.png" alt="DPR project" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+            </div>
+
+            <div class="project-card rounded-lg overflow-hidden group cursor-pointer" 
+                 data-category="cetp" 
+                 data-image="assets/p3.png" 
+                 data-caption="Common Effluent Treatment Plant Project">
+              <img src="assets/p3.png" alt="DPR project" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+            </div>
+
+            <div class="project-card rounded-lg overflow-hidden group cursor-pointer" 
+                 data-category="cetp" 
+                 data-image="assets/p2.jpeg" 
+                 data-caption="Common Effluent Treatment Plant Project">
+              <img src="assets/Screenshot 2025-09-16 at 5.33.14 PM.png" alt="DPR project" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+            </div>
+
+            <div class="project-card rounded-lg overflow-hidden group cursor-pointer" 
+                 data-category="cetp" 
+                 data-image="assets/p2.jpeg" 
+                 data-caption="Common Effluent Treatment Plant Project">
+              <img src="assets/Screenshot 2025-09-16 at 5.32.57 PM.png" alt="DPR project" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+            </div>
+
+            <div class="project-card rounded-lg overflow-hidden group cursor-pointer" 
+                 data-category="cetp" 
+                 data-image="assets/p2.jpeg" 
+                 data-caption="Common Effluent Treatment Plant Project">
+              <img src="assets/Screenshot 2025-09-16 at 5.33.07 PM.png" alt="DPR project" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+            </div>
+
+            <div class="project-card rounded-lg overflow-hidden group cursor-pointer" 
+                 data-category="cetp" 
+                 data-image="assets/p2.jpeg" 
+                 data-caption="Common Effluent Treatment Plant Project">
+              <img src="assets/p2.png" alt="DPR project" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+            </div>
+      
+            
+      
+          </div>
+        </div>
+      </section>
+      
+      <!-- LIGHTBOX MODAL -->
+      <div id="lightboxModal" class="fixed inset-0 bg-black/70 hidden items-center justify-center z-50">
+        <div class="bg-white rounded-2xl shadow-xl max-w-3xl w-full mx-4 overflow-hidden relative flex flex-col">
+          <button class="absolute top-4 right-4 text-gray-200 hover:text-white text-3xl" id="closeLightbox">&times;</button>
+          <!-- Arrows -->
+          <button id="prevBtn" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/40 text-white px-3 py-2 rounded-full hover:bg-black/60">‹</button>
+          <button id="nextBtn" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/40 text-white px-3 py-2 rounded-full hover:bg-black/60">›</button>
+      
+          <img id="lightboxImage" src="" alt="" class="w-full object-contain max-h-[80vh]">
+          <p id="lightboxCaption" class="text-center text-gray-700 text-lg p-4"></p>
+        </div>
+      </div>
+      
+      <style>
+        .filter-btn.active {
+          background-color: #4f46e5; /* your secondary color */
+          color: #fff;
+        }
+        #lightboxModal.active { display:flex; }
+      </style>
+      
+      <script>
+        // Filter Logic
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+      
+        filterBtns.forEach(btn => {
+          btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active', 'bg-secondary', 'text-white'));
+            btn.classList.add('active', 'bg-secondary', 'text-white');
+            const filter = btn.dataset.filter;
+            projectCards.forEach(card => {
+              card.style.display = (filter === 'all' || card.dataset.category === filter) ? 'block' : 'none';
+            });
+          });
+        });
+      
+        // Lightbox Logic with arrows
+        const lightboxModal = document.getElementById('lightboxModal');
+        const lightboxImage = document.getElementById('lightboxImage');
+        const lightboxCaption = document.getElementById('lightboxCaption');
+        const closeLightboxBtn = document.getElementById('closeLightbox');
+        const nextBtn = document.getElementById('nextBtn');
+        const prevBtn = document.getElementById('prevBtn');
+      
+        let currentIndex = 0;
+        let visibleCards = [];
+      
+        function openLightbox(index) {
+          visibleCards = Array.from(projectCards).filter(card => card.style.display !== 'none');
+          currentIndex = index;
+          const card = visibleCards[currentIndex];
+          lightboxImage.src = card.dataset.image;
+          lightboxCaption.textContent = card.dataset.caption;
+          lightboxModal.classList.add('active');
+        }
+      
+        projectCards.forEach((card, index) => {
+          card.addEventListener('click', () => openLightbox(index));
+        });
+      
+        function showImage(index) {
+          const card = visibleCards[index];
+          lightboxImage.src = card.dataset.image;
+          lightboxCaption.textContent = card.dataset.caption;
+        }
+      
+        nextBtn.addEventListener('click', () => {
+          currentIndex = (currentIndex + 1) % visibleCards.length;
+          showImage(currentIndex);
+        });
+      
+        prevBtn.addEventListener('click', () => {
+          currentIndex = (currentIndex - 1 + visibleCards.length) % visibleCards.length;
+          showImage(currentIndex);
+        });
+      
+        closeLightboxBtn.addEventListener('click', () => lightboxModal.classList.remove('active'));
+        lightboxModal.addEventListener('click', e => { if (e.target === lightboxModal) lightboxModal.classList.remove('active'); });
+        document.addEventListener('keydown', e => { 
+          if (e.key === 'Escape') lightboxModal.classList.remove('active');
+          if (e.key === 'ArrowRight') { nextBtn.click(); }
+          if (e.key === 'ArrowLeft') { prevBtn.click(); }
+        });
+      </script>
+      
+
+        <section id="why-us" class="py-24 section-bg-primary">
+            <div class="container mx-auto px-6 text-center">
+                <div class="max-w-4xl mx-auto fade-in">
+                    <h2 class="text-3xl font-bold mb-4">Why Choose Us?</h2>
+                    <p class="gradient-text text-2xl italic mb-8">"Beyond Compliance. Towards a Greener Tomorrow."</p>
+                    <p class="leading-relaxed">At EEPL, we don't just manage waste—we engineer solutions that create value, protect resources, and drive sustainable growth. With accredited labs, advanced technology, and a trusted client base, we deliver eco-smart results that last. Offshore tie ups rich in-house advisory board, institution tie ups to bring the worlds most advanced and optimum technology for your door step.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="clients" class="py-24 bg-gray-50">
+            <div class="container mx-auto px-6">
+              <!-- Section Title -->
+              <h2 class="text-4xl font-extrabold text-center mb-16 text-gray-800 tracking-tight animate-fade-in">
+                Our Valued Clients
+              </h2>
+          
+              <div class="grid md:grid-cols-2 gap-10">
+                <!-- Private Clients -->
+                <div class="group bg-white p-10 rounded-2xl shadow-md hover:shadow-2xl transition duration-300 transform hover:-translate-y-1 hover:scale-[1.02] animate-slide-up">
+                  <h3 class="text-2xl font-bold text-indigo-600 mb-6 text-center">
+                    Private Clients
+                  </h3>
+                  <ul class="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-3 text-gray-700 text-lg">
+                    <li class="client-item" data-client="Cipla Limited" data-logo="assets/cipla.jpg" data-desc="Cipla is a leading global pharmaceutical company.">Cipla Limited</li>
+                    <li class="client-item" data-client="Sami Labs Limited" data-logo="assets/samilabs.webp" data-desc="Sami Labs specializes in nutraceutical and pharmaceutical ingredients.">Sami Labs Limited</li>
+                    <li class="client-item" data-client="Micro Labs Limited" data-logo="assets/microlabs.png" data-desc="Micro Labs manufactures world-class pharmaceutical products.">Micro Labs Limited</li>
+                    <li class="client-item" data-client="Stellance Pharmascience Pvt Ltd" data-logo="assets/stellance.png" data-desc="Pharmaceutical solutions provider with cutting-edge technology.">Stellance Pharmascience</li>
+                    <li class="client-item" data-client="Schneider Electric Global" data-logo="assets/schindler-logo-two-color.png" data-desc="Schneider Electric – energy management and automation leader.">Schneider Electric</li>
+                    <li class="client-item" data-client="Micropack Pvt Ltd" data-logo="assets/micropack.jpeg" data-desc="Micropack offers fire & gas detection systems worldwide.">Micropack Pvt Ltd</li>
+                    <li class="client-item" data-client="Aragen Life Science" data-logo="assets/aragen.png" data-desc="Aragen Life Sciences – research-driven CRO/CDMO.">Aragen Life Science</li>
+                    <li class="client-item" data-client="Bisleri International Pvt Ltd" data-logo="assets/bisleri.png" data-desc="India’s most trusted bottled water brand.">Bisleri International</li>
+                    <li class="client-item" data-client="Kolemon" data-logo="assets/kolemon.png" data-desc="Specialized manufacturing solutions provider.">Kolemon</li>
+                    <li class="client-item" data-client="Endurance Technologies Ltd" data-logo="assets/endurance.png" data-desc="Auto component manufacturer serving global OEMs.">Endurance Technologies</li>
+                    <li class="client-item" data-client="Global Green Company Ltd" data-logo="assets/gglobalgreen.png" data-desc="Leading agro-products exporter and manufacturer.">Global Green</li>
+                    <li class="client-item" data-client="BillForge Pvt Ltd" data-logo="/Users/thanush/Downloads/EEPL/assets/billforge.png" data-desc="Precision forging and manufacturing company.">BillForge Pvt Ltd</li>
+                    <li class="client-item" data-client="Godrej" data-logo="assets/godrej-logo-png_seeklogo-61760.png" data-desc="One of India's most trusted conglomerates.">Godrej</li>
+                    <li class="client-item" data-client="L&T" data-logo="/images/clients/lt.png" data-desc="Larsen & Toubro – engineering & construction giant.">L&T</li>
+                    <li class="client-item" data-client="Prestige Groups" data-logo="assets/prestige.png" data-desc="Prestige Group – real estate & construction leader.">Prestige Groups</li>
+                    <li class="client-item" data-client="ITC Limited" data-logo="assets/itc.jpg" data-desc="ITC Limited – FMCG & hospitality leader.">ITC Limited</li>
+                    <li class="client-item" data-client="Bharatiya City" data-logo="/images/clients/bharatiya-city.png" data-desc="Integrated smart city project.">Bharatiya City</li>
+                    <li class="client-item" data-client="BARC" data-logo="/images/clients/barc.png" data-desc="Bhabha Atomic Research Centre – India’s premier nuclear research facility.">BARC</li>
+                    <li class="client-item" data-client="Brigade Group" data-logo="/images/clients/brigade.png" data-desc="Brigade – one of India’s leading real estate developers.">Brigade Group</li>
+                  </ul>
+                </div>
+          
+                <!-- Government Clients -->
+                <div class="group bg-white p-10 rounded-2xl shadow-md hover:shadow-2xl transition duration-300 transform hover:-translate-y-1 hover:scale-[1.02] animate-slide-up">
+                  <h3 class="text-2xl font-bold text-indigo-600 mb-6 text-center">
+                    Government Clients
+                  </h3>
+                  <ul class="space-y-3 text-center text-lg text-gray-700">
+                    <li class="client-item" data-client="CETP Kadechur" data-logo="/images/clients/cetp.png" data-desc="Effluent treatment project in Kadechur.">CETP Kadechur</li>
+                    <li class="client-item" data-client="CETP Dodballapur" data-logo="/images/clients/cetp.png" data-desc="Effluent treatment project in Dodballapur.">CETP Dodballapur</li>
+                    <li class="client-item" data-client="CETP Chandapur" data-logo="/images/clients/cetp.png" data-desc="Effluent treatment project in Chandapur.">CETP Chandapur</li>
+                    <li class="client-item" data-client="CETP Baikampady" data-logo="/images/clients/cetp.png" data-desc="Effluent treatment project in Baikampady.">CETP Baikampady</li>
+                    <li class="client-item" data-client="CETP Bidar" data-logo="/images/clients/cetp.png" data-desc="Effluent treatment project in Bidar.">CETP Bidar</li>
+                    <li class="client-item" data-client="CETP Harohalli" data-logo="/images/clients/cetp.png" data-desc="Effluent treatment project in Harohalli.">CETP Harohalli</li>
+                    <li class="client-item" data-client="CETP Raichur" data-logo="/images/clients/cetp.png" data-desc="Effluent treatment project in Raichur.">CETP Raichur</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+          
+          <!-- Modal -->
+          <div id="clientModal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
+            <div class="bg-white p-8 rounded-2xl shadow-xl max-w-lg w-full transform scale-95 opacity-0 transition-all duration-300 relative">
+              <button class="absolute top-4 right-6 text-gray-500 hover:text-gray-900 text-2xl" id="closeModal">&times;</button>
+              <img id="modalLogo" src="" alt="" class="mx-auto h-20 object-contain mb-4">
+              <h3 id="modalTitle" class="text-2xl font-bold text-center text-indigo-600 mb-2"></h3>
+              <p id="modalContent" class="text-gray-600 text-center text-lg"></p>
+            </div>
+          </div>
+          
+          <style>
+            @keyframes fade-in { 0% {opacity:0;transform:translateY(20px);} 100% {opacity:1;transform:translateY(0);} }
+            @keyframes slide-up { 0% {opacity:0;transform:translateY(40px);} 100% {opacity:1;transform:translateY(0);} }
+            .animate-fade-in { animation: fade-in 1s ease-in-out forwards; }
+            .animate-slide-up { animation: slide-up 1s ease-in-out forwards; }
+            .client-item { cursor:pointer; transition:color 0.2s ease, transform 0.2s ease; }
+            .client-item:hover { color:#4f46e5; transform:scale(1.03); }
+            #clientModal.active { display:flex; }
+            #clientModal.active > div { opacity:1; transform:scale(1); }
+          </style>
+          
+          <script>
+            const modal = document.getElementById("clientModal");
+            const modalTitle = document.getElementById("modalTitle");
+            const modalContent = document.getElementById("modalContent");
+            const modalLogo = document.getElementById("modalLogo");
+            const closeModalBtn = document.getElementById("closeModal");
+          
+            document.querySelectorAll(".client-item").forEach(item => {
+              item.addEventListener("click", () => {
+                modalTitle.textContent = item.dataset.client;
+                modalContent.textContent = item.dataset.desc || "Details coming soon.";
+                modalLogo.src = item.dataset.logo || "";
+                modal.classList.add("active");
+              });
+            });
+          
+            closeModalBtn.addEventListener("click", () => modal.classList.remove("active"));
+            modal.addEventListener("click", e => { if (e.target === modal) modal.classList.remove("active"); });
+            document.addEventListener("keydown", e => { if (e.key === "Escape") modal.classList.remove("active"); });
+          </script>
+          
+
+        <section id="contact" class="py-24 section-bg-primary">
+            <div class="container mx-auto px-6">
+                <div class="text-center">
+                    <h2 class="text-4xl font-bold mb-4 fade-in">Partner with us for a <span class="gradient-text">greener tomorrow.</span></h2>
+                    <p class="text-lg text-muted mb-12 fade-in">Get in touch with our experts today.</p>
+                </div>
+                <div class="max-w-5xl mx-auto card p-8 rounded-lg shadow-2xl fade-in">
+                    <div class="grid md:grid-cols-2 gap-12 items-start">
+                        <div class="text-left">
+                            <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+                            <div class="space-y-6">
+                                <a href="mailto:info@ecologicengineering.co.in" class="flex items-center group"><svg class="w-6 h-6 text-secondary mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg><span class="group-hover:text-secondary transition">info@ecologicengineering.co.in</span></a>
+                                <a href="mailto:marketing@ecologicengineering.co.in" class="flex items-center group"><svg class="w-6 h-6 text-secondary mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg><span class="group-hover:text-secondary transition">marketing@ecologicengineering.co.in</span></a>
+                                <a href="http://www.ecologicengineering.co.in" target="_blank" class="flex items-center group"><svg class="w-6 h-6 text-secondary mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg><span class="group-hover:text-secondary transition">www.ecologicengineering.co.in</span></a>
+                                <div class="flex items-start"><svg class="w-6 h-6 text-secondary mr-4 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg><span>No. 13, St John Church Street, Bengaluru 560005</span></div>
+                                <a href="tel:+919845669830" class="flex items-center group"><svg class="w-6 h-6 text-secondary mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg><span class="group-hover:text-secondary transition">9845669830</span></a>
+                            </div>
+                            <div class="mt-8 rounded-lg overflow-hidden border" style="border-color: var(--color-border);">
+                             <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.970119113643!2d77.59905891482202!3d12.973748890854426!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae166a9f5f0e3d%3A0x2870e8bce2399127!2sSt.%20John&#39;s%20Church%20Rd%2C%20Bengaluru%2C%20Karnataka%20560005!5e0!3m2!1sen!2sin!4v1663333215981!5m2!1sen!2sin" 
+                            class="w-full" height="250" style="border:0;" allowfullscreen="" loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                            </div>
+                        </div>
+                        <div class="text-left">
+                            <h3 class="text-2xl font-bold mb-6">Send us a Message</h3>
+                            <form action="#" method="POST" class="space-y-4">
+                                <div>
+                                    <label for="name" class="sr-only">Name</label>
+                                    <input type="text" name="name" id="name" placeholder="Your Name" class="w-full form-input rounded-md py-2 px-4">
+                                </div>
+                                <div>
+                                    <label for="email" class="sr-only">Email</label>
+                                    <input type="email" name="email" id="email" placeholder="Your Email" class="w-full form-input rounded-md py-2 px-4">
+                                </div>
+                                <div>
+                                    <label for="message" class="sr-only">Message</label>
+                                    <textarea name="message" id="message" rows="4" placeholder="Your Message" class="w-full form-input rounded-md py-2 px-4"></textarea>
+                                </div>
+                                <div>
+                                    <button type="submit" class="w-full bg-secondary text-primary font-bold py-3 px-8 rounded-full hover:bg-yellow-300 transition duration-300 transform hover:scale-105 shadow-lg shadow-yellow-500/20">Send Message</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer style="background-color: var(--color-bg-primary);" class="text-center py-6">
+        <div class="container mx-auto px-6">
+            <p class="text-muted">© 2025 Ecologic Engineering Pvt. Ltd. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // THEME TOGGLE SCRIPT
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+        const htmlEl = document.documentElement;
+
+        function setTheme(theme) {
+            if (theme === 'dark') {
+                htmlEl.classList.add('dark');
+                themeToggleLightIcon.classList.remove('hidden');
+                themeToggleDarkIcon.classList.add('hidden');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                htmlEl.classList.remove('dark');
+                themeToggleDarkIcon.classList.remove('hidden');
+                themeToggleLightIcon.classList.add('hidden');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        const storedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        if (storedTheme === 'dark' || (!storedTheme && systemPrefersDark)) {
+            setTheme('dark');
+        } else {
+            setTheme('light');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = htmlEl.classList.contains('dark') ? 'dark' : 'light';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            setTheme(newTheme);
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu Toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+            function closeMobileMenu() {
+                mobileMenu.classList.remove('open');
+                mobileMenuButton.classList.remove('toggled');
+                mobileMenuOverlay.style.opacity = '0';
+                mobileMenuOverlay.style.pointerEvents = 'none';
+            }
+
+            mobileMenuButton.addEventListener('click', () => {
+                const isOpen = mobileMenu.classList.toggle('open');
+                mobileMenuButton.classList.toggle('toggled', isOpen);
+                mobileMenuOverlay.style.opacity = isOpen ? '1' : '0';
+                mobileMenuOverlay.style.pointerEvents = isOpen ? 'auto' : 'none';
+            });
+
+            mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', closeMobileMenu);
+            });
+
+            // Active Link Highlighting on Scroll
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('nav a.nav-link');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.4
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.add('active');
+                            }
+                       });
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // On-scroll fade-in animations
+        const faders = document.querySelectorAll('.fade-in');
+        const appearOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                } else {
+                    entry.target.classList.add('visible');
+                    appearOnScroll.unobserve(entry.target);
+                }
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+
+                if(mobileMenu.classList.contains('hidden') === false) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+        
+        // Header style on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+        });
+    </script>
+
+
+
+
+      
+
+</body>
+</html>
+
