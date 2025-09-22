@@ -11,11 +11,12 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
-        about: resolve(__dirname, 'about_us.html'), // Assuming you have this file
+        about: resolve(__dirname, 'about_us.html'),
         services: resolve(__dirname, 'services.html'),
         projects: resolve(__dirname, 'projects.html'),
         clients: resolve(__dirname, 'clients.html'),
         contact: resolve(__dirname, 'contact_us.html'),
+        careers: resolve(__dirname, 'carrers.html'),
       },
     },
   },
