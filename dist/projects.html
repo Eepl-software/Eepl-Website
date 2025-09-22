@@ -13,6 +13,7 @@
     <style>
         :root {
             --color-bg: #f8fafc;
+            --color-bg-primary: #ffffff;
             --color-bg-primary-rgb: 255, 255, 255;
             --color-text: #0f172a;
             --color-text-muted: #475569;
@@ -21,6 +22,7 @@
             --color-accent-text: #ffffff;
             --color-border: #e2e8f0;
             --color-card-bg: rgba(255, 255, 255, 0.9);
+            --color-section-bg: #f1f5f9;
             --gradient-primary: linear-gradient(135deg, #16a34a 0%, #059669 100%);
             --gradient-secondary: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
             --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -29,6 +31,7 @@
         
         html.dark {
             --color-bg: #0f172a;
+            --color-bg-primary: #1e293b;
             --color-bg-primary-rgb: 30, 41, 59;
             --color-text: #f1f5f9;
             --color-text-muted: #94a3b8;
@@ -37,6 +40,7 @@
             --color-accent-text: #0f172a;
             --color-border: #334155;
             --color-card-bg: rgba(30, 41, 59, 0.9);
+            --color-section-bg: #1e293b;
         }
 
         body {
@@ -45,6 +49,14 @@
             color: var(--color-text);
             line-height: 1.6;
             transition: all 0.3s ease;
+        }
+
+        .text-muted {
+            color: var(--color-text-muted) !important;
+        }
+
+        .bg-section {
+            background-color: var(--color-section-bg);
         }
 
         .gradient-bg {
@@ -157,10 +169,11 @@
             <nav class="hidden md:flex items-center space-x-8">
                 <a href="index.html" class="nav-link font-medium">Home</a>
                 <a href="about_us.html" class="nav-link font-medium">About Us</a>
-                <a href="services.html" class="nav-link font-medium active">Services</a>
-                <a href="projects.html" class="nav-link font-medium">Projects</a>
-                <a href="clients.html" class="nav-link px-4 py-2 rounded-full active">Clients</a>
+                <a href="services.html" class="nav-link font-medium">Services</a>
+                <a href="projects.html" class="nav-link font-medium active">Projects</a>
+                <a href="clients.html" class="nav-link font-medium">Clients</a>
                 <a href="contact_us.html" class="nav-link font-medium">Contact</a>
+                <a href="carrers.html" class="nav-link font-medium">Careers</a>
                 <button id="theme-toggle" type="button" class="ml-4 text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none rounded-lg text-sm p-2.5">
                     <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
                     <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm-.707 12.02a1 1 0 010-1.414l.707-.707a1 1 0 111.414 1.414l-.707.707a1 1 0 01-1.414 0zM1 11a1 1 0 100-2H0a1 1 0 100 2h1z"></path></svg>
@@ -173,10 +186,11 @@
         <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-900 border-t">
             <a href="index.html" class="block py-3 px-6 hover:bg-gray-50 dark:hover:bg-gray-800">Home</a>
             <a href="about_us.html" class="block py-3 px-6 hover:bg-gray-50 dark:hover:bg-gray-800">About Us</a>
-            <a href="services.html" class="block py-3 px-6 bg-secondary text-primary font-semibold">Services</a>
-            <a href="projects.html" class="block py-3 px-6 hover:bg-gray-50 dark:hover:bg-gray-800">Projects</a>
-            <a href="clients.html" class="nav-link px-4 py-2 rounded-full active">Clients</a>
+            <a href="services.html" class="block py-3 px-6 hover:bg-gray-50 dark:hover:bg-gray-800">Services</a>
+            <a href="projects.html" class="block py-3 px-6 bg-secondary text-primary font-semibold">Projects</a>
+            <a href="clients.html" class="block py-3 px-6 hover:bg-gray-50 dark:hover:bg-gray-800">Clients</a>
             <a href="contact_us.html" class="block py-3 px-6 hover:bg-gray-50 dark:hover:bg-gray-800">Contact</a>
+            <a href="carrers.html" class="nav-link font-medium">Careers</a>
         </div>
     </header>
 
@@ -205,24 +219,24 @@
         </section>
 
         <!-- Stats Section -->
-        <section id="stats" class="py-16 bg-gray-50 dark:bg-slate-800">
+        <section id="stats" class="py-16 bg-section">
             <div class="container mx-auto px-6">
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-8 slide-up">
                     <div class="stat-card p-6 rounded-xl text-center">
                         <div class="text-3xl md:text-4xl font-bold gradient-text mb-2">200+</div>
-                        <div class="text-sm text-gray-600 dark:text-gray-300 font-medium">Projects Delivered</div>
+                        <div class="text-sm text-muted font-medium">Projects Delivered</div>
                     </div>
                     <div class="stat-card p-6 rounded-xl text-center">
                         <div class="text-3xl md:text-4xl font-bold gradient-text mb-2">50M+</div>
-                        <div class="text-sm text-gray-600 dark:text-gray-300 font-medium">Liters/Day Capacity</div>
+                        <div class="text-sm text-muted font-medium">Liters/Day Capacity</div>
                     </div>
                     <div class="stat-card p-6 rounded-xl text-center">
                         <div class="text-3xl md:text-4xl font-bold gradient-text mb-2">15+</div>
-                        <div class="text-sm text-gray-600 dark:text-gray-300 font-medium">Years Experience</div>
+                        <div class="text-sm text-muted font-medium">Years Experience</div>
                     </div>
                     <div class="stat-card p-6 rounded-xl text-center">
                         <div class="text-3xl md:text-4xl font-bold gradient-text mb-2">98%</div>
-                        <div class="text-sm text-gray-600 dark:text-gray-300 font-medium">Client Satisfaction</div>
+                        <div class="text-sm text-muted font-medium">Client Satisfaction</div>
                     </div>
                 </div>
             </div>
@@ -233,7 +247,7 @@
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
                     <h2 class="text-4xl font-bold mb-4">Our Project Portfolio</h2>
-                    <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    <p class="text-xl text-muted max-w-3xl mx-auto">
                         From concept to commissioning, we deliver comprehensive environmental solutions that exceed expectations
                     </p>
                 </div>
@@ -280,9 +294,9 @@
                         </div>
                         <div class="p-6">
                             <h3 class="text-xl font-bold mb-2">Textile Industry ETP</h3>
-                            <p class="text-gray-600 dark:text-gray-300 mb-4">5 MLD capacity treatment plant achieving 95% COD reduction for leading textile manufacturer</p>
+                            <p class="text-muted mb-4">5 MLD capacity treatment plant achieving 95% COD reduction for leading textile manufacturer</p>
                             <div class="flex justify-between items-center">
-                                <div class="text-sm text-gray-500">Capacity: 5 MLD</div>
+                                <div class="text-sm text-muted">Capacity: 5 MLD</div>
                                 <button class="text-green-600 hover:text-green-700 font-semibold learn-more-btn" 
                                         data-title="Textile Industry ETP"
                                         data-capacity="5 MLD"
@@ -306,9 +320,9 @@
                         </div>
                         <div class="p-6">
                             <h3 class="text-xl font-bold mb-2">Pharmaceutical ETP Complex</h3>
-                            <p class="text-gray-600 dark:text-gray-300 mb-4">Multi-stage treatment for API manufacturing with strict compliance to CPCB norms</p>
+                            <p class="text-muted mb-4">Multi-stage treatment for API manufacturing with strict compliance to CPCB norms</p>
                             <div class="flex justify-between items-center">
-                                <div class="text-sm text-gray-500">Capacity: 2.5 MLD</div>
+                                <div class="text-sm text-muted">Capacity: 2.5 MLD</div>
                                 <button class="text-green-600 hover:text-green-700 font-semibold learn-more-btn"
                                         data-title="Pharmaceutical ETP Complex"
                                         data-capacity="2.5 MLD"
@@ -333,9 +347,9 @@
                         </div>
                         <div class="p-6">
                             <h3 class="text-xl font-bold mb-2">Industrial Park CETP</h3>
-                            <p class="text-gray-600 dark:text-gray-300 mb-4">Centralized treatment serving 50+ industries with automated monitoring systems</p>
+                            <p class="text-muted mb-4">Centralized treatment serving 50+ industries with automated monitoring systems</p>
                             <div class="flex justify-between items-center">
-                                <div class="text-sm text-gray-500">Capacity: 25 MLD</div>
+                                <div class="text-sm text-muted">Capacity: 25 MLD</div>
                                 <button class="text-green-600 hover:text-green-700 font-semibold learn-more-btn"
                                         data-title="Industrial Park CETP"
                                         data-capacity="25 MLD"
@@ -360,9 +374,9 @@
                         </div>
                         <div class="p-6">
                             <h3 class="text-xl font-bold mb-2">Chemical Plant ZLD System</h3>
-                            <p class="text-gray-600 dark:text-gray-300 mb-4">Complete water recovery with salt crystallization for specialty chemicals manufacturer</p>
-                            <div class="flex justify-between items-centers">
-                                <div class="text-sm text-gray-500">Recovery: 95%</div>
+                            <p class="text-muted mb-4">Complete water recovery with salt crystallization for specialty chemicals manufacturer</p>
+                            <div class="flex justify-between items-center">
+                                <div class="text-sm text-muted">Recovery: 95%</div>
                                 <button class="text-green-600 hover:text-green-700 font-semibold learn-more-btn"
                                         data-title="Chemical Plant ZLD System"
                                         data-capacity="1.5 MLD"
@@ -387,9 +401,9 @@
                         </div>
                         <div class="p-6">
                             <h3 class="text-xl font-bold mb-2">Energy-Efficient MVRE Plant</h3>
-                            <p class="text-gray-600 dark:text-gray-300 mb-4">Low-energy evaporation system with 80% energy savings compared to conventional methods</p>
+                            <p class="text-muted mb-4">Low-energy evaporation system with 80% energy savings compared to conventional methods</p>
                             <div class="flex justify-between items-center">
-                                <div class="text-sm text-gray-500">Energy: 80% Savings</div>
+                                <div class="text-sm text-muted">Energy: 80% Savings</div>
                                 <button class="text-green-600 hover:text-green-700 font-semibold learn-more-btn"
                                         data-title="Energy-Efficient MVRE Plant"
                                         data-capacity="500 KLD"
@@ -589,6 +603,151 @@
             </div>
         </div>
     </div>
+
+        <!-- Project Insights Blog Section -->
+        <section class="py-24 bg-section">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-4">Project Insights & Case Studies</h2>
+                    <p class="text-xl text-muted max-w-3xl mx-auto">
+                        Deep dive into our successful projects and learn about innovative environmental solutions
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <article class="stat-card p-6 rounded-xl">
+                        <div class="mb-4">
+                            <img src="/Eepl-Website/assets/p4-D5VSqb6N.png" alt="ETP Case Study" class="w-full h-48 object-cover rounded-lg">
+                        </div>
+                        <div class="text-sm text-muted mb-2">Case Study • December 20, 2024</div>
+                        <h3 class="text-xl font-bold mb-3">Textile Industry ETP: 95% COD Reduction Achieved</h3>
+                        <p class="text-muted mb-4">How we designed and implemented a 5 MLD ETP system that exceeded environmental compliance standards...</p>
+                        <a href="#" class="text-green-600 font-semibold hover:underline">Read Case Study →</a>
+                    </article>
+                    <article class="stat-card p-6 rounded-xl">
+                        <div class="mb-4">
+                            <img src="/Eepl-Website/assets/p5-D3rz4vX1.png" alt="ZLD Technology" class="w-full h-48 object-cover rounded-lg">
+                        </div>
+                        <div class="text-sm text-muted mb-2">Technology • December 18, 2024</div>
+                        <h3 class="text-xl font-bold mb-3">Zero Liquid Discharge: The Future of Water Management</h3>
+                        <p class="text-muted mb-4">Exploring advanced ZLD technologies and their implementation in chemical manufacturing facilities...</p>
+                        <a href="#" class="text-green-600 font-semibold hover:underline">Read Article →</a>
+                    </article>
+                    <article class="stat-card p-6 rounded-xl">
+                        <div class="mb-4">
+                            <img src="/Eepl-Website/assets/p6-Bp7sZrmg.png" alt="CETP Solutions" class="w-full h-48 object-cover rounded-lg">
+                        </div>
+                        <div class="text-sm text-muted mb-2">Innovation • December 15, 2024</div>
+                        <h3 class="text-xl font-bold mb-3">CETP Automation: Smart Monitoring for Industrial Parks</h3>
+                        <p class="text-muted mb-4">How IoT and automation are revolutionizing centralized effluent treatment plants...</p>
+                        <a href="#" class="text-green-600 font-semibold hover:underline">Read More →</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Client Testimonials Section -->
+        <section class="py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-4">What Our Clients Say About Our Projects</h2>
+                    <p class="text-xl text-muted">Real feedback from successful project implementations</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="stat-card p-8 rounded-xl text-center">
+                        <div class="mb-6">
+                            <div class="w-20 h-20 bg-gradient-to-r from-green-500 to-green-600 rounded-full mx-auto flex items-center justify-center">
+                                <span class="text-white font-bold text-2xl">G</span>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-6 italic text-lg">"EEPL's ETP system has been running flawlessly for 3 years. The 95% COD reduction exceeded our expectations and helped us achieve environmental compliance ahead of schedule."</p>
+                        <div class="font-semibold text-lg">Godrej Industries</div>
+                        <div class="text-sm text-muted">Textile Division</div>
+                        <div class="mt-2 text-yellow-500">★★★★★</div>
+                    </div>
+                    <div class="stat-card p-8 rounded-xl text-center">
+                        <div class="mb-6">
+                            <div class="w-20 h-20 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full mx-auto flex items-center justify-center">
+                                <span class="text-white font-bold text-2xl">I</span>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-6 italic text-lg">"The ZLD system designed by EEPL has revolutionized our water management. We've achieved 95% water recovery and significant cost savings in our chemical plant operations."</p>
+                        <div class="font-semibold text-lg">ITC Limited</div>
+                        <div class="text-sm text-muted">Chemical Division</div>
+                        <div class="mt-2 text-yellow-500">★★★★★</div>
+                    </div>
+                    <div class="stat-card p-8 rounded-xl text-center">
+                        <div class="mb-6">
+                            <div class="w-20 h-20 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full mx-auto flex items-center justify-center">
+                                <span class="text-white font-bold text-2xl">C</span>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-6 italic text-lg">"Outstanding project execution! The CETP system serves 50+ industries efficiently. EEPL's technical expertise and project management were exemplary throughout the implementation."</p>
+                        <div class="font-semibold text-lg">Cipla Limited</div>
+                        <div class="text-sm text-muted">Industrial Park</div>
+                        <div class="mt-2 text-yellow-500">★★★★★</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project FAQ Section -->
+        <section class="py-24 bg-section">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-4">Project-Related Questions</h2>
+                    <p class="text-xl text-muted">Common questions about our project implementation process</p>
+                </div>
+                <div class="max-w-4xl mx-auto">
+                    <div class="space-y-4">
+                        <div class="stat-card p-6 rounded-xl">
+                            <button class="w-full text-left flex justify-between items-center" onclick="toggleProjectFAQ(this)">
+                                <h3 class="text-lg font-semibold">What is the typical project timeline from design to commissioning?</h3>
+                                <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            <div class="project-faq-content hidden mt-4">
+                                <p class="text-muted">Project timelines vary by complexity: ETP systems (3-6 months), CETP installations (6-12 months), ZLD systems (4-8 months), and MVRE plants (2-4 months). We provide detailed project schedules during the design phase.</p>
+                            </div>
+                        </div>
+                        <div class="stat-card p-6 rounded-xl">
+                            <button class="w-full text-left flex justify-between items-center" onclick="toggleProjectFAQ(this)">
+                                <h3 class="text-lg font-semibold">Do you provide operation and maintenance support after project completion?</h3>
+                                <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            <div class="project-faq-content hidden mt-4">
+                                <p class="text-muted">Yes, we offer comprehensive O&M services including operator training, maintenance schedules, spare parts supply, and 24/7 technical support. We also provide performance monitoring and optimization services.</p>
+                            </div>
+                        </div>
+                        <div class="stat-card p-6 rounded-xl">
+                            <button class="w-full text-left flex justify-between items-center" onclick="toggleProjectFAQ(this)">
+                                <h3 class="text-lg font-semibold">What certifications and compliance standards do your projects meet?</h3>
+                                <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            <div class="project-faq-content hidden mt-4">
+                                <p class="text-muted">Our projects comply with CPCB norms, state pollution control board requirements, and international standards like ISO 14001. We ensure all installations meet or exceed environmental discharge standards.</p>
+                            </div>
+                        </div>
+                        <div class="stat-card p-6 rounded-xl">
+                            <button class="w-full text-left flex justify-between items-center" onclick="toggleProjectFAQ(this)">
+                                <h3 class="text-lg font-semibold">Can you retrofit existing treatment systems to improve efficiency?</h3>
+                                <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            <div class="project-faq-content hidden mt-4">
+                                <p class="text-muted">Absolutely! We specialize in system upgrades and retrofits. Our team can assess existing systems and implement improvements to enhance efficiency, reduce operating costs, and ensure compliance with updated regulations.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer class="bg-slate-900 text-white py-12">
@@ -796,6 +955,20 @@
                 element.style.opacity = '1';
             });
         });
+
+        // Project FAQ Toggle Function
+        function toggleProjectFAQ(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('svg');
+            
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                content.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
     </script>
 </body>
 </html>
