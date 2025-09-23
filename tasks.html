@@ -111,41 +111,21 @@
     <div id="toast" class="fixed bottom-5 right-5 bg-green-500 text-white py-2 px-4 rounded-lg shadow-md hidden transition-opacity duration-300"><p id="toastMessage"></p></div>
 
 <script>
-const apiURL = "https://script.google.com/macros/s/AKfycby5eHfYKqV1CtO82rLdjICh3SdiOcTpGVftDwAkJs0vKfoQGRV_LuFaq9cdvULKuvqd/exec";
+// Paste your Apps Script URL here
+const apiURL = "https://script.google.com/macros/s/AKfycbwLjW8GXiFTbjwwzi8PGf17Cc0xUZiDKB5kP9Ytq6eng4oyJZ1jzfNR9Mrva6002pv5/exec";
 
-let allTasks = [];
-let allUsers = [];
-let tasksChart = null;
-let currentUser = null;
+let allTasks = [], allUsers = [], tasksChart = null, currentUser = null;
 
-// --- CORRECTED FORM SUBMISSION WITH VALIDATION ---
 async function handleFormSubmit(e) {
-    e.preventDefault(); // Prevent default submission
-    
-    // ** THE FIX IS HERE: Manual validation **
+    e.preventDefault();
     const title = document.getElementById('taskTitle').value.trim();
     const assignee = document.getElementById('taskAssignee').value;
-
-    if (!title) {
-        showToast('Task Title is required.', 'error');
-        return; // Stop the function
-    }
-    if (!assignee) {
-        showToast('Assigned To is required.', 'error');
-        return; // Stop the function
-    }
-    // ** END OF FIX **
+    if (!title) { showToast('Task Title is required.', 'error'); return; }
+    if (!assignee) { showToast('Assigned To is required.', 'error'); return; }
 
     const taskId = document.getElementById('taskId').value;
     const taskData = {
-        Title: title,
-        Description: document.getElementById('taskDesc').value,
-        Department: document.getElementById('taskDept').value,
-        Assignee: assignee,
-        Status: document.getElementById('taskStatus').value,
-        DueDate: document.getElementById('taskDue').value,
-        DueTime: document.getElementById('taskDueTime').value,
-        Priority: document.getElementById('taskPriority').value,
+        Title: title, Description: document.getElementById('taskDesc').value, Department: document.getElementById('taskDept').value, Assignee: assignee, Status: document.getElementById('taskStatus').value, DueDate: document.getElementById('taskDue').value, DueTime: document.getElementById('taskDueTime').value, Priority: document.getElementById('taskPriority').value,
         Subtasks: JSON.stringify(Array.from(document.querySelectorAll('#subtaskList .subtask-item')).map(item => ({ text: item.querySelector('span').textContent, completed: item.querySelector('input[type="checkbox"]').checked })))
     };
     
@@ -160,8 +140,6 @@ async function handleFormSubmit(e) {
     }
 }
 
-
-// --- ALL OTHER JAVASCRIPT FUNCTIONS ---
 async function apiService(action, payload) {
     showLoading();
     try {
@@ -182,21 +160,12 @@ async function apiService(action, payload) {
 async function initializeApp() {
     showLoading();
     try {
-        if (!localStorage.getItem('taskManagerUser')) {
-            window.location.href = 'tasks_login.html';
-            return;
-        }
+        if (!localStorage.getItem('taskManagerUser')) { window.location.href = 'tasks_login.html'; return; }
         const userData = await apiService('getCurrentUser');
-        if (!userData || userData.Role === 'Guest') {
-            showToast('Access Denied. Please log in or contact an admin.', 'error');
-            setTimeout(() => logout(), 3000);
-            return; 
-        }
+        if (!userData || userData.Role === 'Guest') { showToast('Access Denied. Please log in or contact an admin.', 'error'); setTimeout(() => logout(), 3000); return; }
         currentUser = userData;
         document.getElementById('user-welcome').textContent = `Welcome, ${currentUser.Name} (${currentUser.Role})`;
-        if (currentUser.Role === 'Employee') {
-            document.getElementById('add-task-btn').style.display = 'none';
-        }
+        if (currentUser.Role === 'Employee') { document.getElementById('add-task-btn').style.display = 'none'; }
         const [tasksData, usersData] = await Promise.all([ apiService('getTasks'), apiService('getUsers') ]);
         if (tasksData) { allTasks = tasksData.map(task => ({...task, Subtasks: JSON.parse(task.Subtasks || '[]')})); }
         if (usersData) { allUsers = usersData; }
@@ -213,17 +182,18 @@ async function initializeApp() {
 
 function renderTasks() {
     document.querySelectorAll('.task-list').forEach(list => list.innerHTML = '');
-    const filters = {
-        search: document.getElementById("searchInput").value.toLowerCase(),
-        dept: document.getElementById("deptFilter").value,
-        assignee: document.getElementById("assigneeFilter").value
-    };
+    const filters = { search: document.getElementById("searchInput").value.toLowerCase(), dept: document.getElementById("deptFilter").value, assignee: document.getElementById("assigneeFilter").value };
     let roleFilteredTasks = [];
     if (currentUser.Role === 'Admin') { roleFilteredTasks = allTasks; } 
     else if (currentUser.Role === 'Manager') { roleFilteredTasks = allTasks.filter(task => task.Assignee === currentUser.Name || task.AssignedBy === currentUser.UserID); } 
     else { roleFilteredTasks = allTasks.filter(task => task.Assignee === currentUser.Name); }
-    const finalFilteredTasks = roleFilteredTasks.filter(t => (t.Title.toLowerCase().includes(filters.search) || (t.Description || '').toLowerCase().includes(filters.search)) && (filters.dept === "all" || t.Department === filters.dept) && (filters.assignee === "all" || t.Assignee === filters.assignee) );
-    finalFilteredTasks.forEach(task => {
+    const finalFilteredTasks = roleFilteredTasks.filter(t => 
+        // CORRECTED: Added (t.Title || '') to safely handle blank titles
+        ((t.Title || '').toLowerCase().includes(filters.search) || 
+        (t.Description || '').toLowerCase().includes(filters.search)) &&
+        (filters.dept === "all" || t.Department === filters.dept) &&
+        (filters.assignee === "all" || t.Assignee === filters.assignee)
+    );finalFilteredTasks.forEach(task => {
         const col = document.querySelector(`#${task.Status} .task-list`);
         if (!col) return;
         const card = document.createElement("div");
@@ -236,8 +206,7 @@ function renderTasks() {
             if (task.DueTime) {
                 let [hours, minutes] = task.DueTime.split(':');
                 let ampm = hours >= 12 ? 'PM' : 'AM';
-                hours = hours % 12;
-                hours = hours ? hours : 12;
+                hours = hours % 12; hours = hours ? hours : 12;
                 dueDateStr += ` at ${hours}:${minutes} ${ampm}`;
             }
         }
@@ -252,28 +221,11 @@ function renderTasks() {
         col.appendChild(card);
     });
 }
-function showTaskModal(taskId = null) {
-    document.getElementById('taskForm').reset();
-    document.getElementById('subtaskList').innerHTML = '';
-    const deleteBtn = document.getElementById('deleteTaskBtn');
-    if (taskId) {
-        const task = allTasks.find(t => t.ID == taskId);
-        document.getElementById('modalTitle').textContent = "Edit Task";
-        document.getElementById('taskId').value = task.ID; document.getElementById('taskTitle').value = task.Title; document.getElementById('taskDesc').value = task.Description; document.getElementById('taskDept').value = task.Department; document.getElementById('taskAssignee').value = task.Assignee; document.getElementById('taskStatus').value = task.Status; document.getElementById('taskDue').value = task.DueDate ? task.DueDate.split('T')[0] : ''; document.getElementById('taskDueTime').value = task.DueTime || ''; document.getElementById('taskPriority').value = task.Priority;
-        renderSubtasks(task.Subtasks || []);
-        if (currentUser.Role === 'Admin' || currentUser.Role === 'Manager') {
-            deleteBtn.classList.remove('hidden');
-        }
-    } else {
-        document.getElementById('modalTitle').textContent = "Add New Task"; document.getElementById('taskId').value = ''; renderSubtasks([]); deleteBtn.classList.add('hidden');
-    }
-    document.getElementById('taskModal').style.display = 'flex';
-}
-function logout() { localStorage.removeItem('taskManagerUser'); window.location.href = 'tasks_login.html'; }
-document.addEventListener('DOMContentLoaded', () => { initializeApp(); document.getElementById('logout-button').addEventListener('click', logout); document.getElementById('searchInput').addEventListener('input', renderTasks); document.getElementById('deptFilter').addEventListener('change', renderTasks); document.getElementById('assigneeFilter').addEventListener('change', renderTasks); document.getElementById('taskForm').addEventListener('submit', handleFormSubmit); document.getElementById('addSubtaskBtn').addEventListener('click', addSubtask); window.addEventListener('click', e => { if (e.target === document.getElementById('taskModal')) closeTaskModal(); }); setupDragDrop(); setupThemeToggle(); });
-function renderAll() { renderTasks(); updateDashboard(); }
-function populateUserDropdowns() {const a=document.getElementById("assigneeFilter"),b=document.getElementById("taskAssignee"),c=a.value;a.innerHTML='<option value="all">All Assignees</option>',b.innerHTML='<option value="" disabled selected>Select Assignee</option>',allUsers.forEach(d=>{const e=`<option value="${d.Name}">${d.Name}</option>`;a.insertAdjacentHTML("beforeend",e),b.insertAdjacentHTML("beforeend",e)}),a.value=c}
-function populateFilters() {const a=[...new Set(allTasks.map(a=>a.Department).filter(Boolean))],b=document.getElementById("deptFilter"),c=b.value;b.innerHTML='<option value="all">All Departments</option>',a.forEach(d=>{b.innerHTML+=`<option value="${d}">${d}</option>`}),b.value=c}
+function showTaskModal(taskId=null){document.getElementById("taskForm").reset(),document.getElementById("subtaskList").innerHTML="";const a=document.getElementById("deleteTaskBtn");if(taskId){const b=allTasks.find(a=>a.ID==taskId);document.getElementById("modalTitle").textContent="Edit Task",document.getElementById("taskId").value=b.ID,document.getElementById("taskTitle").value=b.Title,document.getElementById("taskDesc").value=b.Description,document.getElementById("taskDept").value=b.Department,document.getElementById("taskAssignee").value=b.Assignee,document.getElementById("taskStatus").value=b.Status,document.getElementById("taskDue").value=b.DueDate?b.DueDate.split("T")[0]:"",document.getElementById("taskDueTime").value=b.DueTime||"",document.getElementById("taskPriority").value=b.Priority,renderSubtasks(b.Subtasks||[]),("Admin"===currentUser.Role||"Manager"===currentUser.Role)&&a.classList.remove("hidden")}else document.getElementById("modalTitle").textContent="Add New Task",document.getElementById("taskId").value="",renderSubtasks([]),a.classList.add("hidden");document.getElementById("taskModal").style.display="flex"}
+function logout(){localStorage.removeItem("taskManagerUser"),window.location.href="tasks_login.html"}document.addEventListener("DOMContentLoaded",()=>{initializeApp(),document.getElementById("logout-button").addEventListener("click",logout),document.getElementById("searchInput").addEventListener("input",renderTasks),document.getElementById("deptFilter").addEventListener("change",renderTasks),document.getElementById("assigneeFilter").addEventListener("change",renderTasks),document.getElementById("taskForm").addEventListener("submit",handleFormSubmit),document.getElementById("addSubtaskBtn").addEventListener("click",addSubtask),window.addEventListener("click",a=>{"taskModal"===a.target.id&&closeTaskModal()}),setupDragDrop(),setupThemeToggle()});
+function renderAll(){renderTasks(),updateDashboard()}
+function populateUserDropdowns(){const a=document.getElementById("assigneeFilter"),b=document.getElementById("taskAssignee"),c=a.value;a.innerHTML='<option value="all">All Assignees</option>',b.innerHTML='<option value="" disabled selected>Select Assignee</option>',allUsers.forEach(d=>{const e=`<option value="${d.Name}">${d.Name}</option>`;a.insertAdjacentHTML("beforeend",e),b.insertAdjacentHTML("beforeend",e)}),a.value=c}
+function populateFilters(){const a=[...new Set(allTasks.map(a=>a.Department).filter(Boolean))],b=document.getElementById("deptFilter"),c=b.value;b.innerHTML='<option value="all">All Departments</option>',a.forEach(d=>{b.innerHTML+=`<option value="${d}">${d}</option>`}),b.value=c}
 function updateDashboard(){const a=allTasks.length,b=allTasks.filter(a=>"Pending"===a.Status).length,c=allTasks.filter(a=>"InProgress"===a.Status).length,d=allTasks.filter(a=>"Completed"===a.Status).length;document.getElementById("stats-total").innerHTML=`<div class="text-2xl font-bold">${a}</div><div>Total Tasks</div>`,document.getElementById("stats-pending").innerHTML=`<div class="text-2xl font-bold">${b}</div><div>Pending</div>`,document.getElementById("stats-inprogress").innerHTML=`<div class="text-2xl font-bold">${c}</div><div>In Progress</div>`,document.getElementById("stats-completed").innerHTML=`<div class="text-2xl font-bold">${d}</div><div>Completed</div>`;const e=document.getElementById("tasksChart").getContext("2d"),f=[...new Set(allTasks.map(a=>a.Department).filter(Boolean))],g={labels:f,datasets:[{label:"Tasks per Department",data:f.map(a=>allTasks.filter(b=>b.Department===a).length),backgroundColor:["#3498db","#f1c40f","#e74c3c","#2ecc71","#9b59b6","#34495e","#1abc9c"],borderColor:"#ffffff",borderWidth:1}]};tasksChart?(tasksChart.data=g,tasksChart.update()):tasksChart=new Chart(e,{type:"bar",data:g,options:{responsive:!0,plugins:{legend:{display:!1}},scales:{y:{beginAtZero:!0}}}})}
 function closeTaskModal(){document.getElementById("taskModal").style.display="none"}async function deleteTask(){const a=document.getElementById("taskId").value;if(a&&confirm("Are you sure you want to delete this task?")){const b=await apiService("deleteTask",{ID:a});b&&(showToast("Task deleted successfully!"),allTasks=allTasks.filter(b=>b.ID!=a),renderAll(),closeTaskModal())}}
 function renderSubtasks(a){const b=document.getElementById("subtaskList");b.innerHTML="",a.forEach(c=>{const d=document.createElement("div");d.className="subtask-item flex items-center justify-between bg-gray-100 dark:bg-gray-600 p-2 rounded",d.innerHTML=`<div class="flex items-center"><input type="checkbox" ${c.completed?"checked":""} class="mr-2 h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"><span class="${c.completed?"line-through text-gray-500":""}">${c.text}</span></div><button type="button" class="text-red-500 hover:text-red-700 font-bold" onclick="removeSubtask(this)">&times;</button>`,b.appendChild(d)})}

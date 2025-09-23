@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Task Manager</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+    <div class="w-full max-w-sm p-8 bg-white rounded-lg shadow-md text-center">
+        <h1 class="text-3xl font-bold mb-2">Ecologic Task Manager</h1>
+        <p class="text-gray-600 mb-6">Please sign in to continue</p>
+        
+        <div id="g_id_onload"
+             data-client_id="639180680569-u6f7nmhlujs4ikqd46n9u4cg3h7ttj7d.apps.googleusercontent.com"
+             data-callback="handleCredentialResponse"
+             data-auto_prompt="false">
+        </div>
+        <div class="g_id_signin"
+             data-type="standard"
+             data-size="large"
+             data-theme="outline"
+             data-text="sign_in_with"
+             data-shape="rectangular"
+             data-logo_alignment="left">
+        </div>
+
+        <p id="login-status" class="mt-4 text-sm text-gray-500"></p>
+    </div>
+
+    <script>
+        function handleCredentialResponse(response) {
+            document.getElementById('login-status').textContent = 'Login successful! Redirecting...';
+            const decodedToken = JSON.parse(atob(response.credential.split('.')[1]));
+            
+            const user = {
+                email: decodedToken.email,
+                name: decodedToken.name,
+                picture: decodedToken.picture
+            };
+            localStorage.setItem('taskManagerUser', JSON.stringify(user));
+            
+            window.location.href = 'tasks.html'; 
+        }
+
+        // Check if user is already logged in and redirect
+        document.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.getItem('taskManagerUser')) {
+                document.getElementById('login-status').textContent = 'Already logged in. Redirecting...';
+                setTimeout(() => {
+                    window.location.href = 'tasks.html';
+                }, 1000);
+            }
+        });
+    </script>
+</body>
+</html>

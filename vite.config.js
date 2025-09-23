@@ -17,6 +17,8 @@ export default defineConfig({
         clients: resolve(__dirname, 'clients.html'),
         contact: resolve(__dirname, 'contact_us.html'),
         careers: resolve(__dirname, 'carrers.html'),
+        tasks: resolve(__dirname, 'tasks.html'),
+        tasks_login: resolve(__dirname, 'tasks_login.html'),
       },
     },
   },
