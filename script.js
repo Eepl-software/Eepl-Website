@@ -17,7 +17,7 @@
             `<a href="services.html" class="nav-link font-medium ${isActive('services')}">Services</a>` +
             `<a href="projects.html" class="nav-link font-medium ${isActive('projects')}">Projects</a>` +
             `<a href="clients.html" class="nav-link font-medium ${isActive('clients')}">Clients</a>` +
-            `<a href="tasks_login.html" class="nav-link font-medium ${isActive('tasks_login')}">Tasks</a>` +
+            `<a href="tasks.html" class="nav-link font-medium ${isActive('tasks')}">Tasks</a>` +
             `<a href="contact_us.html" class="nav-link font-medium ${isActive('contact_us')}">Contact</a>` +
             `<a href="carrers.html" class="nav-link font-medium ${isActive('carrers')}">Careers</a>` +
             '<button id="theme-toggle" type="button" class="ml-4 text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none rounded-lg text-sm p-2.5">' +
@@ -35,7 +35,7 @@
           `<a href="services.html" class="block py-3 px-6 ${isActiveMobile('services')}">Services</a>` +
           `<a href="projects.html" class="block py-3 px-6 ${isActiveMobile('projects')}">Projects</a>` +
           `<a href="clients.html" class="block py-3 px-6 ${isActiveMobile('clients')}">Clients</a>` +
-          `<a href="tasks_login.html" class="block py-3 px-6 ${isActiveMobile('tasks_login')}">Tasks</a>` +
+          `<a href="tasks.html" class="block py-3 px-6 ${isActiveMobile('tasks')}">Tasks</a>` +
           `<a href="contact_us.html" class="block py-3 px-6 ${isActiveMobile('contact_us')}">Contact</a>` +
           `<a href="carrers.html" class="block py-3 px-6 ${isActiveMobile('carrers')}">Careers</a>` +
         '</div>' +
