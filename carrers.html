@@ -1,12 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Careers | Join Our Team - EEPL</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Careers at EEPL | Join Our Environmental Engineering Team</title>
+    <meta name="description"
+        content="Build a rewarding career at Ecologic Engineering Pvt. Ltd. Join our team of passionate engineers and contribute to sustainable water and waste management solutions. View current openings.">
+    <meta name="keywords"
+        content="EEPL careers, environmental engineering jobs, water treatment jobs, engineering vacancies, Bangalore jobs, sustainable careers">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.ecologicengineering.co.in/carrers.html">
+    <link rel="icon" type="image/svg+xml" href="public/assets/eepl_logo.svg">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.ecologicengineering.co.in/carrers.html">
+    <meta property="og:title" content="Careers at EEPL | Innovate with Us">
+    <meta property="og:description"
+        content="Join a team dedicated to engineering a sustainable future. Explore capability-building opportunities at EEPL.">
+    <meta property="og:image" content="https://www.ecologicengineering.co.in/public/assets/logo.svg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.ecologicengineering.co.in/carrers.html">
+    <meta property="twitter:title" content="Join the EEPL Team">
+    <meta property="twitter:description"
+        content="We are hiring! Check out our latest openings in environmental engineering.">
+    <meta property="twitter:image" content="https://www.ecologicengineering.co.in/public/assets/logo.svg">
+    <link rel="stylesheet" href="public/output.css">
     <script defer src="script.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --color-bg: #f8fafc;
@@ -20,7 +45,7 @@
             --color-section-bg: #f1f5f9;
             --gradient-primary: linear-gradient(135deg, #16a34a 0%, #059669 100%);
         }
-        
+
         html.dark {
             --color-bg: #0f172a;
             --color-bg-primary: #1e293b;
@@ -40,37 +65,137 @@
             transition: all 0.3s ease;
         }
 
-        .gradient-bg { background: var(--gradient-primary); }
-        .gradient-text { background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .stat-card { background: var(--color-card-bg); border: 1px solid var(--color-border); }
-        .text-muted { color: var(--color-text-muted) !important; }
-        .bg-section { background-color: var(--color-section-bg); }
-        .header-style { background: rgba(var(--color-bg-primary-rgb), 0.95); backdrop-filter: blur(10px); }
-        .nav-link { color: var(--color-text-muted); transition: all 0.3s ease; padding: 8px 16px; border-radius: 8px; }
-        .nav-link:hover { color: var(--color-text); background-color: rgba(var(--color-bg-primary-rgb), 0.1); }
-        .nav-link.active { color: var(--color-accent-text); background: var(--gradient-primary); }
-        .job-card { transition: all 0.3s ease; border: 1px solid var(--color-border); }
-        .job-card:hover { border-color: var(--color-accent); transform: translateY(-4px); }
-        .loading-spinner { border: 3px solid var(--color-border); border-top: 3px solid var(--color-accent); border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .gradient-bg {
+            background: var(--gradient-primary);
+        }
+
+        .gradient-text {
+            background: var(--gradient-primary);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-card {
+            background: var(--color-card-bg);
+            border: 1px solid var(--color-border);
+        }
+
+        .text-muted {
+            color: var(--color-text-muted) !important;
+        }
+
+        .bg-section {
+            background-color: var(--color-section-bg);
+        }
+
+        .header-style {
+            background: rgba(var(--color-bg-primary-rgb), 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-link {
+            color: var(--color-text-muted);
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 8px;
+        }
+
+        .nav-link:hover {
+            color: var(--color-text);
+            background-color: rgba(var(--color-bg-primary-rgb), 0.1);
+        }
+
+        .nav-link.active {
+            color: var(--color-accent-text);
+            background: var(--gradient-primary);
+        }
+
+        .job-card {
+            transition: all 0.3s ease;
+            border: 1px solid var(--color-border);
+        }
+
+        .job-card:hover {
+            border-color: var(--color-accent);
+            transform: translateY(-4px);
+        }
+
+        .loading-spinner {
+            border: 3px solid var(--color-border);
+            border-top: 3px solid var(--color-accent);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
     </style>
 </head>
+
 <body>
     <!-- Header -->
-    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 header-style">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="flex items-center">
-                <img src="public/assets/eepl_logo.png" alt="EEPL Logo" class="h-12">
-            </a>
-            <nav class="hidden md:flex items-center space-x-8">
-                <a href="index.html" class="nav-link font-medium">Home</a>
-                <a href="about_us.html" class="nav-link font-medium">About Us</a>
-                <a href="services.html" class="nav-link font-medium">Services</a>
-                <a href="projects.html" class="nav-link font-medium">Projects</a>
-                <a href="clients.html" class="nav-link font-medium">Clients</a>
-                <a href="contact_us.html" class="nav-link font-medium">Contact</a>
-                <a href="carrers.html" class="nav-link font-medium active">Careers</a>
-            </nav>
+    <header class="fixed top-6 left-0 right-0 z-50 flex justify-center px-4 transition-all duration-500" id="header">
+        <div id="nav-container"
+            class="relative w-full max-w-7xl bg-slate-900/80 backdrop-blur-xl rounded-2xl border border-white/10 transition-all duration-500 shadow-lg">
+            <div class="px-6 py-3 flex justify-between items-center">
+                <a href="index.html" class="flex items-center group relative z-20">
+                    <img src="public/assets/logo.svg" alt="Ecologic Engineering Logo"
+                        class="h-10 md:h-12 w-auto transition-transform duration-300 group-hover:scale-105 brightness-0 invert opacity-90 group-hover:opacity-100">
+                </a>
+                <nav
+                    class="hidden md:flex items-center space-x-1 bg-white/5 p-1.5 rounded-full border border-white/5 backdrop-blur-sm">
+                    <a href="index.html"
+                        class="px-5 py-2 rounded-full text-sm font-medium text-white/90 hover:text-slate-900 hover:bg-yellow-400 hover:shadow-[0_0_20px_rgba(250,204,21,0.4)] transition-all duration-300">Home</a>
+                    <a href="about_us.html"
+                        class="px-5 py-2 rounded-full text-sm font-medium text-white/90 hover:text-slate-900 hover:bg-yellow-400 hover:shadow-[0_0_20px_rgba(250,204,21,0.4)] transition-all duration-300">About
+                        Us</a>
+                    <a href="services.html"
+                        class="px-5 py-2 rounded-full text-sm font-medium text-white/90 hover:text-slate-900 hover:bg-yellow-400 hover:shadow-[0_0_20px_rgba(250,204,21,0.4)] transition-all duration-300">Services</a>
+                    <a href="projects.html"
+                        class="px-5 py-2 rounded-full text-sm font-medium text-white/90 hover:text-slate-900 hover:bg-yellow-400 hover:shadow-[0_0_20px_rgba(250,204,21,0.4)] transition-all duration-300">Projects</a>
+                    <a href="clients.html"
+                        class="px-5 py-2 rounded-full text-sm font-medium text-white/90 hover:text-slate-900 hover:bg-yellow-400 hover:shadow-[0_0_20px_rgba(250,204,21,0.4)] transition-all duration-300">Clients</a>
+                    <a href="contact_us.html"
+                        class="px-5 py-2 rounded-full text-sm font-medium text-white/90 hover:text-slate-900 hover:bg-yellow-400 hover:shadow-[0_0_20px_rgba(250,204,21,0.4)] transition-all duration-300">Contact</a>
+                    <a href="carrers.html"
+                        class="px-5 py-2 rounded-full text-sm font-medium bg-yellow-400 text-slate-900 shadow-[0_0_20px_rgba(250,204,21,0.4)] transition-all duration-300">Careers</a>
+                </nav>
+                <button id="mobile-menu-button"
+                    class="md:hidden relative z-20 p-2 text-white hover:text-yellow-400 transition-colors focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+            <div id="mobile-menu"
+                class="hidden absolute top-full left-0 w-full mt-2 bg-slate-900/95 backdrop-blur-xl rounded-2xl shadow-xl border border-white/10 overflow-hidden transition-all duration-300 origin-top">
+                <a href="index.html"
+                    class="block py-3 px-6 text-white/80 hover:bg-white/10 hover:text-yellow-400 transition-colors">Home</a>
+                <a href="about_us.html"
+                    class="block py-3 px-6 text-white/80 hover:bg-white/10 hover:text-yellow-400 transition-colors">About
+                    Us</a>
+                <a href="services.html"
+                    class="block py-3 px-6 text-white/80 hover:bg-white/10 hover:text-yellow-400 transition-colors">Services</a>
+                <a href="projects.html"
+                    class="block py-3 px-6 text-white/80 hover:bg-white/10 hover:text-yellow-400 transition-colors">Projects</a>
+                <a href="clients.html"
+                    class="block py-3 px-6 text-white/80 hover:bg-white/10 hover:text-yellow-400 transition-colors">Clients</a>
+                <a href="contact_us.html"
+                    class="block py-3 px-6 text-white/80 hover:bg-white/10 hover:text-yellow-400 transition-colors">Contact</a>
+                <a href="carrers.html"
+                    class="block py-3 px-6 bg-yellow-400 text-slate-900 font-medium transition-colors">Careers</a>
+            </div>
         </div>
     </header>
 
@@ -86,7 +211,8 @@
                     <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90">
                         Join our team of passionate engineers creating sustainable solutions for a greener tomorrow
                     </p>
-                    <a href="#open-positions" class="bg-white text-green-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition duration-300 shadow-lg">
+                    <a href="#open-positions"
+                        class="bg-white text-green-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition duration-300 shadow-lg">
                         View Open Positions
                     </a>
                 </div>
@@ -105,13 +231,16 @@
 
                 <!-- Filters -->
                 <div class="flex flex-wrap justify-center gap-4 mb-12">
-                    <select id="filter-department" class="px-6 py-3 rounded-full border-2 border-gray-200 focus:outline-none focus:border-green-500">
+                    <select id="filter-department"
+                        class="px-6 py-3 rounded-full border-2 border-gray-200 focus:outline-none focus:border-green-500">
                         <option value="">All Departments</option>
                     </select>
-                    <select id="filter-location" class="px-6 py-3 rounded-full border-2 border-gray-200 focus:outline-none focus:border-green-500">
+                    <select id="filter-location"
+                        class="px-6 py-3 rounded-full border-2 border-gray-200 focus:outline-none focus:border-green-500">
                         <option value="">All Locations</option>
                     </select>
-                    <input type="text" id="search-jobs" placeholder="Search jobs..." class="px-6 py-3 rounded-full border-2 border-gray-200 focus:outline-none focus:border-green-500 w-64">
+                    <input type="text" id="search-jobs" placeholder="Search jobs..."
+                        class="px-6 py-3 rounded-full border-2 border-gray-200 focus:outline-none focus:border-green-500 w-64">
                 </div>
 
                 <!-- Loading Spinner -->
@@ -144,27 +273,35 @@
                 </div>
                 <div class="grid md:grid-cols-3 gap-8">
                     <div class="stat-card p-8 rounded-xl text-center">
-                        <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-full mx-auto mb-6 flex items-center justify-center">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-full mx-auto mb-6 flex items-center justify-center">
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                             </svg>
                         </div>
                         <h3 class="text-xl font-bold mb-4">Innovation & Growth</h3>
                         <p class="text-muted">Work on cutting-edge environmental technologies and grow your career.</p>
                     </div>
                     <div class="stat-card p-8 rounded-xl text-center">
-                        <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full mx-auto mb-6 flex items-center justify-center">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full mx-auto mb-6 flex items-center justify-center">
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
+                                </path>
                             </svg>
                         </div>
                         <h3 class="text-xl font-bold mb-4">Collaborative Culture</h3>
                         <p class="text-muted">Join a supportive team where your ideas matter.</p>
                     </div>
                     <div class="stat-card p-8 rounded-xl text-center">
-                        <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full mx-auto mb-6 flex items-center justify-center">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full mx-auto mb-6 flex items-center justify-center">
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                                </path>
                             </svg>
                         </div>
                         <h3 class="text-xl font-bold mb-4">Meaningful Impact</h3>
@@ -181,14 +318,18 @@
             <div class="grid md:grid-cols-4 gap-8">
                 <div>
                     <img src="public/assets/eepl_logo.png" alt="EEPL Logo" class="h-12 mb-4 filter brightness-0 invert">
-                    <p class="text-gray-300 mb-4">Leading environmental engineering solutions for sustainable industrial growth.</p>
+                    <p class="text-gray-300 mb-4">Leading environmental engineering solutions for sustainable industrial
+                        growth.</p>
                 </div>
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Services</h4>
                     <ul class="space-y-2 text-gray-300">
-                        <li><a href="services.html" class="hover:text-white transition duration-300">ETP Design & Installation</a></li>
-                        <li><a href="services.html" class="hover:text-white transition duration-300">CETP Solutions</a></li>
-                        <li><a href="services.html" class="hover:text-white transition duration-300">Zero Liquid Discharge</a></li>
+                        <li><a href="services.html" class="hover:text-white transition duration-300">ETP Design &
+                                Installation</a></li>
+                        <li><a href="services.html" class="hover:text-white transition duration-300">CETP Solutions</a>
+                        </li>
+                        <li><a href="services.html" class="hover:text-white transition duration-300">Zero Liquid
+                                Discharge</a></li>
                     </ul>
                 </div>
                 <div>
@@ -217,7 +358,7 @@
     <script>
         // Configuration - Replace with your Google Apps Script URL
         const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxH10UdxqzWy0I4HQN3GnY5vGSCdV3vRw-y2RYm7mxdtV73oa0XNFDpkDP_jvfzeoW5/exec';
-        
+
         // Demo data
         const DEMO_JOBS = [
             {
@@ -265,7 +406,7 @@
         let filteredJobs = [];
 
         // Initialize
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             loadJobs();
             initializeFilters();
         });
@@ -273,7 +414,7 @@
         // Load jobs
         async function loadJobs() {
             const loadingSpinner = document.getElementById('loading-spinner');
-            
+
             try {
                 const response = await fetch(GOOGLE_APPS_SCRIPT_URL);
                 if (response.ok) {
@@ -283,7 +424,7 @@
                     throw new Error('Failed to fetch');
                 }
             } catch (error) {
-                console.log('Using demo data:', error.message);
+                // Fallback to demo data if API fails
                 allJobs = DEMO_JOBS;
             }
 
@@ -332,7 +473,7 @@
             filteredJobs = allJobs.filter(job => {
                 const matchesDept = !deptFilter || job.department === deptFilter;
                 const matchesLoc = !locFilter || job.location === locFilter;
-                const matchesSearch = !searchTerm || 
+                const matchesSearch = !searchTerm ||
                     job.title.toLowerCase().includes(searchTerm) ||
                     job.description.toLowerCase().includes(searchTerm);
 
@@ -366,7 +507,7 @@
         function createJobCard(job) {
             const card = document.createElement('div');
             card.className = 'stat-card p-6 rounded-xl job-card';
-            
+
             const postedDate = new Date(job.postedDate).toLocaleDateString('en-IN', {
                 year: 'numeric',
                 month: 'short',
@@ -429,4 +570,5 @@
         });
     </script>
 </body>
+
 </html>

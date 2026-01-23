@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Endurance Technologies ZLD Project | Case Study | EEPL</title>
+    <meta name="description"
+        content="Case Study: How EEPL implemented a Zero Liquid Discharge (ZLD) system for Endurance Technologies' aluminium die-casting plant, achieving 98% water recovery and full regulatory compliance.">
+    <meta name="keywords"
+        content="Endurance Technologies case study, ZLD case study, aluminium die-casting wastewater, ETP project, water recovery success story, EEPL projects">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.ecologicengineering.co.in/endurance.html">
+    <link rel="icon" type="image/svg+xml" href="public/assets/eepl_logo.svg">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.ecologicengineering.co.in/endurance.html">
+    <meta property="og:title" content="Endurance Technologies ZLD Success Story">
+    <meta property="og:description"
+        content="Discover how we achieved 98% water recovery for a leading aluminium die-casting manufacturer.">
+    <meta property="og:image" content="https://www.ecologicengineering.co.in/public/assets/endurance_hero.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.ecologicengineering.co.in/endurance.html">
+    <meta property="twitter:title" content="Endurance Technologies Case Study">
+    <meta property="twitter:description"
+        content="A ZLD success story: 98% water recovery and significant cost savings.">
+    <meta property="twitter:image" content="https://www.ecologicengineering.co.in/public/assets/endurance_hero.jpg">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="public/output.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #111827;
+        }
+
+        /* Custom Swiper Styles */
+        .swiper {
+            width: 100%;
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+
+        .swiper-slide {
+            background-position: center;
+            background-size: cover;
+            width: 600px;
+            height: 450px;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            transition: all 0.5s ease;
+        }
+
+        .swiper-slide-active {
+            transform: scale(1.05);
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .swiper-pagination-bullet {
+            width: 12px;
+            height: 12px;
+            background: #1e3a8a;
+            opacity: 0.3;
+        }
+
+        .swiper-pagination-bullet-active {
+            opacity: 1;
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: #1e3a8a;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .swiper-button-next:after,
+        .swiper-button-prev:after {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        /* Thumbnail Gallery */
+        .thumb-swiper {
+            height: 100px;
+            box-sizing: border-box;
+            padding: 10px 0;
+        }
+
+        .thumb-swiper .swiper-slide {
+            width: 120px;
+            height: 80px;
+            opacity: 0.5;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .thumb-swiper .swiper-slide-thumb-active {
+            opacity: 1;
+            border: 3px solid #1e3a8a;
+        }
+
+        /* Gradient Overlay for Hero */
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #0f172a 100%);
+        }
+
+        /* Floating animation */
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+
+<body class="overflow-x-hidden">
+
+    <!-- Navigation -->
+    <header class="fixed top-6 left-0 right-0 z-50 flex justify-center px-4 transition-all duration-500" id="header">
+        <div id="nav-container"
+            class="relative w-full max-w-7xl bg-slate-900/80 backdrop-blur-xl rounded-2xl border border-white/10 transition-all duration-500 shadow-lg">
+            <div class="px-6 py-3 flex justify-between items-center">
+                <a href="index.html" class="flex items-center group relative z-20">
+                    <img src="public/assets/logo.svg" alt="Ecologic Engineering Logo"
+                        class="h-10 md:h-12 w-auto transition-transform duration-300 group-hover:scale-105 brightness-0 invert opacity-90 group-hover:opacity-100">
+                </a>
+                <nav
+                    class="hidden md:flex items-center space-x-1 bg-white/5 p-1.5 rounded-full border border-white/5 backdrop-blur-sm">
+                    <a href="index.html"
+                        class="px-5 py-2 rounded-full text-sm font-medium text-white/90 hover:text-slate-900 hover:bg-yellow-400 hover:shadow-[0_0_20px_rgba(250,204,21,0.4)] transition-all duration-300">Home</a>
+                    <a href="about_us.html"
+                        class="px-5 py-2 rounded-full text-sm font-medium text-white/90 hover:text-slate-900 hover:bg-yellow-400 hover:shadow-[0_0_20px_rgba(250,204,21,0.4)] transition-all duration-300">About
+                        Us</a>
+                    <a href="services.html"
+                        class="px-5 py-2 rounded-full text-sm font-medium text-white/90 hover:text-slate-900 hover:bg-yellow-400 hover:shadow-[0_0_20px_rgba(250,204,21,0.4)] transition-all duration-300">Services</a>
+                    <a href="projects.html"
+                        class="px-5 py-2 rounded-full text-sm font-medium bg-yellow-400 text-slate-900 shadow-[0_0_20px_rgba(250,204,21,0.4)] transition-all duration-300">Projects</a>
+                    <a href="clients.html"
+                        class="px-5 py-2 rounded-full text-sm font-medium text-white/90 hover:text-slate-900 hover:bg-yellow-400 hover:shadow-[0_0_20px_rgba(250,204,21,0.4)] transition-all duration-300">Clients</a>
+                    <a href="contact_us.html"
+                        class="px-5 py-2 rounded-full text-sm font-medium text-white/90 hover:text-slate-900 hover:bg-yellow-400 hover:shadow-[0_0_20px_rgba(250,204,21,0.4)] transition-all duration-300">Contact</a>
+                    <a href="carrers.html"
+                        class="px-5 py-2 rounded-full text-sm font-medium text-white/90 hover:text-slate-900 hover:bg-yellow-400 hover:shadow-[0_0_20px_rgba(250,204,21,0.4)] transition-all duration-300">Careers</a>
+                </nav>
+                <button id="mobile-menu-button"
+                    class="md:hidden relative z-20 p-2 text-white hover:text-yellow-400 transition-colors focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+            <div id="mobile-menu"
+                class="hidden absolute top-full left-0 w-full mt-2 bg-slate-900/95 backdrop-blur-xl rounded-2xl shadow-xl border border-white/10 overflow-hidden transition-all duration-300 origin-top">
+                <a href="index.html"
+                    class="block py-3 px-6 text-white/80 hover:bg-white/10 hover:text-yellow-400 transition-colors">Home</a>
+                <a href="about_us.html"
+                    class="block py-3 px-6 text-white/80 hover:bg-white/10 hover:text-yellow-400 transition-colors">About
+                    Us</a>
+                <a href="services.html"
+                    class="block py-3 px-6 text-white/80 hover:bg-white/10 hover:text-yellow-400 transition-colors">Services</a>
+                <a href="projects.html"
+                    class="block py-3 px-6 bg-yellow-400 text-slate-900 font-medium transition-colors">Projects</a>
+                <a href="clients.html"
+                    class="block py-3 px-6 text-white/80 hover:bg-white/10 hover:text-yellow-400 transition-colors">Clients</a>
+                <a href="contact_us.html"
+                    class="block py-3 px-6 text-white/80 hover:bg-white/10 hover:text-yellow-400 transition-colors">Contact</a>
+                <a href="carrers.html"
+                    class="block py-3 px-6 text-white/80 hover:bg-white/10 hover:text-yellow-400 transition-colors">Careers</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-gradient relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+            <!-- Decorative Elements -->
+            <div class="absolute inset-0 opacity-10">
+                <div class="absolute top-20 left-20 w-64 h-64 bg-yellow-400 rounded-full blur-3xl float-animation">
+                </div>
+                <div class="absolute bottom-20 right-20 w-96 h-96 bg-blue-400 rounded-full blur-3xl float-animation"
+                    style="animation-delay: -3s;"></div>
+            </div>
+
+            <div class="relative z-10 container mx-auto px-6 text-center pt-32 pb-16">
+                <div data-aos="fade-up" data-aos-duration="800">
+                    <!-- Badge -->
+                    <div
+                        class="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-1.5 mb-6">
+                        <span class="w-2 h-2 rounded-full bg-yellow-400 animate-pulse"></span>
+                        <span class="text-sm font-medium text-white tracking-wide uppercase">Featured Project</span>
+                    </div>
+
+                    <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-6 leading-tight">
+                        Automobile Sector
+                    </h1>
+                    <p class="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+                        Eepl delivers state-of-the-art industrial wastewater treatment solutions engineered to achieve
+                        up to 90% water recovery, with a clear and measurable roadmap toward 95% water positivity.
+                    </p>
+                    <!-- <p class="text-lg text-blue-100 max-w-3xl mx-auto leading-relaxed mt-4">
+                        By integrating advanced treatment technologies—such as high-efficiency membrane systems, intelligent process automation, and resource recovery frameworks—Eepl enables industries to significantly reduce freshwater intake, minimize wastewater discharge, and comply with increasingly stringent environmental regulations. Our solutions are designed not merely for treatment, but for reuse, recovery, and circular water management.
+                    </p> -->
+                </div>
+            </div>
+
+            <!-- Wave Divider -->
+            <div class="absolute bottom-0 left-0 right-0">
+                <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
+                        fill="#f8fafc" />
+                </svg>
+            </div>
+        </section>
+
+        <!-- Project Overview -->
+        <section class="py-16 bg-slate-50">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Project Overview</h2>
+                    <p class="text-lg text-slate-600 leading-relaxed mb-6">
+                        The Endurance project showcases our expertise in designing and implementing
+                        advanced wastewater treatment systems. This comprehensive solution includes
+                        state-of-the-art evaporators, cooling systems, and recirculation pumps
+                        engineered for optimal performance and sustainability.
+                    </p>
+                    <p class="text-lg text-slate-600 leading-relaxed mb-6">
+                        Through optimized system design, energy-efficient operations, and continuous performance
+                        monitoring, Eepl helps industrial facilities:
+                    </p>
+                    <ul class="text-left max-w-2xl mx-auto space-y-3 text-slate-600">
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-blue-700 mr-3 flex-shrink-0 mt-0.5" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span>Reduce overall water footprint and dependency on freshwater sources</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-blue-700 mr-3 flex-shrink-0 mt-0.5" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span>Lower pollutant load released into natural ecosystems</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-blue-700 mr-3 flex-shrink-0 mt-0.5" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span>Improve regulatory compliance and ESG performance</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-blue-700 mr-3 flex-shrink-0 mt-0.5" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span>Transition from water neutrality to net-positive environmental impact</span>
+                        </li>
+                    </ul>
+                    <p class="text-lg text-slate-600 leading-relaxed mt-6">
+                        By empowering industries to recover and reuse water at scale, Eepl plays a critical role in
+                        helping businesses operate sustainably while protecting local water resources and reducing
+                        long-term environmental impact.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Image Slider Section -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <span
+                        class="inline-block py-1 px-3 rounded-full bg-blue-100 text-blue-800 text-xs font-bold tracking-wider uppercase mb-4">
+                        Project Gallery
+                    </span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Installation Highlights</h2>
+                    <p class="text-lg text-slate-500 max-w-2xl mx-auto">
+                        Explore the key components and installations from the Endurance project
+                    </p>
+                </div>
+
+                <!-- Main Slider -->
+                <div class="swiper mainSwiper mb-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="swiper-wrapper">
+                        <!-- Slide 1 -->
+                        <div class="swiper-slide">
+                            <div class="relative h-full">
+                                <img src="public/assets/Endurance_photos/ATFD.jpeg" alt="ATFD System">
+                                <div
+                                    class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+                                    <h3 class="text-white text-xl font-bold mb-2">ATFD System</h3>
+                                    <p class="text-gray-200 text-sm">Agitated Thin Film Dryer - Advanced thermal drying
+                                        technology for efficient sludge processing</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2 -->
+                        <div class="swiper-slide">
+                            <div class="relative h-full">
+                                <img src="public/assets/Endurance_photos/Blower_compressor_Forced_Circulator_Evaporator.jpeg"
+                                    alt="Blower Compressor FCE">
+                                <div
+                                    class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+                                    <h3 class="text-white text-xl font-bold mb-2">Blower Compressor FCE</h3>
+                                    <p class="text-gray-200 text-sm">High-efficiency forced circulation evaporator with
+                                        integrated blower compressor system</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3 -->
+                        <div class="swiper-slide">
+                            <div class="relative h-full">
+                                <img src="public/assets/Endurance_photos/Cooling.jpeg" alt="Cooling System">
+                                <div
+                                    class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+                                    <h3 class="text-white text-xl font-bold mb-2">Cooling System</h3>
+                                    <p class="text-gray-200 text-sm">Industrial-grade cooling infrastructure for optimal
+                                        temperature management</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 4 -->
+                        <div class="swiper-slide">
+                            <div class="relative h-full">
+                                <img src="public/assets/Endurance_photos/FCE.jpeg" alt="FCE Unit">
+                                <div
+                                    class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+                                    <h3 class="text-white text-xl font-bold mb-2">Forced Circulation Evaporator</h3>
+                                    <p class="text-gray-200 text-sm">Primary evaporation unit designed for high
+                                        concentration ratios</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 5 -->
+                        <div class="swiper-slide">
+                            <div class="relative h-full">
+                                <img src="public/assets/Endurance_photos/FCE_final.jpeg" alt="FCE Final Assembly">
+                                <div
+                                    class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+                                    <h3 class="text-white text-xl font-bold mb-2">FCE Final Assembly</h3>
+                                    <p class="text-gray-200 text-sm">Completed forced circulation evaporator ready for
+                                        commissioning</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 6 -->
+                        <div class="swiper-slide">
+                            <div class="relative h-full">
+                                <img src="public/assets/Endurance_photos/MVR_System.jpeg" alt="MVR System">
+                                <div
+                                    class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+                                    <h3 class="text-white text-xl font-bold mb-2">MVR System</h3>
+                                    <p class="text-gray-200 text-sm">Mechanical Vapor Recompression system for
+                                        energy-efficient evaporation</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 7 -->
+                        <div class="swiper-slide">
+                            <div class="relative h-full">
+                                <img src="public/assets/Endurance_photos/Recirculation_pump_FCE.jpeg"
+                                    alt="Recirculation Pump">
+                                <div
+                                    class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+                                    <h3 class="text-white text-xl font-bold mb-2">Recirculation Pump FCE</h3>
+                                    <p class="text-gray-200 text-sm">Heavy-duty recirculation pump ensuring consistent
+                                        flow rates</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 8 -->
+                        <div class="swiper-slide">
+                            <div class="relative h-full">
+                                <img src="public/assets/Endurance_photos/Surface_conductor.jpeg"
+                                    alt="Surface Conductor">
+                                <div
+                                    class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+                                    <h3 class="text-white text-xl font-bold mb-2">Surface Conductor</h3>
+                                    <p class="text-gray-200 text-sm">Precision surface condenser for efficient vapor
+                                        condensation</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 9 -->
+                        <div class="swiper-slide">
+                            <div class="relative h-full">
+                                <img src="public/assets/Endurance_photos/WhatsApp Image 2026-01-20 at 4.29.19 PM.jpeg"
+                                    alt="Project Site">
+                                <div
+                                    class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+                                    <h3 class="text-white text-xl font-bold mb-2">Project Installation</h3>
+                                    <p class="text-gray-200 text-sm">On-site installation and integration of treatment
+                                        systems</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Buttons -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <!-- Pagination -->
+                    <div class="swiper-pagination"></div>
+                </div>
+
+                <!-- Thumbnail Slider -->
+                <div thumbsSlider="" class="swiper thumbSwiper thumb-swiper max-w-4xl mx-auto" data-aos="fade-up"
+                    data-aos-delay="200">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide rounded-lg overflow-hidden">
+                            <img src="public/assets/Endurance_photos/ATFD.jpeg" alt="ATFD"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div class="swiper-slide rounded-lg overflow-hidden">
+                            <img src="public/assets/Endurance_photos/Blower_compressor_Forced_Circulator_Evaporator.jpeg"
+                                alt="Blower" class="w-full h-full object-cover">
+                        </div>
+                        <div class="swiper-slide rounded-lg overflow-hidden">
+                            <img src="public/assets/Endurance_photos/Cooling.jpeg" alt="Cooling"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div class="swiper-slide rounded-lg overflow-hidden">
+                            <img src="public/assets/Endurance_photos/FCE.jpeg" alt="FCE"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div class="swiper-slide rounded-lg overflow-hidden">
+                            <img src="public/assets/Endurance_photos/FCE_final.jpeg" alt="FCE Final"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div class="swiper-slide rounded-lg overflow-hidden">
+                            <img src="public/assets/Endurance_photos/MVR_System.jpeg" alt="MVR"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div class="swiper-slide rounded-lg overflow-hidden">
+                            <img src="public/assets/Endurance_photos/Recirculation_pump_FCE.jpeg" alt="Pump"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div class="swiper-slide rounded-lg overflow-hidden">
+                            <img src="public/assets/Endurance_photos/Surface_conductor.jpeg" alt="Conductor"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div class="swiper-slide rounded-lg overflow-hidden">
+                            <img src="public/assets/Endurance_photos/WhatsApp Image 2026-01-20 at 4.29.19 PM.jpeg"
+                                alt="Site" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Specifications -->
+        <section class="py-20 bg-slate-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Project Specifications</h2>
+                    <p class="text-lg text-slate-500">Key technical details and achievements</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+                    <!-- Spec Card 1 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-lg border border-slate-100 hover:-translate-y-2 transition-all duration-300"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+                            <svg class="w-7 h-7 text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3 class="text-3xl font-bold text-slate-900 mb-2">500+</h3>
+                        <p class="text-slate-500 text-sm uppercase tracking-wide">KLD Capacity</p>
+                    </div>
+
+                    <!-- Spec Card 2 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-lg border border-slate-100 hover:-translate-y-2 transition-all duration-300"
+                        data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-14 h-14 bg-teal-100 rounded-xl flex items-center justify-center mb-4">
+                            <svg class="w-7 h-7 text-teal-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-3xl font-bold text-slate-900 mb-2">99%</h3>
+                        <p class="text-slate-500 text-sm uppercase tracking-wide">Water Recovery</p>
+                    </div>
+
+                    <!-- Spec Card 3 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-lg border border-slate-100 hover:-translate-y-2 transition-all duration-300"
+                        data-aos="fade-up" data-aos-delay="300">
+                        <div class="w-14 h-14 bg-yellow-100 rounded-xl flex items-center justify-center mb-4">
+                            <svg class="w-7 h-7 text-yellow-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-3xl font-bold text-slate-900 mb-2">40%</h3>
+                        <p class="text-slate-500 text-sm uppercase tracking-wide">Energy Savings</p>
+                    </div>
+
+                    <!-- Spec Card 4 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-lg border border-slate-100 hover:-translate-y-2 transition-all duration-300"
+                        data-aos="fade-up" data-aos-delay="400">
+                        <div class="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
+                            <svg class="w-7 h-7 text-purple-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-3xl font-bold text-slate-900 mb-2">24/7</h3>
+                        <p class="text-slate-500 text-sm uppercase tracking-wide">Operation Ready</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="relative bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 py-20">
+            <div class="container mx-auto px-6 text-center relative z-10" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">
+                    Interested in Similar Solutions?
+                </h2>
+                <p class="text-lg text-blue-200 max-w-2xl mx-auto mb-8">
+                    Let's discuss how we can engineer a customized treatment solution for your facility.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="contact_us.html"
+                        class="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-900 font-bold rounded-full text-lg shadow-xl hover:bg-gray-100 hover:-translate-y-1 transition-all duration-300">
+                        Request a Consultation
+                    </a>
+                    <a href="projects.html"
+                        class="inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-white text-white font-bold rounded-full text-lg hover:bg-white/10 hover:-translate-y-1 transition-all duration-300">
+                        View More Projects
+                    </a>
+                </div>
+            </div>
+
+            <!-- Decorative pattern -->
+            <div class="absolute inset-0 opacity-10"
+                style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 20px 20px;">
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="relative bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 text-gray-100 font-sans">
+        <div class="container mx-auto px-6 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <!-- Brand Section -->
+                <div>
+                    <img src="public/assets/eepl_logo.png" alt="EEPL Logo" class="h-12 mb-4">
+                    <p class="text-gray-200 leading-relaxed text-sm">
+                        Pioneering sustainable solutions in water and waste management
+                        through technology and innovation.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-semibold text-lg text-white mb-4 tracking-wide uppercase">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="about_us.html" class="hover:text-white transition text-sm">About Us</a></li>
+                        <li><a href="services.html" class="hover:text-white transition text-sm">Services</a></li>
+                        <li><a href="projects.html" class="hover:text-white transition text-sm">Projects</a></li>
+                    </ul>
+                </div>
+
+                <!-- Our Services -->
+                <div>
+                    <h4 class="font-semibold text-lg text-white mb-4 tracking-wide uppercase">Our Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="services.html" class="hover:text-white transition text-sm">EPC & Turnkey
+                                Projects</a></li>
+                        <li><a href="services.html" class="hover:text-white transition text-sm">ZLD & MVRE Systems</a>
+                        </li>
+                        <li><a href="services.html" class="hover:text-white transition text-sm">ETP & STP Solutions</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="font-semibold text-lg text-white mb-4 tracking-wide uppercase">Contact Us</h4>
+                    <p class="text-sm text-gray-200">
+                        No 13, St. Johns Church Road,<br>
+                        Bengaluru 570005, Karnataka, India
+                    </p>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-blue-700 mt-12 pt-6 text-center text-blue-200 text-xs">
+                <p>&copy; 2025 Ecologic Engineering Pvt. Ltd. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 700,
+            once: true,
+            offset: 50
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Initialize Swiper with Thumbnails
+        const thumbSwiper = new Swiper(".thumbSwiper", {
+            spaceBetween: 10,
+            slidesPerView: 4,
+            freeMode: true,
+            watchSlidesProgress: true,
+            breakpoints: {
+                320: { slidesPerView: 3 },
+                640: { slidesPerView: 5 },
+                1024: { slidesPerView: 7 }
+            }
+        });
+
+        const mainSwiper = new Swiper(".mainSwiper", {
+            spaceBetween: 30,
+            effect: "coverflow",
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: "auto",
+            coverflowEffect: {
+                rotate: 0,
+                stretch: 0,
+                depth: 100,
+                modifier: 2,
+                slideShadows: true,
+            },
+            loop: true,
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            thumbs: {
+                swiper: thumbSwiper,
+            },
+        });
+    </script>
+
+</body>
+
+</html>
