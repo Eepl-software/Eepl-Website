@@ -144,34 +144,35 @@
 
 <body>
     <!-- Header -->
-    <header class="fixed top-6 left-0 right-0 z-50 flex justify-center px-4 transition-all duration-500" id="header">
+    <header class="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 py-3 transition-all duration-500"
+        id="header">
         <div id="nav-container"
-            class="relative w-full max-w-7xl bg-slate-900/80 backdrop-blur-xl rounded-2xl border border-white/10 transition-all duration-500 shadow-lg">
+            class="relative w-full max-w-7xl bg-white/95 backdrop-blur-xl rounded-2xl border-0 transition-all duration-500 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
             <div class="px-6 py-3 flex justify-between items-center">
                 <a href="index.html" class="flex items-center group relative z-20">
                     <img src="public/assets/logo.svg" alt="Ecologic Engineering Logo"
-                        class="h-10 md:h-12 w-auto transition-transform duration-300 group-hover:scale-105 brightness-0 invert opacity-90 group-hover:opacity-100">
+                        class="h-10 md:h-12 w-auto transition-transform duration-300 group-hover:scale-105">
                 </a>
                 <nav
-                    class="hidden md:flex items-center space-x-1 bg-white/5 p-1.5 rounded-full border border-white/5 backdrop-blur-sm">
+                    class="hidden md:flex items-center space-x-1 bg-gray-100/80 p-1.5 rounded-full border border-gray-200/50 backdrop-blur-sm">
                     <a href="index.html"
-                        class="px-5 py-2 rounded-full text-sm font-medium text-white/90 hover:text-slate-900 hover:bg-yellow-400 hover:shadow-[0_0_20px_rgba(250,204,21,0.4)] transition-all duration-300">Home</a>
+                        class="px-5 py-2 rounded-full text-sm font-medium text-slate-700 hover:text-slate-900 hover:bg-yellow-400 hover:shadow-[0_0_20px_rgba(250,204,21,0.4)] transition-all duration-300">Home</a>
                     <a href="about_us.html"
-                        class="px-5 py-2 rounded-full text-sm font-medium text-white/90 hover:text-slate-900 hover:bg-yellow-400 hover:shadow-[0_0_20px_rgba(250,204,21,0.4)] transition-all duration-300">About
+                        class="px-5 py-2 rounded-full text-sm font-medium text-slate-700 hover:text-slate-900 hover:bg-yellow-400 hover:shadow-[0_0_20px_rgba(250,204,21,0.4)] transition-all duration-300">About
                         Us</a>
                     <a href="services.html"
-                        class="px-5 py-2 rounded-full text-sm font-medium text-white/90 hover:text-slate-900 hover:bg-yellow-400 hover:shadow-[0_0_20px_rgba(250,204,21,0.4)] transition-all duration-300">Services</a>
+                        class="px-5 py-2 rounded-full text-sm font-medium text-slate-700 hover:text-slate-900 hover:bg-yellow-400 hover:shadow-[0_0_20px_rgba(250,204,21,0.4)] transition-all duration-300">Services</a>
                     <a href="projects.html"
-                        class="px-5 py-2 rounded-full text-sm font-medium text-white/90 hover:text-slate-900 hover:bg-yellow-400 hover:shadow-[0_0_20px_rgba(250,204,21,0.4)] transition-all duration-300">Projects</a>
+                        class="px-5 py-2 rounded-full text-sm font-medium text-slate-700 hover:text-slate-900 hover:bg-yellow-400 hover:shadow-[0_0_20px_rgba(250,204,21,0.4)] transition-all duration-300">Projects</a>
                     <a href="clients.html"
-                        class="px-5 py-2 rounded-full text-sm font-medium text-white/90 hover:text-slate-900 hover:bg-yellow-400 hover:shadow-[0_0_20px_rgba(250,204,21,0.4)] transition-all duration-300">Clients</a>
+                        class="px-5 py-2 rounded-full text-sm font-medium text-slate-700 hover:text-slate-900 hover:bg-yellow-400 hover:shadow-[0_0_20px_rgba(250,204,21,0.4)] transition-all duration-300">Clients</a>
                     <a href="contact_us.html"
-                        class="px-5 py-2 rounded-full text-sm font-medium text-white/90 hover:text-slate-900 hover:bg-yellow-400 hover:shadow-[0_0_20px_rgba(250,204,21,0.4)] transition-all duration-300">Contact</a>
+                        class="px-5 py-2 rounded-full text-sm font-medium text-slate-700 hover:text-slate-900 hover:bg-yellow-400 hover:shadow-[0_0_20px_rgba(250,204,21,0.4)] transition-all duration-300">Contact</a>
                     <a href="carrers.html"
                         class="px-5 py-2 rounded-full text-sm font-medium bg-yellow-400 text-slate-900 shadow-[0_0_20px_rgba(250,204,21,0.4)] transition-all duration-300">Careers</a>
                 </nav>
                 <button id="mobile-menu-button"
-                    class="md:hidden relative z-20 p-2 text-white hover:text-yellow-400 transition-colors focus:outline-none">
+                    class="md:hidden relative z-20 p-2 text-slate-700 hover:text-yellow-500 transition-colors focus:outline-none">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M4 6h16M4 12h16m-7 6h7"></path>
@@ -179,20 +180,20 @@
                 </button>
             </div>
             <div id="mobile-menu"
-                class="hidden absolute top-full left-0 w-full mt-2 bg-slate-900/95 backdrop-blur-xl rounded-2xl shadow-xl border border-white/10 overflow-hidden transition-all duration-300 origin-top">
+                class="hidden absolute top-full left-0 w-full mt-2 bg-white/95 backdrop-blur-xl rounded-2xl shadow-xl border border-gray-200 overflow-hidden transition-all duration-300 origin-top">
                 <a href="index.html"
-                    class="block py-3 px-6 text-white/80 hover:bg-white/10 hover:text-yellow-400 transition-colors">Home</a>
+                    class="block py-3 px-6 transition-colors text-slate-700 hover:bg-gray-100 hover:text-yellow-600">Home</a>
                 <a href="about_us.html"
-                    class="block py-3 px-6 text-white/80 hover:bg-white/10 hover:text-yellow-400 transition-colors">About
+                    class="block py-3 px-6 transition-colors text-slate-700 hover:bg-gray-100 hover:text-yellow-600">About
                     Us</a>
                 <a href="services.html"
-                    class="block py-3 px-6 text-white/80 hover:bg-white/10 hover:text-yellow-400 transition-colors">Services</a>
+                    class="block py-3 px-6 transition-colors text-slate-700 hover:bg-gray-100 hover:text-yellow-600">Services</a>
                 <a href="projects.html"
-                    class="block py-3 px-6 text-white/80 hover:bg-white/10 hover:text-yellow-400 transition-colors">Projects</a>
+                    class="block py-3 px-6 transition-colors text-slate-700 hover:bg-gray-100 hover:text-yellow-600">Projects</a>
                 <a href="clients.html"
-                    class="block py-3 px-6 text-white/80 hover:bg-white/10 hover:text-yellow-400 transition-colors">Clients</a>
+                    class="block py-3 px-6 transition-colors text-slate-700 hover:bg-gray-100 hover:text-yellow-600">Clients</a>
                 <a href="contact_us.html"
-                    class="block py-3 px-6 text-white/80 hover:bg-white/10 hover:text-yellow-400 transition-colors">Contact</a>
+                    class="block py-3 px-6 transition-colors text-slate-700 hover:bg-gray-100 hover:text-yellow-600">Contact</a>
                 <a href="carrers.html"
                     class="block py-3 px-6 bg-yellow-400 text-slate-900 font-medium transition-colors">Careers</a>
             </div>
