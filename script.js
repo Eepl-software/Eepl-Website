@@ -183,29 +183,44 @@
   };
 
   const injectLayout = () => {
-    const active = getActiveKey();
-    const headerExisting = document.querySelector('body > header');
-    const footerExisting = document.querySelector('body > footer');
+    try {
+      console.log('EEPL: Injecting Layout...');
+      const active = getActiveKey();
+      console.log('EEPL: Active Key identified as:', active);
 
-    const headerHtml = buildHeaderHtml(active);
-    const footerHtml = buildFooterHtml();
+      // Selectors - Prioritize ID for Header, Tag for Footer
+      const headerExisting = document.getElementById('header') || document.querySelector('header');
+      const footerExisting = document.querySelector('footer');
 
-    if (headerExisting) {
-      headerExisting.outerHTML = headerHtml;
-    } else {
-      const wrapper = document.createElement('div');
-      wrapper.innerHTML = headerHtml;
-      const headerNode = wrapper.firstChild;
-      document.body.insertBefore(headerNode, document.body.firstChild);
-    }
+      const headerHtml = buildHeaderHtml(active);
+      const footerHtml = buildFooterHtml();
 
-    if (footerExisting) {
-      footerExisting.outerHTML = footerHtml;
-    } else {
-      const wrapperF = document.createElement('div');
-      wrapperF.innerHTML = footerHtml;
-      const footerNode = wrapperF.firstChild;
-      document.body.appendChild(footerNode);
+      if (headerExisting) {
+        console.log('EEPL: Replacing existing Header');
+        headerExisting.outerHTML = headerHtml;
+      } else {
+        console.log('EEPL: Inserting new Header');
+        const wrapper = document.createElement('div');
+        wrapper.innerHTML = headerHtml;
+        const headerNode = wrapper.firstChild;
+        document.body.insertBefore(headerNode, document.body.firstChild);
+      }
+
+      if (footerExisting) {
+        console.log('EEPL: Replacing existing Footer');
+        footerExisting.outerHTML = footerHtml;
+      } else {
+        console.log('EEPL: Inserting new Footer');
+        const wrapperF = document.createElement('div');
+        wrapperF.innerHTML = footerHtml;
+        const footerNode = wrapperF.firstChild;
+        document.body.appendChild(footerNode);
+      }
+
+      // Re-initialize behaviors on new elements
+      setupBehavior();
+    } catch (error) {
+      console.error('EEPL: Layout injection failed:', error);
     }
   };
 
@@ -274,7 +289,7 @@
 
   const onReady = () => {
     injectLayout();
-    setupBehavior();
+    // setupBehavior is called inside injectLayout to ensure elements exist
     setupAnimations();
   };
 
