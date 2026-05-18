@@ -2,21 +2,19 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
 
-// Use '/' on Vercel, '/Eepl-Website/' on GitHub Pages
-const isVercel = process.env.VERCEL === '1';
-
 export default defineConfig({
-  base: isVercel ? '/' : '/Eepl-Website/',
+  base: '/',
   build: {
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
-        about: resolve(__dirname, 'about_us.html'),
+        about: resolve(__dirname, 'about.html'),
         services: resolve(__dirname, 'services.html'),
         projects: resolve(__dirname, 'projects.html'),
         clients: resolve(__dirname, 'clients.html'),
-        contact: resolve(__dirname, 'contact_us.html'),
-        careers: resolve(__dirname, 'carrers.html'),
+        contact: resolve(__dirname, 'contact.html'),
+        careers: resolve(__dirname, 'careers.html'),
+        endurance: resolve(__dirname, 'endurance.html'),
       },
     },
   },
