@@ -9,7 +9,21 @@
     { "source": "/clients.html", "destination": "/clients", "permanent": true },
     { "source": "/contact_us.html", "destination": "/contact", "permanent": true },
     { "source": "/carrers.html", "destination": "/careers", "permanent": true },
-    { "source": "/endurance.html", "destination": "/endurance", "permanent": true }
+    { "source": "/endurance.html", "destination": "/endurance", "permanent": true },
+    { "source": "/epc-projects.html", "destination": "/epc-projects", "permanent": true },
+    { "source": "/zld-mvre.html", "destination": "/zld-mvre", "permanent": true },
+    { "source": "/etp-stp-cetp.html", "destination": "/etp-stp-cetp", "permanent": true },
+    { "source": "/om-amc.html", "destination": "/om-amc", "permanent": true },
+    { "source": "/waste-to-energy.html", "destination": "/waste-to-energy", "permanent": true },
+    { "source": "/lab-analytics.html", "destination": "/lab-analytics", "permanent": true },
+    { "source": "/industries-served.html", "destination": "/industries-served", "permanent": true },
+    { "source": "/seo-resources.html", "destination": "/seo-resources", "permanent": true },
+    { "source": "/etp-vs-stp-vs-cetp.html", "destination": "/etp-vs-stp-vs-cetp", "permanent": true },
+    { "source": "/what-is-zld.html", "destination": "/what-is-zld", "permanent": true },
+    { "source": "/choose-etp-contractor.html", "destination": "/choose-etp-contractor", "permanent": true },
+    { "source": "/om-checklist.html", "destination": "/om-checklist", "permanent": true },
+    { "source": "/smart-water-management.html", "destination": "/smart-water-management", "permanent": true },
+    { "source": "/compliance-support.html", "destination": "/compliance-support", "permanent": true }
   ],
   "rewrites": [
     { "source": "/about", "destination": "/about.html" },
@@ -18,7 +32,21 @@
     { "source": "/clients", "destination": "/clients.html" },
     { "source": "/contact", "destination": "/contact.html" },
     { "source": "/careers", "destination": "/careers.html" },
-    { "source": "/endurance", "destination": "/endurance.html" }
+    { "source": "/endurance", "destination": "/endurance.html" },
+    { "source": "/epc-projects", "destination": "/epc-projects.html" },
+    { "source": "/zld-mvre", "destination": "/zld-mvre.html" },
+    { "source": "/etp-stp-cetp", "destination": "/etp-stp-cetp.html" },
+    { "source": "/om-amc", "destination": "/om-amc.html" },
+    { "source": "/waste-to-energy", "destination": "/waste-to-energy.html" },
+    { "source": "/lab-analytics", "destination": "/lab-analytics.html" },
+    { "source": "/industries-served", "destination": "/industries-served.html" },
+    { "source": "/seo-resources", "destination": "/seo-resources.html" },
+    { "source": "/etp-vs-stp-vs-cetp", "destination": "/etp-vs-stp-vs-cetp.html" },
+    { "source": "/what-is-zld", "destination": "/what-is-zld.html" },
+    { "source": "/choose-etp-contractor", "destination": "/choose-etp-contractor.html" },
+    { "source": "/om-checklist", "destination": "/om-checklist.html" },
+    { "source": "/smart-water-management", "destination": "/smart-water-management.html" },
+    { "source": "/compliance-support", "destination": "/compliance-support.html" }
   ],
   "headers": [
     {
